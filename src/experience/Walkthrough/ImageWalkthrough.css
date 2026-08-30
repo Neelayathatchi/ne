@@ -1,0 +1,892 @@
+/* =========================================================
+   PREMIUM WALKTHROUGH
+========================================================= */
+
+.premium-walkthrough {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    155px
+    clamp(18px, 2vw, 32px)
+    28px;
+
+  background-color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.72)
+    ),
+    url("/images/misc/hive-background.jpeg");
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* =========================================================
+   MAIN FRAME
+========================================================= */
+
+.premium-walkthrough__frame {
+  position: relative;
+
+  width: min(100%, 1500px);
+  height: calc(100vh - 185px);
+  min-height: 650px;
+
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.90);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border: 1px solid rgba(112, 31, 14, 0.08);
+
+  border-radius: 38px;
+
+  box-shadow:
+    0 28px 90px rgba(18, 18, 18, 0.07);
+}
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.premium-walkthrough__copy {
+  position: relative;
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding:
+    58px
+    clamp(48px, 5vw, 88px);
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.78);
+}
+
+/* =========================================================
+   META
+========================================================= */
+
+.premium-walkthrough__meta {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+}
+
+.premium-walkthrough__meta span {
+  color: #701f0e;
+
+  font-size: 0.68rem;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+.premium-walkthrough__meta-line {
+  width: 54px;
+  height: 1px;
+
+  background:
+    rgba(112, 31, 14, 0.3);
+}
+
+.premium-walkthrough__meta small {
+  color:
+    rgba(18, 18, 18, 0.4);
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.premium-walkthrough__left-content {
+  position: relative;
+
+  z-index: 4;
+
+  max-width: 520px;
+}
+
+.premium-walkthrough__left-content h1 {
+  margin: 0;
+
+  color: #121212;
+
+  font-size:
+    clamp(
+      3.7rem,
+      5.7vw,
+      7rem
+    );
+
+  font-weight: 800;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+}
+
+.premium-walkthrough__left-content h1 span {
+  color: #ffbf00;
+}
+
+/* =========================================================
+   ACCENT LINE
+========================================================= */
+
+.premium-walkthrough__accent-line {
+  position: relative;
+
+  width: 116px;
+  height: 6px;
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 191, 0, 0.18);
+}
+
+.premium-walkthrough__accent-line span {
+  display: block;
+
+  width: 56px;
+  height: 100%;
+
+  background: #ffbf00;
+
+  border-radius: inherit;
+
+  animation:
+    hiveLineMove
+    2.8s
+    ease-in-out
+    infinite alternate;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.premium-walkthrough__left-content p {
+  max-width: 470px;
+
+  margin-top: 28px;
+
+  color: #701f0e;
+
+  font-size:
+    clamp(
+      0.95rem,
+      1vw,
+      1.05rem
+    );
+
+  font-weight: 500;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   ACTION AREA
+========================================================= */
+
+.premium-walkthrough__actions {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 28px;
+
+  margin-top: 32px;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.premium-walkthrough__primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  min-height: 54px;
+
+  padding:
+    0
+    22px;
+
+  background: #121212;
+
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: 16px;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px
+    rgba(18, 18, 18, 0.13);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.premium-walkthrough__primary span {
+  color: #ffbf00;
+
+  font-size: 1.1rem;
+
+  transition:
+    transform 0.35s ease;
+}
+
+.premium-walkthrough__primary:hover {
+  transform:
+    translateY(-4px);
+
+  background: #701f0e;
+
+  box-shadow:
+    0 18px 38px
+    rgba(18, 18, 18, 0.18);
+}
+
+.premium-walkthrough__primary:hover span {
+  transform:
+    translateX(4px);
+}
+
+/* =========================================================
+   RECEPTION LABEL
+========================================================= */
+
+.premium-walkthrough__reception-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.premium-walkthrough__reception-label small {
+  color:
+    rgba(18, 18, 18, 0.38);
+
+  font-size: 0.55rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+}
+
+.premium-walkthrough__reception-label strong {
+  position: relative;
+
+  margin-top: 6px;
+
+  padding-left: 42px;
+
+  color: #701f0e;
+
+  font-size: 0.86rem;
+}
+
+.premium-walkthrough__reception-label strong::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 32px;
+  height: 2px;
+
+  background: #ffbf00;
+
+  transform:
+    translateY(-50%);
+}
+
+/* =========================================================
+   HONEYCOMB STRIP
+========================================================= */
+
+.premium-walkthrough__hive-strip {
+  position: absolute;
+
+  right: 24px;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  transform:
+    translateY(-50%);
+
+  pointer-events: none;
+}
+
+.premium-walkthrough__hive-strip span {
+  display: block;
+
+  width: 36px;
+  height: 41px;
+
+  border: 2px solid #ffbf00;
+
+  clip-path: polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0 50%
+  );
+}
+
+.premium-walkthrough__hive-strip span:nth-child(2) {
+  margin-left: 17px;
+
+  border-color:
+    rgba(112, 31, 14, 0.24);
+}
+
+.premium-walkthrough__hive-strip span:nth-child(3) {
+  border-color:
+    rgba(18, 18, 18, 0.11);
+}
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.premium-walkthrough__visual {
+  position: relative;
+
+  z-index: 5;
+
+  margin:
+    28px
+    28px
+    28px
+    0;
+
+  overflow: hidden;
+
+  background: #faf7f2;
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 22px 65px
+    rgba(18, 18, 18, 0.075);
+}
+
+/* =========================================================
+   THREE CANVAS
+========================================================= */
+
+.premium-walkthrough__canvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.premium-walkthrough__canvas canvas {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =========================================================
+   IMAGE CAPTION
+========================================================= */
+
+.premium-walkthrough__caption {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 24px;
+  bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding:
+    13px
+    17px;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.06);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 34px
+    rgba(18, 18, 18, 0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+.premium-walkthrough__caption span {
+  color: #701f0e;
+
+  font-size: 0.58rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+}
+
+.premium-walkthrough__caption strong {
+  margin-top: 4px;
+
+  color: #121212;
+
+  font-size: 0.82rem;
+}
+
+/* =========================================================
+   IMAGE COUNT
+========================================================= */
+
+.premium-walkthrough__image-count {
+  position: absolute;
+
+  top: 22px;
+  right: 24px;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 5px;
+
+  padding:
+    8px
+    12px;
+
+  background:
+    rgba(255, 255, 255, 0.9);
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.06);
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(10px);
+}
+
+.premium-walkthrough__image-count strong {
+  color: #701f0e;
+
+  font-size: 0.82rem;
+}
+
+.premium-walkthrough__image-count span {
+  color:
+    rgba(18, 18, 18, 0.42);
+
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.premium-walkthrough__scroll {
+  position: absolute;
+
+  left: 50%;
+  bottom: 17px;
+
+  z-index: 30;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding:
+    8px
+    13px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.06);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 11px 30px
+    rgba(18, 18, 18, 0.07);
+}
+
+.premium-walkthrough__mouse {
+  position: relative;
+
+  width: 24px;
+  height: 38px;
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.25);
+
+  border-radius: 999px;
+}
+
+.premium-walkthrough__mouse span {
+  position: absolute;
+
+  top: 7px;
+  left: 50%;
+
+  width: 4px;
+  height: 7px;
+
+  transform:
+    translateX(-50%);
+
+  background: #ffbf00;
+
+  border-radius: 999px;
+
+  animation:
+    mouseMove
+    1.5s
+    ease-in-out
+    infinite;
+}
+
+.premium-walkthrough__scroll-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.premium-walkthrough__scroll-text small {
+  color:
+    rgba(18, 18, 18, 0.4);
+
+  font-size: 0.52rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+}
+
+.premium-walkthrough__scroll-text strong {
+  margin-top: 2px;
+
+  color: #121212;
+
+  font-size: 0.66rem;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes hiveLineMove {
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(58px);
+  }
+}
+
+@keyframes mouseMove {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 0);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 14px);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .premium-walkthrough {
+    padding:
+      125px
+      18px
+      22px;
+
+    background-attachment: scroll;
+  }
+
+  .premium-walkthrough__frame {
+    height:
+      calc(100vh - 153px);
+
+    grid-template-columns:
+      43%
+      57%;
+  }
+
+  .premium-walkthrough__copy {
+    padding:
+      42px
+      32px;
+  }
+
+  .premium-walkthrough__left-content h1 {
+    font-size:
+      clamp(
+        3.3rem,
+        7vw,
+        5.4rem
+      );
+  }
+
+  .premium-walkthrough__hive-strip {
+    right: 10px;
+
+    opacity: 0.4;
+  }
+
+  .premium-walkthrough__visual {
+    margin:
+      22px
+      22px
+      22px
+      0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .premium-walkthrough {
+    padding:
+      92px
+      10px
+      12px;
+
+    background-attachment: scroll;
+
+    background-position: center top;
+
+    background-size: auto 100%;
+  }
+
+  .premium-walkthrough__frame {
+    height: auto;
+
+    min-height:
+      calc(100svh - 104px);
+
+    grid-template-columns: 1fr;
+
+    border-radius: 26px;
+
+    background:
+      rgba(255, 255, 255, 0.92);
+  }
+
+  .premium-walkthrough__visual {
+    order: 1;
+
+    height: 47vh;
+    min-height: 330px;
+
+    margin:
+      12px
+      12px
+      0;
+
+    border-radius: 21px;
+  }
+
+  .premium-walkthrough__copy {
+    order: 2;
+
+    padding:
+      30px
+      22px
+      95px;
+
+    background:
+      rgba(255, 255, 255, 0.82);
+  }
+
+  .premium-walkthrough__meta {
+    margin-bottom: 20px;
+  }
+
+  .premium-walkthrough__left-content h1 {
+    font-size:
+      clamp(
+        3.2rem,
+        14vw,
+        5rem
+      );
+  }
+
+  .premium-walkthrough__left-content p {
+    margin-top: 22px;
+
+    font-size: 0.85rem;
+
+    line-height: 1.65;
+  }
+
+  .premium-walkthrough__actions {
+    margin-top: 24px;
+
+    gap: 18px;
+  }
+
+  .premium-walkthrough__primary {
+    min-height: 50px;
+
+    padding:
+      0
+      18px;
+
+    font-size: 0.82rem;
+  }
+
+  .premium-walkthrough__hive-strip {
+    display: none;
+  }
+
+  .premium-walkthrough__caption {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .premium-walkthrough__image-count {
+    top: 14px;
+    right: 14px;
+  }
+
+  .premium-walkthrough__scroll {
+    bottom: 14px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .premium-walkthrough {
+    padding-top: 88px;
+  }
+
+  .premium-walkthrough__copy {
+    padding:
+      24px
+      17px
+      90px;
+  }
+
+  .premium-walkthrough__left-content h1 {
+    font-size:
+      clamp(
+        3rem,
+        14vw,
+        4.3rem
+      );
+  }
+
+  .premium-walkthrough__actions {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .premium-walkthrough__accent-line span,
+  .premium-walkthrough__mouse span {
+    animation: none;
+  }
+
+  .premium-walkthrough__primary {
+    transition: none;
+  }
+}

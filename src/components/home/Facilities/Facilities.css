@@ -1,0 +1,954 @@
+:root {
+    --facility-yellow: #ffbf00;
+    --facility-yellow-soft: #f8c344;
+    --facility-charcoal-1: #111111;
+    --facility-charcoal-2: #1b1b1b;
+    --facility-charcoal-3: #2a2a2a;
+    --facility-black: #121212;
+    --facility-white: #ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.facilitiesSection,
+.facilitiesSection *,
+.facilitiesSection *::before,
+.facilitiesSection *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.facilitiesSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 72px 0 88px;
+    background: #ffffff;
+    background-image: none;
+    color: var(--facility-black);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.facilitiesContainer {
+    position: relative;
+    z-index: 5;
+    width: min( 1480px, calc(100% - 70px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.facilitiesHeader {
+    width: 100%;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.facilitiesEyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: rgba( 18, 18, 18, 0.68);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.facilitiesEyebrowHex {
+    width: 13px;
+    height: 15px;
+    background: var(--facility-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.facilitiesTitle {
+    margin: 17px 0 0;
+    color: var(--facility-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 48px, 4.5vw, 74px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.052em;
+}
+
+.facilitiesTitleWord {
+    display: inline-block;
+}
+
+.facilitiesTitleWord--yellow {
+    color: var(--facility-yellow-soft);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.facilitiesIntro {
+    max-width: 720px;
+    margin: 17px auto 0;
+    color: rgba( 18, 18, 18, 0.64);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   GRID
+   ALL CARDS SAME SIZE
+========================================================= */
+
+.facilitiesGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat( 5, minmax( 0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   FACILITY CARD
+   IMPORTANT:
+   SAME HEIGHT ALWAYS
+========================================================= */
+
+.facilityCard {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    min-height: 340px;
+    max-height: 340px;
+    overflow: hidden;
+    border: 1px solid rgba( 18, 18, 18, 0.10);
+    border-radius: 26px;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 12px 32px rgba( 18, 18, 18, 0.07);
+    outline: none;
+    isolation: isolate;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier( 0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER / OPEN
+   DIMENSIONS NEVER CHANGE
+========================================================= */
+
+.facilityCard:hover,
+.facilityCard:focus-visible,
+.facilityCard--open {
+    width: 100%;
+    height: 340px;
+    min-height: 340px;
+    max-height: 340px;
+    transform: translateY(-7px);
+    border-color: rgba( 255, 191, 0, 0.5);
+    box-shadow: 0 24px 52px rgba( 18, 18, 18, 0.13);
+}
+
+
+/* =========================================================
+   INNER CONTENT
+   SAME EXACT CARD SIZE
+========================================================= */
+
+.facilityCardInner {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    padding: 34px 25px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #ffffff;
+    text-align: center;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.facilityCardNumber {
+    position: absolute;
+    left: 22px;
+    top: 19px;
+    color: rgba( 18, 18, 18, 0.35);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   INNER ICON
+========================================================= */
+
+.facilityInnerIcon {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    margin-bottom: 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 21px;
+    background: rgba( 255, 191, 0, 0.13);
+    color: #d79d00;
+    transform: rotate(-3deg);
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.facilityInnerIcon svg {
+    width: 34px;
+    height: 34px;
+    stroke: #d79d00;
+}
+
+.facilityCard:hover .facilityInnerIcon,
+.facilityCard--open .facilityInnerIcon {
+    transform: translateY(-3px) rotate(3deg) scale(1.04);
+    background: rgba( 255, 191, 0, 0.18);
+}
+
+
+/* =========================================================
+   INNER TITLE
+========================================================= */
+
+.facilityCardInner h3 {
+    margin: 0;
+    max-width: 230px;
+    color: var(--facility-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   INNER DESCRIPTION
+========================================================= */
+
+.facilityCardInner p {
+    margin: 14px 0 0;
+    max-width: 235px;
+    color: rgba( 18, 18, 18, 0.68);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   INCLUDED STATUS
+========================================================= */
+
+.facilityCardStatus {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.facilityCardStatus span {
+    color: rgba( 18, 18, 18, 0.48);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.facilityCardStatus i {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: var(--facility-yellow);
+}
+
+
+/* =========================================================
+   SLIDING COVER
+   EXACT CARD DIMENSIONS
+========================================================= */
+
+.facilityCardCover {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: inherit;
+    background: linear-gradient( 145deg, var(--facility-charcoal-1) 0%, var(--facility-charcoal-2) 48%, var(--facility-charcoal-3) 100%);
+    color: #ffffff;
+    transform: translateY(0);
+    transition: transform 0.72s cubic-bezier( 0.76, 0, 0.24, 1);
+    box-shadow: inset 0 1px 0 rgba( 255, 255, 255, 0.055);
+    will-change: transform;
+}
+
+
+/* =========================================================
+   COVER OPEN
+   ONLY COVER MOVES
+========================================================= */
+
+.facilityCard:hover .facilityCardCover,
+.facilityCard:focus-visible .facilityCardCover,
+.facilityCard--open .facilityCardCover {
+    transform: translateY(-87%);
+}
+
+
+/* =========================================================
+   COVER BOTTOM HANDLE
+========================================================= */
+
+.facilityCardCover::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 45px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: var(--facility-yellow);
+}
+
+
+/* =========================================================
+   HONEYCOMB PATTERN
+========================================================= */
+
+.facilityCoverPattern {
+    position: absolute;
+    right: -10px;
+    top: -2px;
+    width: 135px;
+    height: 135px;
+    opacity: 0.14;
+    pointer-events: none;
+}
+
+.facilityCoverPattern span {
+    position: absolute;
+    width: 48px;
+    height: 54px;
+    border: 2px solid var(--facility-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.facilityCoverPattern span:nth-child(1) {
+    left: 8px;
+    top: 8px;
+}
+
+.facilityCoverPattern span:nth-child(2) {
+    left: 48px;
+    top: 31px;
+}
+
+.facilityCoverPattern span:nth-child(3) {
+    left: 8px;
+    top: 58px;
+}
+
+
+/* =========================================================
+   COVER ICON
+========================================================= */
+
+.facilityCoverIcon {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    flex: 0 0 92px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 255, 191, 0, 0.32);
+    border-radius: 27px;
+    background: rgba( 255, 191, 0, 0.10);
+    color: var(--facility-yellow);
+    box-shadow: 0 14px 30px rgba( 0, 0, 0, 0.28);
+    transform: rotate(-4deg);
+    transition: transform 0.4s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease, opacity 0.18s ease;
+}
+
+.facilityCoverIcon svg {
+    width: 47px;
+    height: 47px;
+    stroke: var(--facility-yellow);
+}
+
+
+/* =========================================================
+   COVER TITLE
+========================================================= */
+
+.facilityCardCover>strong {
+    position: relative;
+    margin-top: 22px;
+    color: #ffffff;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    transition: opacity 0.18s ease;
+}
+
+
+/* =========================================================
+   COVER HINT
+========================================================= */
+
+.facilityCoverHint {
+    position: relative;
+    margin-top: 10px;
+    color: rgba( 255, 191, 0, 0.92);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    transition: opacity 0.18s ease;
+}
+
+
+/* =========================================================
+   COVER ARROW
+========================================================= */
+
+.facilityCoverArrow {
+    position: absolute;
+    left: 50%;
+    bottom: 27px;
+    width: 39px;
+    height: 39px;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--facility-yellow);
+    color: var(--facility-black);
+    box-shadow: 0 8px 20px rgba( 0, 0, 0, 0.30);
+    animation: facilityArrowBounce 1.6s ease-in-out infinite;
+    transition: opacity 0.18s ease;
+}
+
+.facilityCoverArrow svg {
+    stroke: var(--facility-black);
+}
+
+
+/* =========================================================
+   HOVER ICON
+========================================================= */
+
+.facilityCard:hover .facilityCoverIcon {
+    transform: rotate(4deg) translateY(-4px) scale(1.03);
+}
+
+
+/* =========================================================
+   HIDE MAIN COVER CONTENT WHEN OPEN
+========================================================= */
+
+.facilityCard:hover .facilityCoverIcon,
+.facilityCard:hover .facilityCardCover>strong,
+.facilityCard:hover .facilityCoverHint,
+.facilityCard:hover .facilityCoverArrow,
+.facilityCard:focus-visible .facilityCoverIcon,
+.facilityCard:focus-visible .facilityCardCover>strong,
+.facilityCard:focus-visible .facilityCoverHint,
+.facilityCard:focus-visible .facilityCoverArrow,
+.facilityCard--open .facilityCoverIcon,
+.facilityCard--open .facilityCardCover>strong,
+.facilityCard--open .facilityCoverHint,
+.facilityCard--open .facilityCoverArrow {
+    opacity: 0;
+}
+
+
+/* =========================================================
+   FOOTER DETAIL
+========================================================= */
+
+.facilitiesFooterDetail {
+    width: 100%;
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.facilitiesFooterDetail>div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.facilitiesFooterDetail>div>span {
+    width: 11px;
+    height: 13px;
+    background: var(--facility-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.facilitiesFooterDetail strong {
+    color: rgba( 18, 18, 18, 0.48);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.facilitiesBottomLine {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, rgba( 255, 191, 0, 0.6));
+}
+
+.facilitiesFooterDetail .facilitiesBottomLine:last-child {
+    background: linear-gradient( 90deg, rgba( 255, 191, 0, 0.6), transparent);
+}
+
+
+/* =========================================================
+   DECORATIVE DOTS
+========================================================= */
+
+.facilitiesDots {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    gap: 6px;
+}
+
+.facilitiesDots--left {
+    left: 5%;
+    top: 32px;
+}
+
+.facilitiesDots--right {
+    right: 5%;
+    bottom: 65px;
+}
+
+.facilitiesDots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba( 255, 191, 0, 0.65);
+}
+
+
+/* =========================================================
+   ARROW ANIMATION
+========================================================= */
+
+@keyframes facilityArrowBounce {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-6px);
+    }
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media ( max-width: 1450px) {
+    .facilitiesContainer {
+        width: min( 1320px, calc(100% - 54px));
+    }
+    .facilitiesGrid {
+        gap: 20px;
+    }
+    .facilityCard,
+    .facilityCard:hover,
+    .facilityCard:focus-visible,
+    .facilityCard--open {
+        height: 325px;
+        min-height: 325px;
+        max-height: 325px;
+    }
+    .facilityCardInner h3 {
+        font-size: 20px;
+    }
+    .facilityCardInner p {
+        font-size: 14px;
+    }
+    .facilityCoverIcon {
+        width: 82px;
+        height: 82px;
+        flex-basis: 82px;
+    }
+    .facilityCoverIcon svg {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* =========================================================
+   MEDIUM LAPTOP
+========================================================= */
+
+@media ( max-width: 1200px) {
+    .facilitiesContainer {
+        width: min( 1080px, calc(100% - 50px));
+    }
+    .facilitiesGrid {
+        grid-template-columns: repeat( 4, minmax( 0, 1fr));
+    }
+    .facilityCard,
+    .facilityCard:hover,
+    .facilityCard:focus-visible,
+    .facilityCard--open {
+        height: 325px;
+        min-height: 325px;
+        max-height: 325px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 900px) {
+    .facilitiesSection {
+        padding: 72px 0 80px;
+    }
+    .facilitiesHeader {
+        margin-bottom: 34px;
+    }
+    .facilitiesGrid {
+        grid-template-columns: repeat( 2, minmax( 0, 1fr));
+    }
+    .facilityCard,
+    .facilityCard:hover,
+    .facilityCard:focus-visible,
+    .facilityCard--open {
+        height: 330px;
+        min-height: 330px;
+        max-height: 330px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 620px) {
+    .facilitiesSection {
+        padding: 65px 0 70px;
+    }
+    .facilitiesContainer {
+        width: calc(100% - 28px);
+    }
+    .facilitiesHeader {
+        margin-bottom: 30px;
+    }
+    .facilitiesEyebrow {
+        font-size: 9px;
+        gap: 8px;
+    }
+    .facilitiesTitle {
+        font-size: clamp( 40px, 12vw, 58px);
+        line-height: 1.03;
+    }
+    .facilitiesTitleWord {
+        display: block;
+    }
+    .facilitiesIntro {
+        max-width: 345px;
+        margin-top: 14px;
+        font-size: 14px;
+    }
+    .facilitiesGrid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+    .facilityCard,
+    .facilityCard:hover,
+    .facilityCard:focus-visible,
+    .facilityCard--open {
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+        max-height: 320px;
+        border-radius: 23px;
+    }
+    .facilityCardInner h3 {
+        font-size: 22px;
+    }
+    .facilityCardInner p {
+        font-size: 15px;
+    }
+    /* =====================================================
+       MOBILE:
+       HOVER SHOULD NOT OPEN CARD
+    ====================================================== */
+    .facilityCard:hover .facilityCardCover {
+        transform: translateY(0);
+    }
+    .facilityCard--open .facilityCardCover {
+        transform: translateY(-87%);
+    }
+    .facilityCard:hover {
+        transform: none;
+    }
+    .facilityCard--open {
+        transform: translateY(-4px);
+    }
+    .facilityCard:hover .facilityCoverIcon,
+    .facilityCard:hover .facilityCardCover>strong,
+    .facilityCard:hover .facilityCoverHint,
+    .facilityCard:hover .facilityCoverArrow {
+        opacity: 1;
+    }
+    .facilityCard--open .facilityCoverIcon,
+    .facilityCard--open .facilityCardCover>strong,
+    .facilityCard--open .facilityCoverHint,
+    .facilityCard--open .facilityCoverArrow {
+        opacity: 0;
+    }
+    .facilitiesFooterDetail {
+        margin-top: 35px;
+        grid-template-columns: 1fr;
+    }
+    .facilitiesFooterDetail>div {
+        justify-content: center;
+    }
+    .facilitiesBottomLine {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .facilityCard,
+    .facilityCardCover,
+    .facilityCoverArrow,
+    .facilityCoverIcon {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL CARD SIZE LOCK
+   ALL 10 FACILITY CARDS = EXACT SAME SIZE
+========================================================= */
+
+.facilitiesGrid {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat( 5, minmax(0, 1fr)) !important;
+    grid-auto-rows: 330px !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+    gap: 24px !important;
+}
+
+
+/* =========================================================
+   REMOVE ANY DIFFERENT SCALE / SIZE
+========================================================= */
+
+.facilitiesGrid>.facilityCard,
+.facilitiesGrid>.facilityCard:nth-child(1),
+.facilitiesGrid>.facilityCard:nth-child(2),
+.facilitiesGrid>.facilityCard:nth-child(3),
+.facilitiesGrid>.facilityCard:nth-child(4),
+.facilitiesGrid>.facilityCard:nth-child(5),
+.facilitiesGrid>.facilityCard:nth-child(6),
+.facilitiesGrid>.facilityCard:nth-child(7),
+.facilitiesGrid>.facilityCard:nth-child(8),
+.facilitiesGrid>.facilityCard:nth-child(9),
+.facilitiesGrid>.facilityCard:nth-child(10) {
+    width: 100% !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    max-height: 330px !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(0) scale(1) !important;
+    border-radius: 26px !important;
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   HOVER
+   NO SCALE DIFFERENCE
+========================================================= */
+
+.facilitiesGrid>.facilityCard:hover,
+.facilitiesGrid>.facilityCard:focus-visible,
+.facilitiesGrid>.facilityCard.facilityCard--open {
+    width: 100% !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    max-height: 330px !important;
+    transform: translateY(-7px) scale(1) !important;
+}
+
+
+/* =========================================================
+   INNER WHITE AREA SAME SIZE
+========================================================= */
+
+.facilitiesGrid>.facilityCard>.facilityCardInner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   BLACK COVER SAME SIZE
+========================================================= */
+
+.facilitiesGrid>.facilityCard>.facilityCardCover {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transform: translateY(0) !important;
+}
+
+
+/* =========================================================
+   OPEN COVER
+========================================================= */
+
+.facilitiesGrid>.facilityCard:hover>.facilityCardCover,
+.facilitiesGrid>.facilityCard:focus-visible>.facilityCardCover,
+.facilitiesGrid>.facilityCard.facilityCard--open>.facilityCardCover {
+    transform: translateY(-87%) !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+    .facilitiesGrid {
+        grid-template-columns: repeat( 4, minmax(0, 1fr)) !important;
+        grid-auto-rows: 330px !important;
+    }
+    .facilitiesGrid>.facilityCard {
+        height: 330px !important;
+        min-height: 330px !important;
+        max-height: 330px !important;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .facilitiesGrid {
+        grid-template-columns: repeat( 2, minmax(0, 1fr)) !important;
+        grid-auto-rows: 330px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+    .facilitiesGrid {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: 320px !important;
+        gap: 17px !important;
+    }
+    .facilitiesGrid>.facilityCard,
+    .facilitiesGrid>.facilityCard:hover,
+    .facilitiesGrid>.facilityCard:focus-visible,
+    .facilitiesGrid>.facilityCard.facilityCard--open {
+        height: 320px !important;
+        min-height: 320px !important;
+        max-height: 320px !important;
+    }
+}

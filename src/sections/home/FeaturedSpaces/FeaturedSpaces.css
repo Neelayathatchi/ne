@@ -1,0 +1,288 @@
+.featuredSpaces {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 130px 6vw;
+    background: #fffaf0;
+}
+
+.featuredSpaces__header {
+    width: min(1320px, 100%);
+    margin: 0 auto 65px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+}
+
+.featuredSpaces__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: #701f0e;
+}
+
+.featuredSpaces__eyebrow i {
+    width: 19px;
+    height: 22px;
+    background: #ffbf00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.featuredSpaces__eyebrow strong {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.featuredSpaces__title {
+    margin: 25px 0 0;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp( 74px, 7vw, 120px);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.078em;
+}
+
+.featuredSpaces__title span:first-child {
+    color: #121212;
+}
+
+.featuredSpaces__title span:last-child {
+    color: #ffbf00;
+}
+
+.featuredSpaces__viewAll {
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #121212;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.featuredSpaces__experience {
+    width: min(1320px, 100%);
+    min-height: 650px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    overflow: hidden;
+    border-radius: 34px;
+    background: #ffffff;
+    box-shadow: 0 30px 90px rgba( 18, 18, 18, 0.08);
+}
+
+.featuredSpaces__list {
+    padding: 75px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featuredSpaces__item {
+    width: 100%;
+    min-height: 155px;
+    padding: 23px 4px;
+    display: grid;
+    grid-template-columns: 42px 1fr 35px;
+    align-items: center;
+    gap: 16px;
+    border: 0;
+    border-bottom: 1px solid rgba( 18, 18, 18, 0.085);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: padding 0.35s ease, transform 0.35s ease;
+}
+
+.featuredSpaces__itemNumber {
+    color: #701f0e;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.featuredSpaces__itemCopy small {
+    color: rgba( 18, 18, 18, 0.43);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.featuredSpaces__itemCopy strong {
+    margin-top: 7px;
+    display: block;
+    color: #121212;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.featuredSpaces__itemCopy p {
+    max-width: 300px;
+    margin: 9px 0 0;
+    color: #701f0e;
+    font-size: 12px;
+    line-height: 1.55;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.35s ease, max-height 0.35s ease;
+}
+
+.featuredSpaces__itemArrow {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #f3f3f3;
+    color: #121212;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.featuredSpaces__item--active {
+    padding-left: 15px;
+}
+
+.featuredSpaces__item--active .featuredSpaces__itemCopy strong {
+    color: #701f0e;
+}
+
+.featuredSpaces__item--active .featuredSpaces__itemCopy p {
+    opacity: 1;
+    max-height: 70px;
+}
+
+.featuredSpaces__item--active .featuredSpaces__itemArrow {
+    background: #ffbf00;
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   VISUAL
+========================================================= */
+
+.featuredSpaces__visual {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+    background: #e8e3da;
+}
+
+.featuredSpaces__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.08);
+    transition: opacity 0.65s ease, transform 1.2s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.featuredSpaces__image--active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.featuredSpaces__visualCorner {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 10;
+    width: 32px;
+    height: 32px;
+    border-top: 2px solid #ffbf00;
+    border-left: 2px solid #ffbf00;
+}
+
+.featuredSpaces__badge {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    z-index: 10;
+    min-width: 150px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba( 255, 255, 255, 0.95);
+    box-shadow: 0 12px 30px rgba( 18, 18, 18, 0.08);
+}
+
+.featuredSpaces__badge small {
+    display: block;
+    color: #701f0e;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.featuredSpaces__badge strong {
+    margin-top: 5px;
+    display: block;
+    color: #121212;
+    font-size: 13px;
+}
+
+.featuredSpaces__counter {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    z-index: 10;
+    padding: 9px 13px;
+    display: flex;
+    gap: 4px;
+    border-radius: 999px;
+    background: rgba( 255, 255, 255, 0.95);
+}
+
+.featuredSpaces__counter strong {
+    color: #701f0e;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.featuredSpaces__counter span {
+    color: rgba( 18, 18, 18, 0.4);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+    .featuredSpaces {
+        padding: 100px 24px;
+    }
+    .featuredSpaces__header {
+        grid-template-columns: 1fr;
+    }
+    .featuredSpaces__experience {
+        grid-template-columns: 1fr;
+    }
+    .featuredSpaces__visual {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 550px) {
+    .featuredSpaces__title {
+        font-size: clamp( 60px, 18vw, 85px);
+    }
+    .featuredSpaces__list {
+        padding: 35px 24px;
+    }
+    .featuredSpaces__visual {
+        min-height: 430px;
+    }
+}

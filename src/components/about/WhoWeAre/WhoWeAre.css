@@ -1,0 +1,736 @@
+.nhWho,
+.nhWho *,
+.nhWho *::before,
+.nhWho *::after {
+    box-sizing: border-box;
+}
+
+.nhWho {
+    --yellow: #ffbf00;
+    --yellow-light: #ffd65c;
+    --yellow-pale: #fff3be;
+    --brown: #701f0e;
+    --brown-light: #93412d;
+    --black: #121212;
+    --white: #ffffff;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 175px 0 90px;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--black);
+}
+
+
+/* =========================================================
+   WIDTH
+========================================================= */
+
+.nhWho__inner {
+    width: min( 1380px, calc(100% - 72px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(600px, 1.12fr);
+    align-items: center;
+    gap: 70px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.nhWhoContent {
+    position: relative;
+}
+
+
+/* eyebrow */
+
+.nhWhoEyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brown);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.19em;
+}
+
+.nhWhoEyebrow>span {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--yellow);
+    transform: rotate(45deg);
+    animation: nhEyebrowPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.nhWhoTitle {
+    margin: 20px 0 0;
+    perspective: 1100px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: clamp( 62px, 5.4vw, 91px);
+    font-weight: 950;
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+}
+
+.nhWhoTitleLine {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.nhWhoTitleLine>span {
+    display: block;
+    transform-origin: left bottom;
+}
+
+.nhWhoTitleLine--yellow {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.nhWhoDescription {
+    max-width: 610px;
+    margin: 27px 0 0;
+    color: rgba( 18, 18, 18, 0.62);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.82;
+}
+
+
+/* =========================================================
+   FEATURE PILLS
+========================================================= */
+
+.nhWhoFeatures {
+    margin-top: 29px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nhWhoFeature {
+    min-height: 50px;
+    padding: 7px 15px 7px 7px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba( 18, 18, 18, 0.065);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 12px 26px rgba( 18, 18, 18, 0.055);
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.nhWhoFeature:hover {
+    transform: translateY(-5px) rotate(-1deg);
+}
+
+.nhWhoFeature:nth-child(2):hover {
+    transform: translateY(-5px) rotate(1deg);
+}
+
+.nhWhoFeature>div {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--yellow-pale);
+    color: var(--brown);
+}
+
+.nhWhoFeature:nth-child(2)>div {
+    background: var(--brown);
+    color: #ffffff;
+}
+
+.nhWhoFeature:nth-child(3)>div {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+.nhWhoFeature span {
+    font-size: 11px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   BELIEF
+========================================================= */
+
+.nhWhoBelief {
+    max-width: 490px;
+    margin-top: 27px;
+    display: grid;
+    grid-template-columns: 30px 48px 1fr;
+    align-items: center;
+    gap: 11px;
+}
+
+.nhWhoBelief>span {
+    color: var(--brown);
+    font-size: 9px;
+    font-weight: 950;
+}
+
+.nhWhoBelief>i {
+    width: 48px;
+    height: 2px;
+    background: var(--yellow);
+    border-radius: 999px;
+}
+
+.nhWhoBelief p {
+    margin: 0;
+    color: rgba( 18, 18, 18, 0.47);
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ILLUSTRATION
+========================================================= */
+
+.nhWhoIllustration {
+    position: relative;
+    width: 100%;
+    height: 590px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.nhIllustrationBackdrop {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 590px;
+    height: 440px;
+    transform: translate( -50%, -50%) rotate(-4deg);
+    border-radius: 48% 52% 47% 53% / 53% 45% 55% 47%;
+    background: var(--yellow-pale);
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   DESK
+========================================================= */
+
+.nhDesk {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    z-index: 20;
+    width: 430px;
+    height: 215px;
+    transform: translate( -50%, -50%);
+    transform-style: preserve-3d;
+}
+
+.nhDesk__top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 430px;
+    height: 170px;
+    border-radius: 36px;
+    background: linear-gradient( 145deg, #ffd85d, #ffbf00);
+    transform: rotateX(58deg) rotateZ(-1deg);
+    box-shadow: 0 28px 42px rgba( 112, 31, 14, 0.13);
+}
+
+.nhDesk__leg {
+    position: absolute;
+    top: 112px;
+    width: 20px;
+    height: 100px;
+    border-radius: 0 0 12px 12px;
+    background: var(--brown);
+}
+
+.nhDesk__leg--left {
+    left: 58px;
+}
+
+.nhDesk__leg--right {
+    right: 58px;
+}
+
+
+/* =========================================================
+   LAPTOPS
+========================================================= */
+
+.nhLaptop {
+    position: absolute;
+    width: 92px;
+    height: 65px;
+    border: 6px solid #ffffff;
+    border-radius: 9px;
+    background: var(--brown);
+    box-shadow: 0 9px 18px rgba( 18, 18, 18, 0.14);
+}
+
+.nhLaptop::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    height: 8px;
+    border-radius: 999px;
+    background: #ffffff;
+}
+
+.nhLaptop>div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 24px;
+    height: 20px;
+    transform: translate( -50%, -50%);
+    border-radius: 5px;
+    background: var(--yellow);
+}
+
+.nhLaptop--one {
+    left: 70px;
+    top: 30px;
+    transform: rotate(-8deg);
+}
+
+.nhLaptop--two {
+    right: 62px;
+    top: 64px;
+    transform: rotate(8deg);
+}
+
+
+/* =========================================================
+   NOTEBOOK
+========================================================= */
+
+.nhNotebook {
+    position: absolute;
+    left: 185px;
+    top: 89px;
+    width: 70px;
+    height: 52px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    transform: rotate(6deg);
+}
+
+.nhNotebook span {
+    display: block;
+    height: 3px;
+    margin-bottom: 6px;
+    border-radius: 999px;
+    background: rgba( 112, 31, 14, 0.24);
+}
+
+.nhNotebook span:nth-child(2) {
+    width: 70%;
+}
+
+.nhNotebook span:nth-child(3) {
+    width: 45%;
+}
+
+
+/* =========================================================
+   COFFEE
+========================================================= */
+
+.nhCoffee {
+    position: absolute;
+    right: 25px;
+    top: 16px;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--brown);
+    color: var(--yellow);
+}
+
+.nhSteam {
+    position: absolute;
+    top: -15px;
+    width: 7px;
+    height: 17px;
+    border-left: 2px solid rgba( 112, 31, 14, 0.36);
+    border-radius: 50%;
+    opacity: 0.75;
+}
+
+.nhSteam--one {
+    left: 16px;
+}
+
+.nhSteam--two {
+    right: 14px;
+}
+
+
+/* =========================================================
+   DESK PLANT
+========================================================= */
+
+.nhDeskPlant {
+    position: absolute;
+    left: 18px;
+    top: 38px;
+    width: 54px;
+    height: 66px;
+}
+
+.nhDeskPlant i {
+    position: absolute;
+    left: 13px;
+    bottom: 0;
+    width: 28px;
+    height: 24px;
+    border-radius: 5px 5px 12px 12px;
+    background: var(--brown);
+}
+
+.nhDeskPlant span {
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    border-radius: 100% 0 100% 0;
+    background: #f5a900;
+    transform-origin: bottom;
+}
+
+.nhDeskPlant span:nth-child(1) {
+    left: 4px;
+    top: 2px;
+    transform: rotate(-32deg);
+}
+
+.nhDeskPlant span:nth-child(2) {
+    right: 3px;
+    top: 4px;
+    transform: rotate(38deg);
+}
+
+.nhDeskPlant span:nth-child(3) {
+    left: 15px;
+    top: -5px;
+    transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   PEOPLE
+========================================================= */
+
+.nhPerson {
+    position: absolute;
+    z-index: 30;
+    width: 125px;
+    height: 205px;
+    transform-origin: bottom center;
+}
+
+.nhPerson__head {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 54px;
+    height: 58px;
+    transform: translateX(-50%);
+    border-radius: 48% 48% 46% 46%;
+    background: #d68d5c;
+}
+
+.nhPerson__head>span {
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    top: -6px;
+    height: 27px;
+    border-radius: 50% 50% 35% 35%;
+    background: #3c241e;
+}
+
+.nhPerson__body {
+    position: absolute;
+    left: 50%;
+    top: 51px;
+    width: 88px;
+    height: 118px;
+    transform: translateX(-50%);
+    border-radius: 38px 38px 17px 17px;
+    background: var(--yellow);
+}
+
+.nhPerson__arm {
+    position: absolute;
+    top: 73px;
+    width: 65px;
+    height: 22px;
+    border-radius: 999px;
+    background: #d68d5c;
+    transform: rotate(24deg);
+}
+
+.nhPerson__chair {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 82px;
+    height: 48px;
+    transform: translateX(-50%);
+    border-radius: 18px 18px 4px 4px;
+    background: var(--black);
+}
+
+
+/* =========================================================
+   PERSON POSITIONS + COLORS
+========================================================= */
+
+.nhPerson--one {
+    left: 0;
+    top: 88px;
+}
+
+.nhPerson--one .nhPerson__body {
+    background: var(--brown);
+    border-radius: 35px;
+}
+
+.nhPerson--one .nhPerson__arm {
+    right: -22px;
+}
+
+.nhPerson--two {
+    right: 2px;
+    top: 88px;
+}
+
+.nhPerson--two .nhPerson__body {
+    background: #ffce47;
+}
+
+.nhPerson--two .nhPerson__arm {
+    left: -20px;
+    transform: rotate(-22deg);
+}
+
+.nhPerson--three {
+    left: 93px;
+    bottom: 2px;
+}
+
+.nhPerson--three .nhPerson__body {
+    background: var(--black);
+}
+
+.nhPerson--three .nhPerson__arm {
+    right: -22px;
+    transform: rotate(-18deg);
+}
+
+.nhPerson--four {
+    right: 91px;
+    bottom: 0;
+}
+
+.nhPerson--four .nhPerson__body {
+    background: #9b4a34;
+}
+
+.nhPerson--four .nhPerson__arm {
+    left: -22px;
+    transform: rotate(18deg);
+}
+
+
+/* =========================================================
+   IDEA BUBBLE
+========================================================= */
+
+.nhIdeaBubble {
+    position: absolute;
+    right: 50px;
+    top: 16px;
+    z-index: 50;
+    min-width: 130px;
+    height: 58px;
+    padding: 0 17px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border-radius: 20px 20px 20px 5px;
+    background: var(--yellow);
+    color: var(--brown);
+    box-shadow: 0 15px 32px rgba( 255, 191, 0, 0.21);
+}
+
+.nhIdeaBubble span,
+.nhWifiBubble span {
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 0.11em;
+}
+
+
+/* =========================================================
+   WIFI
+========================================================= */
+
+.nhWifiBubble {
+    position: absolute;
+    left: 70px;
+    top: 30px;
+    z-index: 50;
+    min-width: 120px;
+    height: 51px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 18px 18px 5px 18px;
+    background: var(--brown);
+    color: #ffffff;
+    box-shadow: 0 15px 30px rgba( 112, 31, 14, 0.17);
+}
+
+.nhWifiBubble svg {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   SPARKS
+========================================================= */
+
+.nhIllustrationSpark {
+    position: absolute;
+    z-index: 15;
+    font-weight: 950;
+    user-select: none;
+}
+
+.nhIllustrationSpark--one {
+    left: 34px;
+    top: 200px;
+    color: var(--yellow);
+    font-size: 27px;
+    animation: nhSparkRotate 6s linear infinite;
+}
+
+.nhIllustrationSpark--two {
+    right: 28px;
+    bottom: 110px;
+    color: rgba( 112, 31, 14, 0.3);
+    font-size: 30px;
+    animation: nhSparkFloat 2.6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes nhEyebrowPulse {
+    0%,
+    100% {
+        transform: rotate(45deg) scale(1);
+    }
+    50% {
+        transform: rotate(55deg) scale(1.22);
+    }
+}
+
+@keyframes nhSparkRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes nhSparkFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media ( max-width: 1100px) {
+    .nhWho__inner {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .nhWhoContent {
+        max-width: 800px;
+    }
+    .nhWhoIllustration {
+        width: min( 700px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media ( max-width: 700px) {
+    .nhWho {
+        padding: 120px 0 60px;
+    }
+    .nhWho__inner {
+        width: calc( 100% - 24px);
+    }
+    .nhWhoTitle {
+        font-size: clamp( 49px, 14vw, 66px);
+    }
+    .nhWhoDescription {
+        font-size: 14px;
+    }
+    .nhWhoIllustration {
+        height: 460px;
+        transform: scale(0.78);
+        transform-origin: top center;
+    }
+    .nhIllustrationBackdrop {
+        width: 520px;
+    }
+}

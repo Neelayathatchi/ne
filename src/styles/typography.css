@@ -1,0 +1,25 @@
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.03em;
+}
+
+p {
+    line-height: 1.7;
+}
+
+.eyebrow {
+    color: var(--amber);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}

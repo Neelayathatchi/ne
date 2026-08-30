@@ -1,0 +1,1183 @@
+/* =========================================================
+   NERDSHIVE SERVICES HERO
+   REFERENCE-MATCHED FINAL DESIGN
+========================================================= */
+
+.servicesHero,
+.servicesHero *,
+.servicesHero *::before,
+.servicesHero *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES / ROOT
+========================================================= */
+
+.servicesHero {
+    --yellow: #ffbf00;
+    --yellow-dark: #efa900;
+    --yellow-light: #ffd54b;
+    --yellow-pale: #fff7de;
+    --brown: #701f0e;
+    --brown-dark: #321006;
+    --black: #121212;
+    --white: #ffffff;
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    min-height: 1050px;
+    padding: 145px clamp(46px, 5vw, 88px) 90px;
+    overflow: hidden;
+    background: #ffffff;
+    color: #121212;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.servicesHero__inner {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1510px;
+    min-height: 710px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(510px, 0.9fr) minmax(760px, 1.1fr);
+    align-items: center;
+    gap: clamp(55px, 5vw, 90px);
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.servicesHero__content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 610px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.servicesHero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 27px;
+    padding: 10px 17px;
+    border: 1px solid rgba(255, 191, 0, 0.42);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--brown);
+    box-shadow: 0 8px 20px rgba(112, 31, 14, 0.05);
+}
+
+.servicesHero__eyebrowBee {
+    display: inline-block;
+    font-size: 16px;
+    animation: eyebrowBee 2.1s ease-in-out infinite;
+}
+
+.servicesHero__eyebrow strong {
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.servicesHero__title {
+    margin: 0;
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    letter-spacing: -0.058em;
+}
+
+.servicesHero__titleLine {
+    display: block;
+    color: var(--brown-dark);
+    font-size: clamp( 57px, 4.65vw, 79px);
+    line-height: 0.93;
+    white-space: nowrap;
+}
+
+.servicesHero__titleLine--yellow {
+    margin-top: 9px;
+    color: var(--yellow);
+    font-size: clamp( 52px, 4.25vw, 73px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.servicesHero__description {
+    width: 100%;
+    max-width: 535px;
+    margin: 28px 0 0;
+    color: rgba(18, 18, 18, 0.68);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.servicesHero__stats {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 31px;
+}
+
+.servicesHero__stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.servicesHero__statIcon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--brown);
+    background: rgba(255, 191, 0, 0.16);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.servicesHero__stat:hover .servicesHero__statIcon {
+    transform: translateY(-3px) rotate(-5deg);
+    background: rgba(255, 191, 0, 0.27);
+}
+
+.servicesHero__statCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.servicesHero__statCopy strong {
+    color: var(--brown-dark);
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    line-height: 1;
+}
+
+.servicesHero__statCopy small {
+    color: rgba(18, 18, 18, 0.58);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.servicesHero__divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(112, 31, 14, 0.12);
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.servicesHero__actions {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    margin-top: 32px;
+}
+
+.servicesHero__primary {
+    min-width: 230px;
+    min-height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 7px 7px 7px 22px;
+    border-radius: 999px;
+    background: var(--yellow);
+    color: var(--brown-dark);
+    text-decoration: none;
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    box-shadow: 0 14px 28px rgba(255, 191, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicesHero__primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 36px rgba(255, 191, 0, 0.29);
+}
+
+.servicesHero__primaryIcon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: #ffffff;
+    background: var(--brown);
+    transition: transform 0.3s ease;
+}
+
+.servicesHero__primary:hover .servicesHero__primaryIcon {
+    transform: translateX(3px);
+}
+
+.servicesHero__video {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--brown-dark);
+    cursor: pointer;
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.servicesHero__play {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    padding-left: 2px;
+    border: 2px solid var(--brown);
+    border-radius: 50%;
+    color: var(--brown);
+    font-size: 9px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.servicesHero__video:hover .servicesHero__play {
+    color: #ffffff;
+    background: var(--brown);
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   LEFT BEE
+========================================================= */
+
+.servicesHero__beeTrail {
+    position: relative;
+    width: 590px;
+    max-width: 100%;
+    height: 105px;
+    margin-top: 18px;
+}
+
+.servicesHero__beeTrail svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.servicesHero__beeTrail path {
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 1.45;
+    stroke-linecap: round;
+    stroke-dasharray: 7 8;
+    animation: beeTrailMove 8s linear infinite;
+}
+
+.servicesHero__largeBee {
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    font-size: 61px;
+    line-height: 1;
+    transform: rotate(-12deg);
+    animation: bigBeeFloat 2.6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   RIGHT HIVE
+========================================================= */
+
+.servicesHero__hive {
+    position: relative;
+    z-index: 5;
+    width: 820px;
+    max-width: 100%;
+    height: 700px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+}
+
+
+/* =========================================================
+   CUSTOM YELLOW CONNECTION MAP
+========================================================= */
+
+.servicesHero__connectionMap {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.servicesHero__connectionMap path {
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 8 8;
+    opacity: 0.86;
+    animation: connectionFlow 10s linear infinite;
+}
+
+
+/* =========================================================
+   JOIN DOTS
+========================================================= */
+
+.servicesHero__joinNode {
+    position: absolute;
+    z-index: 8;
+    width: 13px;
+    height: 13px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 3px 8px rgba(255, 191, 0, 0.34);
+    animation: joinPulse 2.5s ease-in-out infinite;
+}
+
+.servicesHero__joinNode--1 {
+    left: 28%;
+    top: 17%;
+}
+
+.servicesHero__joinNode--2 {
+    right: 28%;
+    top: 17%;
+}
+
+.servicesHero__joinNode--3 {
+    left: 17.8%;
+    top: 48%;
+}
+
+.servicesHero__joinNode--4 {
+    right: 17.8%;
+    top: 48%;
+}
+
+.servicesHero__joinNode--5 {
+    left: 30%;
+    bottom: 15%;
+}
+
+.servicesHero__joinNode--6 {
+    right: 30%;
+    bottom: 15%;
+}
+
+
+/* =========================================================
+   CENTER SOFT RING
+========================================================= */
+
+.servicesHero__centerOrbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 435px;
+    height: 355px;
+    border: 1px solid rgba(255, 191, 0, 0.19);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CENTER HIVE
+========================================================= */
+
+.servicesHero__centerHive {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 15;
+    width: 298px;
+    height: 264px;
+    padding: 16px;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: linear-gradient( 145deg, #ffdb4c 0%, #ffbf00 48%, #eda700 100%);
+    transform: translate(-50%, -50%);
+    filter: drop-shadow( 0 18px 27px rgba(112, 31, 14, 0.18)) drop-shadow( 0 0 14px rgba(255, 191, 0, 0.12));
+    animation: centerHiveFloat 4.4s ease-in-out infinite;
+}
+
+
+/* inner amber highlight */
+
+.servicesHero__centerHive::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: linear-gradient( 145deg, rgba(255, 255, 255, 0.5), transparent 45%);
+    pointer-events: none;
+}
+
+.servicesHero__centerInner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #ffffff;
+}
+
+.servicesHero__centerBee {
+    font-size: 46px;
+    line-height: 1;
+    filter: drop-shadow( 0 5px 7px rgba(112, 31, 14, 0.12));
+    animation: centerBeeFloat 2.3s ease-in-out infinite;
+}
+
+.servicesHero__centerInner strong {
+    margin-top: 8px;
+    color: var(--brown-dark);
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.servicesHero__centerInner strong span {
+    color: var(--yellow);
+}
+
+.servicesHero__centerInner small {
+    margin-top: 7px;
+    color: rgba(18, 18, 18, 0.63);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SERVICE HEXAGON CARDS
+========================================================= */
+
+.servicesHero__serviceCard {
+    position: absolute;
+    z-index: 10;
+    width: 208px;
+    height: 190px;
+    padding: 2px;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: linear-gradient( 145deg, rgba(255, 191, 0, 0.19), rgba(112, 31, 14, 0.04));
+    filter: drop-shadow( 0 16px 20px rgba(48, 16, 6, 0.1)) drop-shadow( 0 0 19px rgba(255, 255, 255, 1));
+    transition: transform 0.35s cubic-bezier( 0.2, 0.8, 0.2, 1), filter 0.35s ease;
+}
+
+
+/* PURE WHITE */
+
+.servicesHero__serviceInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 24px 18px;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #ffffff;
+    text-align: center;
+}
+
+
+/* =========================================================
+   EXACT PLACEMENT
+========================================================= */
+
+
+/* TOP */
+
+.servicesHero__serviceCard--top {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    animation: topCardFloat 5s ease-in-out infinite;
+}
+
+
+/* PRIVATE */
+
+.servicesHero__serviceCard--leftTop {
+    left: 3px;
+    top: 158px;
+    animation: sideCardFloat 5.3s ease-in-out infinite;
+    animation-delay: -0.6s;
+}
+
+
+/* TRAINING */
+
+.servicesHero__serviceCard--rightTop {
+    right: 3px;
+    top: 158px;
+    animation: sideCardFloat 5.6s ease-in-out infinite;
+    animation-delay: -1.4s;
+}
+
+
+/* SECURITY */
+
+.servicesHero__serviceCard--leftBottom {
+    left: 3px;
+    bottom: 7px;
+    animation: sideCardFloat 5.6s ease-in-out infinite;
+    animation-delay: -2.2s;
+}
+
+
+/* CREATOR */
+
+.servicesHero__serviceCard--rightBottom {
+    right: 3px;
+    bottom: 7px;
+    animation: sideCardFloat 5.3s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+
+/* CUSTOM */
+
+.servicesHero__serviceCard--bottom {
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+    animation: bottomCardFloat 5.4s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.servicesHero__serviceCard:hover {
+    z-index: 30;
+    filter: drop-shadow( 0 23px 29px rgba(112, 31, 14, 0.15)) drop-shadow( 0 0 25px rgba(255, 191, 0, 0.12));
+    animation-play-state: paused;
+}
+
+.servicesHero__serviceCard--top:hover {
+    transform: translateX(-50%) translateY(-8px) scale(1.045);
+}
+
+.servicesHero__serviceCard--bottom:hover {
+    transform: translateX(-50%) translateY(-8px) scale(1.045);
+}
+
+.servicesHero__serviceCard--leftTop:hover,
+.servicesHero__serviceCard--rightTop:hover,
+.servicesHero__serviceCard--leftBottom:hover,
+.servicesHero__serviceCard--rightBottom:hover {
+    transform: translateY(-8px) scale(1.045);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.servicesHero__serviceNumber {
+    position: absolute;
+    left: 40px;
+    top: 17px;
+    color: rgba(112, 31, 14, 0.23);
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.servicesHero__serviceIcon {
+    width: 51px;
+    height: 51px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 9px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    color: var(--brown);
+    background: rgba(255, 191, 0, 0.14);
+    box-shadow: 0 8px 15px rgba(255, 191, 0, 0.07);
+    transition: transform 0.32s ease, background 0.32s ease;
+}
+
+.servicesHero__serviceCard:hover .servicesHero__serviceIcon {
+    background: rgba(255, 191, 0, 0.27);
+    transform: translateY(-2px) rotate(-5deg) scale(1.08);
+}
+
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
+
+.servicesHero__serviceCard h3 {
+    width: 151px;
+    margin: 0;
+    color: var(--brown-dark);
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.18;
+}
+
+.servicesHero__serviceCard p {
+    width: 151px;
+    margin: 8px 0 10px;
+    color: rgba(18, 18, 18, 0.72);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.42;
+}
+
+
+/* =========================================================
+   CARD ARROW
+========================================================= */
+
+.servicesHero__cardArrow {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--brown);
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.servicesHero__serviceCard:hover .servicesHero__cardArrow {
+    color: var(--brown);
+    background: var(--yellow);
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FLYING BEE
+========================================================= */
+
+.servicesHero__flyingBee {
+    position: absolute;
+    right: 7px;
+    top: 68px;
+    z-index: 25;
+    font-size: 44px;
+    line-height: 1;
+    animation: flyingBeeMove 5.3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEART DECORATION
+========================================================= */
+
+.servicesHero__tinyHeart {
+    position: absolute;
+    z-index: 6;
+    color: var(--yellow);
+    font-size: 18px;
+    filter: drop-shadow( 0 4px 4px rgba(255, 191, 0, 0.14));
+    animation: heartFloat 3.5s ease-in-out infinite;
+}
+
+.servicesHero__tinyHeart--1 {
+    left: 9%;
+    top: 17%;
+}
+
+.servicesHero__tinyHeart--2 {
+    right: 6%;
+    bottom: 8%;
+    animation-delay: -1.5s;
+}
+
+
+/* =========================================================
+   BENEFIT BAR — LOWER
+========================================================= */
+
+.servicesHero__benefits {
+    position: relative;
+    z-index: 10;
+    width: min( 1040px, 82vw);
+    min-height: 92px;
+    margin: 78px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 13px 17px;
+    border: 1px solid rgba(112, 31, 14, 0.07);
+    border-radius: 29px;
+    background: #ffffff;
+    box-shadow: 0 17px 35px rgba(18, 18, 18, 0.065);
+}
+
+.servicesHero__benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 20px;
+    transition: transform 0.3s ease;
+}
+
+.servicesHero__benefit:hover {
+    transform: translateY(-3px);
+}
+
+.servicesHero__benefit+.servicesHero__benefit {
+    border-left: 1px solid rgba(112, 31, 14, 0.09);
+}
+
+.servicesHero__benefitIcon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    color: var(--brown);
+    background: rgba(255, 191, 0, 0.14);
+}
+
+.servicesHero__benefit>span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.servicesHero__benefit strong {
+    color: var(--brown-dark);
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+.servicesHero__benefit small {
+    color: rgba(18, 18, 18, 0.55);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   BACKGROUND DOTS
+========================================================= */
+
+.servicesHero__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.servicesHero__decorDot {
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    animation: decorDotFloat 4s ease-in-out infinite;
+}
+
+.servicesHero__decorDot--1 {
+    left: 40%;
+    top: 20%;
+}
+
+.servicesHero__decorDot--2 {
+    right: 5%;
+    top: 44%;
+    animation-delay: -0.7s;
+}
+
+.servicesHero__decorDot--3 {
+    left: 42%;
+    bottom: 18%;
+    animation-delay: -1.4s;
+}
+
+.servicesHero__decorDot--4 {
+    right: 17%;
+    bottom: 10%;
+    animation-delay: -2.1s;
+}
+
+.servicesHero__decorDot--5 {
+    left: 54%;
+    top: 31%;
+    width: 6px;
+    height: 6px;
+    animation-delay: -2.8s;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes eyebrowBee {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-3px) rotate(5deg);
+    }
+}
+
+@keyframes beeTrailMove {
+    to {
+        stroke-dashoffset: -180;
+    }
+}
+
+@keyframes bigBeeFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-12deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(-5deg);
+    }
+}
+
+@keyframes connectionFlow {
+    to {
+        stroke-dashoffset: -150;
+    }
+}
+
+@keyframes joinPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.22);
+    }
+}
+
+@keyframes centerHiveFloat {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-5px);
+    }
+}
+
+@keyframes centerBeeFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(4deg);
+    }
+}
+
+@keyframes sideCardFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -4px;
+    }
+}
+
+@keyframes topCardFloat {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+@keyframes bottomCardFloat {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+@keyframes flyingBeeMove {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(-5deg);
+    }
+    35% {
+        transform: translate(-22px, 12px) rotate(5deg);
+    }
+    68% {
+        transform: translate(6px, 26px) rotate(-2deg);
+    }
+}
+
+@keyframes heartFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(7deg);
+    }
+}
+
+@keyframes decorDotFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+
+/* =========================================================
+   1366 / LAPTOP
+========================================================= */
+
+@media (max-width: 1380px) and (min-width: 1051px) {
+    .servicesHero {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .servicesHero__inner {
+        grid-template-columns: minmax(440px, 0.86fr) minmax(690px, 1.14fr);
+        gap: 38px;
+    }
+    .servicesHero__titleLine {
+        font-size: 58px;
+    }
+    .servicesHero__titleLine--yellow {
+        font-size: 53px;
+    }
+    .servicesHero__description {
+        font-size: 15px;
+    }
+    .servicesHero__hive {
+        transform: scale(0.93);
+        transform-origin: center center;
+    }
+    .servicesHero__benefits {
+        margin-top: 65px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+    .servicesHero {
+        min-height: auto;
+        padding: 135px 30px 70px;
+    }
+    .servicesHero__inner {
+        display: block;
+        min-height: auto;
+    }
+    .servicesHero__content {
+        max-width: 720px;
+    }
+    .servicesHero__titleLine {
+        white-space: normal;
+    }
+    .servicesHero__hive {
+        width: min( 820px, 100%);
+        height: 700px;
+        margin: 60px auto 0;
+        transform: none;
+    }
+    .servicesHero__benefits {
+        width: 100%;
+        margin-top: 65px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 740px) {
+    .servicesHero {
+        padding: 120px 18px 50px;
+    }
+    .servicesHero__titleLine,
+    .servicesHero__titleLine--yellow {
+        font-size: clamp( 46px, 14vw, 64px);
+        white-space: normal;
+    }
+    .servicesHero__description {
+        font-size: 14px;
+    }
+    .servicesHero__stats {
+        flex-wrap: wrap;
+    }
+    .servicesHero__divider {
+        display: none;
+    }
+    .servicesHero__actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .servicesHero__primary {
+        width: 100%;
+    }
+    .servicesHero__hive {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 17px;
+        margin-top: 50px;
+    }
+    .servicesHero__connectionMap,
+    .servicesHero__joinNode,
+    .servicesHero__centerOrbit,
+    .servicesHero__flyingBee,
+    .servicesHero__tinyHeart {
+        display: none;
+    }
+    .servicesHero__centerHive {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 205px;
+        height: 182px;
+        margin: 0 auto 25px;
+        transform: none;
+        animation: none;
+    }
+    .servicesHero__serviceCard {
+        position: relative;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: min( 310px, 100%);
+        height: 265px;
+        margin: 0 auto;
+        transform: none !important;
+        animation: none !important;
+    }
+    .servicesHero__serviceCard h3 {
+        width: 200px;
+        font-size: 17px;
+    }
+    .servicesHero__serviceCard p {
+        width: 205px;
+        font-size: 12px;
+    }
+    .servicesHero__serviceIcon {
+        width: 56px;
+        height: 56px;
+    }
+    .servicesHero__benefits {
+        width: 100%;
+        margin-top: 50px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .servicesHero__benefit+.servicesHero__benefit {
+        border-left: 0;
+    }
+    .servicesHero__benefit:nth-child(even) {
+        border-left: 1px solid rgba(112, 31, 14, 0.08);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+    .servicesHero__benefits {
+        grid-template-columns: 1fr;
+    }
+    .servicesHero__benefit:nth-child(even),
+    .servicesHero__benefit+.servicesHero__benefit {
+        border-left: 0;
+        border-top: 1px solid rgba(112, 31, 14, 0.08);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .servicesHero__eyebrowBee, .servicesHero__beeTrail path, .servicesHero__largeBee, .servicesHero__connectionMap path, .servicesHero__joinNode, .servicesHero__centerHive, .servicesHero__centerBee, .servicesHero__serviceCard, .servicesHero__flyingBee, .servicesHero__tinyHeart, .servicesHero__decorDot {
+        animation: none !important;
+    }
+}

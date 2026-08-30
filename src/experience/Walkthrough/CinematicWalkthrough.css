@@ -1,0 +1,961 @@
+/* =========================================================
+   NERDSHIVE — CINEMATIC 3D WALKTHROUGH
+   Brand:
+   Amber  : #FFBF00
+   Walnut : #701F0E
+   Black  : #121212
+   White  : #FFFFFF
+========================================================= */
+
+
+/* =========================================================
+   MAIN LONG SCROLL SECTION
+========================================================= */
+
+.cinematic-walkthrough {
+    position: relative;
+    width: 100%;
+    height: 1300vh;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   STICKY VIEWPORT
+========================================================= */
+
+.cinematic-walkthrough__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+    background: #ffffff;
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND SHAPE LEFT
+========================================================= */
+
+.cinematic-walkthrough__sticky::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    left: -320px;
+    top: 90px;
+    background: rgba( 255, 191, 0, 0.04);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND SHAPE RIGHT
+========================================================= */
+
+.cinematic-walkthrough__sticky::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -300px;
+    bottom: -100px;
+    background: rgba( 112, 31, 14, 0.025);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   3D CANVAS STAGE
+========================================================= */
+
+.cinematic-walkthrough__stage {
+    position: absolute;
+    z-index: 5;
+    top: 118px;
+    right: clamp( 90px, 9vw, 160px);
+    bottom: 78px;
+    left: clamp( 340px, 31vw, 570px);
+    overflow: hidden;
+    border-radius: 34px;
+    background: rgba( 250, 247, 242, 0.72);
+    border: 1px solid rgba( 18, 18, 18, 0.055);
+    box-shadow: 0 30px 100px rgba( 18, 18, 18, 0.075);
+}
+
+
+/* thin inner premium border */
+
+.cinematic-walkthrough__stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    border: 1px solid rgba( 255, 255, 255, 0.65);
+    border-radius: inherit;
+}
+
+
+/* canvas */
+
+.cinematic-walkthrough__stage canvas {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* =========================================================
+   CINEMATIC HONEYCOMB BACKGROUND
+   THIS IS cinematic-hive-bg
+========================================================= */
+
+.cinematic-hive-bg {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ALL HEXAGON CELLS
+========================================================= */
+
+.cinematic-hive-bg span {
+    position: absolute;
+    display: block;
+    width: 34px;
+    height: 38px;
+    border: 1px solid rgba( 255, 191, 0, 0.22);
+    background: rgba( 255, 255, 255, 0.12);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    opacity: 0.8;
+    animation: cinematicHiveFloat 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LEFT SIDE HEXAGON POSITIONS
+========================================================= */
+
+.cinematic-hive-bg span:nth-child(1) {
+    left: 18px;
+    top: 135px;
+}
+
+.cinematic-hive-bg span:nth-child(2) {
+    left: 58px;
+    top: 135px;
+    background: rgba( 255, 191, 0, 0.10);
+}
+
+.cinematic-hive-bg span:nth-child(3) {
+    left: 98px;
+    top: 135px;
+}
+
+.cinematic-hive-bg span:nth-child(4) {
+    left: 38px;
+    top: 178px;
+    border-color: rgba( 112, 31, 14, 0.14);
+}
+
+.cinematic-hive-bg span:nth-child(5) {
+    left: 78px;
+    top: 178px;
+    background: rgba( 255, 191, 0, 0.12);
+}
+
+.cinematic-hive-bg span:nth-child(6) {
+    left: 118px;
+    top: 178px;
+}
+
+.cinematic-hive-bg span:nth-child(7) {
+    left: 18px;
+    top: 221px;
+}
+
+.cinematic-hive-bg span:nth-child(8) {
+    left: 58px;
+    top: 221px;
+    background: rgba( 255, 191, 0, 0.13);
+}
+
+.cinematic-hive-bg span:nth-child(9) {
+    left: 98px;
+    top: 221px;
+}
+
+.cinematic-hive-bg span:nth-child(10) {
+    left: 38px;
+    top: 264px;
+    border-color: rgba( 112, 31, 14, 0.14);
+}
+
+.cinematic-hive-bg span:nth-child(11) {
+    left: 78px;
+    top: 264px;
+    background: rgba( 255, 191, 0, 0.10);
+}
+
+.cinematic-hive-bg span:nth-child(12) {
+    left: 18px;
+    top: 307px;
+}
+
+.cinematic-hive-bg span:nth-child(13) {
+    left: 58px;
+    top: 307px;
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   RIGHT SIDE HEXAGON POSITIONS
+========================================================= */
+
+.cinematic-hive-bg span:nth-child(14) {
+    right: 18px;
+    top: 150px;
+}
+
+.cinematic-hive-bg span:nth-child(15) {
+    right: 58px;
+    top: 150px;
+    background: rgba( 255, 191, 0, 0.12);
+}
+
+.cinematic-hive-bg span:nth-child(16) {
+    right: 98px;
+    top: 150px;
+}
+
+.cinematic-hive-bg span:nth-child(17) {
+    right: 38px;
+    top: 193px;
+    border-color: rgba( 112, 31, 14, 0.14);
+}
+
+.cinematic-hive-bg span:nth-child(18) {
+    right: 78px;
+    top: 193px;
+    background: rgba( 255, 191, 0, 0.09);
+}
+
+.cinematic-hive-bg span:nth-child(19) {
+    right: 118px;
+    top: 193px;
+}
+
+.cinematic-hive-bg span:nth-child(20) {
+    right: 18px;
+    top: 236px;
+    background: rgba( 255, 191, 0, 0.12);
+}
+
+.cinematic-hive-bg span:nth-child(21) {
+    right: 58px;
+    top: 236px;
+}
+
+.cinematic-hive-bg span:nth-child(22) {
+    right: 98px;
+    top: 236px;
+    border-color: rgba( 112, 31, 14, 0.12);
+}
+
+.cinematic-hive-bg span:nth-child(23) {
+    right: 38px;
+    top: 279px;
+}
+
+.cinematic-hive-bg span:nth-child(24) {
+    right: 78px;
+    top: 279px;
+    background: rgba( 255, 191, 0, 0.13);
+}
+
+.cinematic-hive-bg span:nth-child(25) {
+    right: 18px;
+    top: 322px;
+}
+
+.cinematic-hive-bg span:nth-child(26) {
+    right: 58px;
+    top: 322px;
+    opacity: 0.45;
+}
+
+
+/* different animation timing */
+
+.cinematic-hive-bg span:nth-child(2n) {
+    animation-delay: -2s;
+}
+
+.cinematic-hive-bg span:nth-child(3n) {
+    animation-delay: -4s;
+}
+
+.cinematic-hive-bg span:nth-child(5n) {
+    animation-delay: -5.5s;
+}
+
+
+/* =========================================================
+   LEFT TEXT AREA
+========================================================= */
+
+.cinematic-copy {
+    position: absolute;
+    z-index: 20;
+    left: clamp( 45px, 5.5vw, 96px);
+    top: 50%;
+    width: min( 390px, 27vw);
+    transform: translateY(-48%);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.cinematic-copy__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #701f0e;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    animation: copyEyebrowIn 0.65s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.cinematic-copy__eyebrow span {
+    width: 18px;
+    height: 21px;
+    flex-shrink: 0;
+    background: #ffbf00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: cinematicHexFloat 2.6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.cinematic-copy__title {
+    margin-top: 20px;
+    animation: copyTitleIn 0.72s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.cinematic-copy__title h2,
+.cinematic-copy__title h3 {
+    margin: 0;
+    font-size: clamp( 3.5rem, 5.3vw, 7.3rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.07em;
+}
+
+.cinematic-copy__title h2 {
+    color: #121212;
+}
+
+.cinematic-copy__title h3 {
+    margin-top: 4px;
+    color: #ffbf00;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.cinematic-copy>p {
+    max-width: 365px;
+    margin: 28px 0 0;
+    color: #701f0e;
+    font-size: clamp( 0.88rem, 0.95vw, 1rem);
+    font-weight: 500;
+    line-height: 1.75;
+    animation: copyParagraphIn 0.72s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   META AREA
+========================================================= */
+
+.cinematic-copy__meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 27px;
+    animation: copyMetaIn 0.8s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.cinematic-copy__meta>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cinematic-copy__meta small {
+    color: rgba( 18, 18, 18, 0.38);
+    font-size: 0.53rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.cinematic-copy__meta strong {
+    margin-top: 4px;
+    color: #701f0e;
+    font-size: 0.82rem;
+}
+
+.cinematic-copy__meta>span {
+    width: 54px;
+    height: 2px;
+    background: #ffbf00;
+}
+
+.cinematic-copy__meta>b {
+    color: #121212;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   VERTICAL SCENE NAVIGATION
+========================================================= */
+
+.cinematic-scene-nav {
+    position: absolute;
+    z-index: 30;
+    right: clamp( 22px, 2vw, 38px);
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transform: translateY(-50%);
+}
+
+.cinematic-scene-nav button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 62px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: default;
+}
+
+.cinematic-scene-nav button span {
+    width: 13px;
+    height: 2px;
+    background: rgba( 18, 18, 18, 0.15);
+    border-radius: 10px;
+    transition: width 0.4s cubic-bezier( 0.22, 1, 0.36, 1), background 0.35s ease;
+}
+
+.cinematic-scene-nav button small {
+    width: 20px;
+    color: rgba( 18, 18, 18, 0.3);
+    font-size: 0.55rem;
+    font-weight: 900;
+    transition: color 0.35s ease;
+}
+
+.cinematic-scene-nav button.is-active span {
+    width: 28px;
+    background: #ffbf00;
+}
+
+.cinematic-scene-nav button.is-active small {
+    color: #701f0e;
+}
+
+
+/* =========================================================
+   TOP COUNTER
+========================================================= */
+
+.cinematic-counter {
+    position: absolute;
+    z-index: 30;
+    top: 130px;
+    right: clamp( 34px, 4vw, 70px);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.cinematic-counter strong {
+    color: #701f0e;
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.cinematic-counter>span {
+    width: 38px;
+    height: 2px;
+    background: #ffbf00;
+}
+
+.cinematic-counter small {
+    color: rgba( 18, 18, 18, 0.36);
+    font-size: 0.62rem;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   BOTTOM PROGRESS
+========================================================= */
+
+.cinematic-progress {
+    position: absolute;
+    z-index: 30;
+    left: 50%;
+    bottom: 30px;
+    width: min( 620px, 45vw);
+    transform: translateX(-50%);
+}
+
+.cinematic-progress__numbers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.cinematic-progress__numbers span {
+    color: #701f0e;
+    font-size: 0.66rem;
+    font-weight: 900;
+}
+
+.cinematic-progress__numbers small {
+    color: rgba( 18, 18, 18, 0.38);
+    font-size: 0.52rem;
+    font-weight: 900;
+    letter-spacing: 0.17em;
+}
+
+.cinematic-progress__track {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    margin-top: 9px;
+    overflow: hidden;
+    background: rgba( 18, 18, 18, 0.08);
+    border-radius: 999px;
+}
+
+.cinematic-progress__track span {
+    position: absolute;
+    inset: 0;
+    background: #ffbf00;
+    transform-origin: left center;
+    transition: transform 0.08s linear;
+}
+
+
+/* =========================================================
+   SCROLL CUE
+========================================================= */
+
+.cinematic-scroll-cue {
+    position: absolute;
+    z-index: 40;
+    left: clamp( 46px, 5.5vw, 96px);
+    bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 13px;
+    background: rgba( 255, 255, 255, 0.94);
+    border: 1px solid rgba( 18, 18, 18, 0.06);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba( 18, 18, 18, 0.06);
+    animation: scrollCueIn 0.8s ease;
+}
+
+.cinematic-scroll-cue__mouse {
+    position: relative;
+    width: 23px;
+    height: 36px;
+    border: 1px solid rgba( 18, 18, 18, 0.25);
+    border-radius: 999px;
+}
+
+.cinematic-scroll-cue__mouse span {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 4px;
+    height: 6px;
+    background: #ffbf00;
+    border-radius: 999px;
+    animation: cinematicMouse 1.5s ease-in-out infinite;
+}
+
+.cinematic-scroll-cue>div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.cinematic-scroll-cue small {
+    color: rgba( 18, 18, 18, 0.38);
+    font-size: 0.49rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.cinematic-scroll-cue strong {
+    margin-top: 2px;
+    color: #121212;
+    font-size: 0.65rem;
+}
+
+
+/* =========================================================
+   LARGE GHOST NUMBER
+========================================================= */
+
+.cinematic-ghost-number {
+    position: absolute;
+    z-index: 1;
+    left: 25%;
+    bottom: -85px;
+    color: rgba( 255, 191, 0, 0.055);
+    font-size: clamp( 14rem, 26vw, 30rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   HONEYCOMB FLOATING ANIMATION
+========================================================= */
+
+@keyframes cinematicHiveFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   COPY ANIMATIONS
+========================================================= */
+
+@keyframes copyEyebrowIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes copyTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes copyParagraphIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes copyMetaIn {
+    from {
+        opacity: 0;
+        transform: translateX(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cinematicHexFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(8deg);
+    }
+}
+
+@keyframes cinematicMouse {
+    0% {
+        opacity: 0;
+        transform: translate( -50%, 0);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate( -50%, 13px);
+    }
+}
+
+@keyframes scrollCueIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1366px) {
+    .cinematic-walkthrough__stage {
+        top: 112px;
+        right: 76px;
+        bottom: 72px;
+        left: 390px;
+    }
+    .cinematic-copy {
+        left: 48px;
+        width: 315px;
+    }
+    .cinematic-copy__title h2,
+    .cinematic-copy__title h3 {
+        font-size: clamp( 3.3rem, 5vw, 5.8rem);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+    .cinematic-walkthrough {
+        height: 1170vh;
+    }
+    .cinematic-walkthrough__stage {
+        top: 105px;
+        right: 48px;
+        bottom: 66px;
+        left: 310px;
+        border-radius: 26px;
+    }
+    .cinematic-copy {
+        left: 30px;
+        width: 250px;
+    }
+    .cinematic-copy__title h2,
+    .cinematic-copy__title h3 {
+        font-size: clamp( 2.8rem, 5.8vw, 4.6rem);
+    }
+    .cinematic-copy>p {
+        font-size: 0.82rem;
+        line-height: 1.62;
+    }
+    .cinematic-scene-nav {
+        right: 10px;
+    }
+    .cinematic-counter {
+        right: 22px;
+    }
+    .cinematic-progress {
+        width: 44vw;
+    }
+    .cinematic-hive-bg {
+        opacity: 0.65;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+    .cinematic-walkthrough {
+        height: 1040vh;
+    }
+    .cinematic-walkthrough__sticky {
+        min-height: 620px;
+    }
+    .cinematic-walkthrough__stage {
+        top: 88px;
+        right: 12px;
+        bottom: auto;
+        left: 12px;
+        height: 47vh;
+        min-height: 325px;
+        border-radius: 22px;
+    }
+    .cinematic-copy {
+        top: auto;
+        left: 21px;
+        right: 21px;
+        bottom: 88px;
+        width: auto;
+        transform: none;
+    }
+    .cinematic-copy__eyebrow {
+        font-size: 0.57rem;
+    }
+    .cinematic-copy__eyebrow span {
+        width: 14px;
+        height: 17px;
+    }
+    .cinematic-copy__title {
+        margin-top: 11px;
+    }
+    .cinematic-copy__title h2,
+    .cinematic-copy__title h3 {
+        display: inline;
+        font-size: clamp( 2.6rem, 12vw, 4.2rem);
+        line-height: 0.92;
+    }
+    .cinematic-copy__title h2 {
+        margin-right: 9px;
+    }
+    .cinematic-copy__title h3 {
+        margin-top: 0;
+    }
+    .cinematic-copy>p {
+        max-width: 100%;
+        margin-top: 14px;
+        font-size: 0.79rem;
+        line-height: 1.55;
+    }
+    .cinematic-copy__meta {
+        margin-top: 14px;
+    }
+    .cinematic-scene-nav {
+        display: none;
+    }
+    .cinematic-counter {
+        top: 98px;
+        right: 25px;
+        padding: 7px 10px;
+        background: rgba( 255, 255, 255, 0.93);
+        border-radius: 999px;
+    }
+    .cinematic-counter>span {
+        width: 22px;
+    }
+    .cinematic-progress {
+        left: 20px;
+        right: 20px;
+        bottom: 26px;
+        width: auto;
+        transform: none;
+    }
+    .cinematic-scroll-cue {
+        display: none;
+    }
+    .cinematic-ghost-number {
+        left: auto;
+        right: -15px;
+        bottom: 58px;
+        font-size: 9rem;
+    }
+    .cinematic-hive-bg span {
+        width: 26px;
+        height: 29px;
+        opacity: 0.45;
+    }
+    .cinematic-hive-bg span:nth-child(n + 9) {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+    .cinematic-walkthrough__stage {
+        top: 82px;
+        height: 43vh;
+        min-height: 300px;
+    }
+    .cinematic-copy {
+        left: 16px;
+        right: 16px;
+        bottom: 82px;
+    }
+    .cinematic-copy__title h2,
+    .cinematic-copy__title h3 {
+        font-size: clamp( 2.3rem, 11.5vw, 3.5rem);
+    }
+    .cinematic-copy>p {
+        font-size: 0.74rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .cinematic-copy__eyebrow,
+    .cinematic-copy__title,
+    .cinematic-copy>p,
+    .cinematic-copy__meta,
+    .cinematic-copy__eyebrow span,
+    .cinematic-scroll-cue,
+    .cinematic-scroll-cue__mouse span,
+    .cinematic-hive-bg span {
+        animation: none;
+    }
+}

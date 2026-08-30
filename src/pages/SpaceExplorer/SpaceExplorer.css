@@ -1,0 +1,1696 @@
+/* =========================================================
+   NERDSHIVE SPACE EXPLORER
+   FINAL REFERENCE-MATCH VERSION
+========================================================= */
+
+.spaceExplorer,
+.spaceExplorer *,
+.spaceExplorer *::before,
+.spaceExplorer *::after {
+    box-sizing: border-box;
+}
+
+.spaceExplorer {
+    --yellow: #FFBF00;
+    --brown: #701F0E;
+    --brown-dark: #351008;
+    --black: #111111;
+    --white: #FFFFFF;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 112px 42px 75px;
+    overflow: hidden;
+    background: #FFFFFF;
+    color: var(--black);
+    font-family: "Poppins", "Inter", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   TOP INFO PILL
+========================================================= */
+
+.spaceExplorer__topPill {
+    position: absolute;
+    z-index: 20;
+    top: 26px;
+    left: 70%;
+    transform: translateX(-50%) translateY(-16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+    min-width: 500px;
+    padding: 17px 28px;
+    border: 1px solid rgba( 112, 31, 14, 0.06);
+    border-radius: 999px;
+    background: #FFFFFF;
+    box-shadow: 0 14px 35px rgba( 112, 31, 14, 0.08);
+    opacity: 0;
+    transition: opacity 0.75s ease, transform 0.75s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.spaceExplorer--visible .spaceExplorer__topPill {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.spaceExplorer__topPill span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba( 18, 18, 18, 0.66);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.spaceExplorer__topPill svg {
+    width: 16px;
+    height: 16px;
+    color: var(--yellow);
+}
+
+.spaceExplorer__topPill>i {
+    width: 1px;
+    height: 20px;
+    background: rgba( 112, 31, 14, 0.18);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.spaceExplorer__intro {
+    position: absolute;
+    z-index: 15;
+    top: 100px;
+    left: max( 42px, calc( (100vw - 1540px) / 2));
+    width: 390px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.75s ease, transform 0.75s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.spaceExplorer--visible .spaceExplorer__intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.spaceExplorer__eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--yellow);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+}
+
+.spaceExplorer__intro h1 {
+    margin: 0;
+    color: var(--brown-dark);
+    font-size: clamp( 51px, 4vw, 68px);
+    font-weight: 950;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+}
+
+.spaceExplorer__intro h1 strong {
+    display: block;
+    color: var(--yellow);
+    font: inherit;
+}
+
+.spaceExplorer__intro p {
+    margin: 19px 0 0;
+    color: rgba( 18, 18, 18, 0.64);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   BEE
+========================================================= */
+
+.spaceExplorer__bee {
+    position: absolute;
+    right: -205px;
+    top: 20px;
+    width: 72px;
+    height: 66px;
+    pointer-events: none;
+    animation: spaceBeeFloat 4s ease-in-out infinite;
+}
+
+.spaceExplorer__beeTrail {
+    position: absolute;
+    right: 47px;
+    top: 49px;
+    width: 130px;
+    height: 65px;
+    border-bottom: 2px dashed rgba( 255, 191, 0, 0.62);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+}
+
+.spaceExplorer__beeWing {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    width: 29px;
+    height: 21px;
+    border: 1px solid rgba( 112, 31, 14, 0.13);
+    border-radius: 75% 30% 75% 30%;
+    background: rgba( 255, 255, 255, 0.96);
+    transform-origin: right bottom;
+}
+
+.spaceExplorer__beeWing--left {
+    left: 13px;
+    animation: beeWingLeft 0.17s alternate infinite;
+}
+
+.spaceExplorer__beeWing--right {
+    left: 32px;
+    animation: beeWingRight 0.17s alternate infinite;
+}
+
+.spaceExplorer__beeBody {
+    position: absolute;
+    z-index: 3;
+    left: 10px;
+    top: 28px;
+    width: 43px;
+    height: 27px;
+    overflow: hidden;
+    border-radius: 54% 43% 43% 54%;
+    background: var(--yellow);
+    transform: rotate(-8deg);
+}
+
+.spaceExplorer__beeBody i {
+    position: absolute;
+    top: -4px;
+    width: 7px;
+    height: 37px;
+    background: #18110C;
+}
+
+.spaceExplorer__beeBody i:first-child {
+    left: 13px;
+}
+
+.spaceExplorer__beeBody i:last-child {
+    left: 28px;
+}
+
+.spaceExplorer__beeFace {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    top: 22px;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background: #FFD75D;
+}
+
+.spaceExplorer__beeFace b {
+    position: absolute;
+    top: 10px;
+    width: 4px;
+    height: 5px;
+    border-radius: 50%;
+    background: #16100D;
+}
+
+.spaceExplorer__beeFace b:first-child {
+    left: 8px;
+}
+
+.spaceExplorer__beeFace b:last-child {
+    right: 8px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.spaceExplorer__layout {
+    width: min( 1540px, 100%);
+    margin: 137px auto 0;
+    display: grid;
+    grid-template-columns: 390px minmax( 0, 1fr);
+    gap: 37px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   LEFT SELECTOR
+========================================================= */
+
+.spaceExplorer__selector {
+    padding-top: 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.spaceExplorer__selectorCard {
+    --accent: #FFBF00;
+    --soft: #FFF5D2;
+    --delay: 0s;
+    position: relative;
+    width: 100%;
+    height: 88px;
+    display: grid;
+    grid-template-columns: 38px 57px 1fr 36px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba( 112, 31, 14, 0.065);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 9px 25px rgba( 18, 18, 18, 0.055);
+    cursor: pointer;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-22px);
+    transition: opacity 0.62s var(--delay) ease, transform 0.62s var(--delay) cubic-bezier( 0.16, 1, 0.3, 1), background 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+}
+
+.spaceExplorer--visible .spaceExplorer__selectorCard {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.spaceExplorer__selectorCard:hover {
+    transform: translateX(6px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 31px rgba( 112, 31, 14, 0.09);
+}
+
+.spaceExplorer__selectorCard--active {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 18px 34px rgba( 112, 31, 14, 0.12);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.spaceExplorer__number {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    background: #F7F7F7;
+    color: #2C2A27;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.spaceExplorer__selectorCard--active .spaceExplorer__number {
+    background: rgba( 255, 255, 255, 0.85);
+}
+
+
+/* =========================================================
+   SELECTOR ICON
+========================================================= */
+
+.spaceExplorer__selectorIcon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--soft);
+    color: var(--accent);
+    transition: transform 0.35s cubic-bezier( 0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
+}
+
+.spaceExplorer__selectorIcon svg {
+    width: 25px;
+    height: 25px;
+    stroke-width: 2;
+}
+
+.spaceExplorer__selectorCard:hover .spaceExplorer__selectorIcon {
+    transform: rotate(-5deg) scale(1.07);
+}
+
+.spaceExplorer__selectorCard--active .spaceExplorer__selectorIcon {
+    color: var(--brown);
+    background: rgba( 255, 255, 255, 0.54);
+}
+
+
+/* =========================================================
+   SELECTOR COPY
+========================================================= */
+
+.spaceExplorer__selectorText {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.spaceExplorer__selectorText strong {
+    color: #181411;
+    font-size: 15px;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.spaceExplorer__selectorText small {
+    margin-top: 5px;
+    overflow: hidden;
+    color: rgba( 18, 18, 18, 0.56);
+    font-size: 9px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   SELECTOR ARROW
+========================================================= */
+
+.spaceExplorer__selectorArrow {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 112, 31, 14, 0.12);
+    border-radius: 50%;
+    color: var(--brown);
+    background: #FFFFFF;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.spaceExplorer__selectorArrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.spaceExplorer__selectorCard:hover .spaceExplorer__selectorArrow {
+    transform: translateX(2px);
+}
+
+.spaceExplorer__selectorCard--active .spaceExplorer__selectorArrow {
+    color: #FFFFFF;
+    background: var(--brown);
+    border-color: var(--brown);
+}
+
+
+/* =========================================================
+   RIGHT EXPERIENCE
+========================================================= */
+
+.spaceExplorer__experience {
+    position: relative;
+    opacity: 0;
+    transform: translateX(30px) scale(0.985);
+    transition: opacity 0.8s 0.16s ease, transform 0.8s 0.16s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.spaceExplorer--visible .spaceExplorer__experience {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.spaceExplorer__navigator {
+    position: absolute;
+    z-index: 40;
+    right: 0;
+    top: -53px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.spaceExplorer__counter {
+    width: 77px;
+    height: 78px;
+    margin-right: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    background: #FFF9EC;
+}
+
+.spaceExplorer__counter strong {
+    color: var(--brown-dark);
+    font-size: 27px;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.spaceExplorer__counter small {
+    margin-top: 4px;
+    color: var(--brown);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.spaceExplorer__navigator>button {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 112, 31, 14, 0.12);
+    border-radius: 50%;
+    color: var(--brown);
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.spaceExplorer__navigator>button:hover {
+    transform: scale(1.1);
+}
+
+.spaceExplorer__navigator .spaceExplorer__navigatorNext {
+    color: #FFFFFF;
+    background: var(--brown);
+    border-color: var(--brown);
+}
+
+
+/* =========================================================
+   MAIN PHOTO
+========================================================= */
+
+.spaceExplorer__visual {
+    --image-x: 0px;
+    --image-y: 0px;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    position: relative;
+    height: 640px;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 74px 104px 57px 42px;
+    clip-path: polygon( 7% 15%, 19% 15%, 25% 2%, 83% 2%, 100% 18%, 100% 100%, 0 100%, 0 27%);
+    background: #1B120F;
+    cursor: pointer;
+    box-shadow: 0 25px 58px rgba( 40, 18, 8, 0.18);
+    transition: filter 0.35s ease;
+}
+
+
+/* =========================================================
+   YELLOW BORDER LIGHT
+========================================================= */
+
+.spaceExplorer__visualBorder {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient( 115deg, transparent 0%, transparent 30%, rgba( 255, 191, 0, 0.95) 47%, #FFF0A0 50%, rgba( 255, 191, 0, 0.95) 53%, transparent 69%, transparent 100%);
+    background-size: 350% 350%;
+    opacity: 0;
+    mix-blend-mode: screen;
+    transition: opacity 0.35s ease;
+}
+
+.spaceExplorer__visual:hover .spaceExplorer__visualBorder,
+.spaceExplorer__visual:active .spaceExplorer__visualBorder {
+    opacity: 0.65;
+    animation: spaceBorderTravel 2.3s linear infinite;
+}
+
+.spaceExplorer__visual:hover {
+    filter: drop-shadow( 0 0 11px rgba( 255, 191, 0, 0.38));
+}
+
+.spaceExplorer__visual::after {
+    content: "";
+    position: absolute;
+    z-index: 19;
+    inset: 0;
+    pointer-events: none;
+    border: 2px solid rgba( 255, 191, 0, 0);
+    border-radius: inherit;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.spaceExplorer__visual:hover::after,
+.spaceExplorer__visual:active::after {
+    border-color: #FFBF00;
+    box-shadow: inset 0 0 28px rgba( 255, 191, 0, 0.27);
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.spaceExplorer__visual>img {
+    position: absolute;
+    inset: -18px;
+    width: calc( 100% + 36px);
+    height: calc( 100% + 36px);
+    object-fit: cover;
+    transform: translate3d( var(--image-x), var(--image-y), 0) scale(1.045);
+    transition: transform 0.22s ease-out, filter 0.45s ease;
+    animation: photoEnter 0.72s cubic-bezier( 0.16, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.spaceExplorer__visual:hover>img {
+    filter: brightness(1.075) saturate(1.08);
+    transform: translate3d( var(--image-x), var(--image-y), 0) scale(1.075);
+}
+
+
+/* =========================================================
+   PHOTO OVERLAY
+========================================================= */
+
+.spaceExplorer__photoOverlay {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient( 90deg, rgba( 22, 9, 3, 0.91) 0%, rgba( 22, 9, 3, 0.72) 24%, rgba( 22, 9, 3, 0.15) 51%, rgba( 22, 9, 3, 0.02) 100%);
+}
+
+
+/* =========================================================
+   CURSOR YELLOW LIGHT
+========================================================= */
+
+.spaceExplorer__cursorLight {
+    position: absolute;
+    z-index: 5;
+    left: var(--mouse-x);
+    top: var(--mouse-y);
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate( -50%, -50%);
+    opacity: 0;
+    background: radial-gradient( circle, rgba( 255, 191, 0, 0.18) 0%, rgba( 255, 191, 0, 0.065) 37%, transparent 70%);
+    transition: opacity 0.3s ease;
+}
+
+.spaceExplorer__visual:hover .spaceExplorer__cursorLight {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PHOTO COPY
+========================================================= */
+
+.spaceExplorer__photoInfo {
+    position: absolute;
+    z-index: 10;
+    top: 153px;
+    left: 35px;
+    width: 280px;
+    animation: copyEnter 0.6s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.spaceExplorer__viewBadge {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #2E1705;
+    background: var(--yellow);
+    font-size: 8px;
+    font-weight: 900;
+}
+
+.spaceExplorer__viewBadge svg {
+    width: 11px;
+    height: 11px;
+}
+
+.spaceExplorer__photoInfo h2 {
+    margin: 13px 0 10px;
+    color: #FFFFFF;
+    font-size: clamp( 44px, 3.2vw, 59px);
+    font-weight: 950;
+    line-height: 0.91;
+    letter-spacing: -0.05em;
+}
+
+.spaceExplorer__photoInfo>p {
+    max-width: 225px;
+    margin: 0;
+    color: rgba( 255, 255, 255, 0.91);
+    font-size: 13px;
+    font-weight: 520;
+    line-height: 1.58;
+}
+
+
+/* =========================================================
+   FACTS
+========================================================= */
+
+.spaceExplorer__facts {
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.spaceExplorer__fact {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.spaceExplorer__fact>svg {
+    flex: 0 0 auto;
+    width: 23px;
+    height: 23px;
+    color: var(--yellow);
+    stroke-width: 2;
+}
+
+.spaceExplorer__fact:nth-child(2)>svg {
+    color: #F66391;
+}
+
+.spaceExplorer__fact:nth-child(3)>svg {
+    color: #2EAFFA;
+}
+
+.spaceExplorer__fact span {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: rgba( 255, 255, 255, 0.73);
+    font-size: 11px;
+}
+
+.spaceExplorer__fact strong {
+    max-width: 205px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   HEX RAIL
+========================================================= */
+
+.spaceExplorer__hexRail {
+    position: absolute;
+    z-index: 14;
+    right: 14px;
+    top: 192px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spaceExplorer__hexFeature {
+    width: 100px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    color: var(--brown);
+    background: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba( 0, 0, 0, 0.13);
+    transition: color 0.3s ease, background 0.3s ease, transform 0.35s cubic-bezier( 0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.spaceExplorer__hexFeature svg {
+    width: 27px;
+    height: 27px;
+    stroke-width: 1.9;
+    transition: transform 0.35s ease;
+}
+
+.spaceExplorer__hexFeature span {
+    max-width: 66px;
+    color: inherit;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 760;
+    line-height: 1.25;
+}
+
+
+/* DEFAULT = BROWN */
+
+
+/* TOUCH / HOVER = YELLOW */
+
+.spaceExplorer__hexFeature:hover,
+.spaceExplorer__hexFeature:focus-visible,
+.spaceExplorer__hexFeature:active {
+    color: var(--yellow);
+    transform: scale(1.07) translateX(-4px);
+    filter: drop-shadow( 0 0 10px rgba( 255, 191, 0, 0.58));
+}
+
+.spaceExplorer__hexFeature:hover svg,
+.spaceExplorer__hexFeature:active svg {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+
+/* =========================================================
+   HEX CONNECTORS
+========================================================= */
+
+.spaceExplorer__hexConnector {
+    position: relative;
+    width: 2px;
+    height: 17px;
+    background: rgba( 255, 191, 0, 0.7);
+}
+
+.spaceExplorer__hexConnector i {
+    position: absolute;
+    left: 50%;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--yellow);
+    transform: translateX(-50%);
+    animation: connectorPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.spaceExplorer__gallery {
+    position: absolute;
+    z-index: 14;
+    left: 35px;
+    bottom: 34px;
+    display: flex;
+    gap: 8px;
+}
+
+.spaceExplorer__galleryItem {
+    width: 81px;
+    height: 57px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid rgba( 255, 255, 255, 0.42);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spaceExplorer__galleryItem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.spaceExplorer__galleryItem:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    border-color: var(--yellow);
+}
+
+.spaceExplorer__galleryItem:hover img {
+    transform: scale(1.08);
+}
+
+.spaceExplorer__galleryItem--active {
+    opacity: 1;
+    transform: translateY(-5px);
+    border-color: var(--yellow);
+    box-shadow: 0 0 15px rgba( 255, 191, 0, 0.65);
+}
+
+
+/* =========================================================
+   BOTTOM DOCK
+========================================================= */
+
+.spaceExplorer__dock {
+    position: relative;
+    z-index: 30;
+    width: calc( 100% - 38px);
+    min-height: 148px;
+    margin: -28px auto 0;
+    display: grid;
+    grid-template-columns: 1.05fr 1px 1.65fr 1px 0.9fr;
+    gap: 24px;
+    align-items: stretch;
+    padding: 24px 26px;
+    border: 1px solid rgba( 112, 31, 14, 0.065);
+    border-radius: 23px;
+    background: rgba( 255, 255, 255, 0.985);
+    box-shadow: 0 22px 47px rgba( 18, 18, 18, 0.12);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.spaceExplorer__about>span,
+.spaceExplorer__dockTitle {
+    color: var(--yellow);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+}
+
+.spaceExplorer__about p {
+    margin: 12px 0 0;
+    color: rgba( 18, 18, 18, 0.67);
+    font-size: 10px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.spaceExplorer__divider {
+    width: 1px;
+    height: 100%;
+    background: rgba( 255, 191, 0, 0.65);
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+.spaceExplorer__amenities {
+    min-width: 0;
+}
+
+.spaceExplorer__amenityGrid {
+    display: grid;
+    grid-template-columns: repeat( 6, minmax( 0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.spaceExplorer__amenity {
+    --amenity-delay: 0s;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(9px);
+    animation: amenityEnter 0.45s var(--amenity-delay) forwards;
+}
+
+.spaceExplorer__amenity i {
+    width: 43px;
+    height: 43px;
+    margin: 0 auto 7px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 112, 31, 14, 0.08);
+    border-radius: 50%;
+    color: var(--brown);
+    background: #FFFFFF;
+    box-shadow: 0 5px 15px rgba( 18, 18, 18, 0.045);
+    transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spaceExplorer__amenity i svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* BROWN → YELLOW */
+
+.spaceExplorer__amenity:hover i,
+.spaceExplorer__amenity:active i {
+    color: var(--yellow);
+    border-color: var(--yellow);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 9px 20px rgba( 255, 191, 0, 0.2);
+}
+
+.spaceExplorer__amenity small {
+    display: block;
+    color: rgba( 18, 18, 18, 0.65);
+    font-size: 7px;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   BOOKING
+========================================================= */
+
+.spaceExplorer__booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spaceExplorer__booking>button {
+    width: 100%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 9px 8px 20px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--brown-dark);
+    background: var(--yellow);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 850;
+    transition: transform 0.3s cubic-bezier( 0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.spaceExplorer__booking>button:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: 0 13px 25px rgba( 255, 191, 0, 0.29);
+}
+
+.spaceExplorer__booking button i {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background: var(--brown);
+}
+
+.spaceExplorer__booking button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.spaceExplorer__booking>small {
+    margin-top: 9px;
+    color: rgba( 18, 18, 18, 0.53);
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes photoEnter {
+    from {
+        opacity: 0;
+        transform: translate3d( 28px, 0, 0) scale(1.12);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d( var(--image-x), var(--image-y), 0) scale(1.045);
+    }
+}
+
+@keyframes copyEnter {
+    from {
+        opacity: 0;
+        transform: translateY(17px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spaceBorderTravel {
+    0% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes connectorPulse {
+    0%,
+    100% {
+        transform: translateX(-50%) scale(0.8);
+        box-shadow: 0 0 0 0 rgba( 255, 191, 0, 0.3);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+        box-shadow: 0 0 0 5px rgba( 255, 191, 0, 0);
+    }
+}
+
+@keyframes amenityEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spaceBeeFloat {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-4deg);
+    }
+    35% {
+        transform: translate( 8px, -11px) rotate(4deg);
+    }
+    70% {
+        transform: translate( -7px, -4px) rotate(-2deg);
+    }
+}
+
+@keyframes beeWingLeft {
+    from {
+        transform: rotate(-38deg);
+    }
+    to {
+        transform: rotate(6deg) scaleY(0.6);
+    }
+}
+
+@keyframes beeWingRight {
+    from {
+        transform: rotate(38deg);
+    }
+    to {
+        transform: rotate(-6deg) scaleY(0.6);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — LAPTOP
+========================================================= */
+
+@media ( max-width: 1350px) {
+    .spaceExplorer {
+        padding: 108px 22px 65px;
+    }
+    .spaceExplorer__intro {
+        left: 22px;
+        width: 350px;
+    }
+    .spaceExplorer__bee {
+        display: none;
+    }
+    .spaceExplorer__layout {
+        grid-template-columns: 340px minmax( 0, 1fr);
+        gap: 22px;
+    }
+    .spaceExplorer__visual {
+        height: 610px;
+    }
+    .spaceExplorer__hexFeature {
+        width: 88px;
+        height: 96px;
+    }
+    .spaceExplorer__dock {
+        gap: 17px;
+        padding: 22px 20px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 1000px) {
+    .spaceExplorer {
+        padding: 105px 18px 65px;
+    }
+    .spaceExplorer__topPill {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: fit-content;
+        min-width: 0;
+        margin: 0 auto 38px;
+    }
+    .spaceExplorer--visible .spaceExplorer__topPill {
+        transform: none;
+    }
+    .spaceExplorer__intro {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: min( 620px, 100%);
+        margin: 0 auto 45px;
+        text-align: center;
+    }
+    .spaceExplorer__layout {
+        margin-top: 0;
+        grid-template-columns: 1fr;
+    }
+    .spaceExplorer__selector {
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: repeat( 2, 1fr);
+    }
+    .spaceExplorer__navigator {
+        position: relative;
+        top: auto;
+        margin: 20px 0;
+        justify-content: flex-end;
+    }
+    .spaceExplorer__visual {
+        height: 630px;
+        clip-path: none;
+        border-radius: 38px;
+    }
+    .spaceExplorer__dock {
+        grid-template-columns: 1fr 1px 1.5fr;
+        row-gap: 22px;
+    }
+    .spaceExplorer__dock>.spaceExplorer__divider:last-of-type {
+        display: none;
+    }
+    .spaceExplorer__booking {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .spaceExplorer__booking>button {
+        max-width: 250px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 680px) {
+    .spaceExplorer {
+        padding: 82px 11px 55px;
+    }
+    .spaceExplorer__topPill {
+        width: 100%;
+        gap: 8px;
+        padding: 12px 10px;
+    }
+    .spaceExplorer__topPill span {
+        font-size: 8px;
+    }
+    .spaceExplorer__topPill svg {
+        width: 12px;
+        height: 12px;
+    }
+    .spaceExplorer__topPill>i {
+        height: 14px;
+    }
+    .spaceExplorer__intro h1 {
+        font-size: clamp( 48px, 13vw, 61px);
+    }
+    .spaceExplorer__selector {
+        grid-template-columns: 1fr;
+    }
+    .spaceExplorer__selectorCard {
+        height: 82px;
+    }
+    .spaceExplorer__visual {
+        height: 730px;
+        border-radius: 28px;
+    }
+    .spaceExplorer__photoInfo {
+        left: 20px;
+        top: 55px;
+        width: calc( 100% - 40px);
+    }
+    .spaceExplorer__photoInfo>p {
+        max-width: 265px;
+    }
+    .spaceExplorer__hexRail {
+        right: 12px;
+        top: 355px;
+    }
+    .spaceExplorer__hexFeature {
+        width: 76px;
+        height: 83px;
+    }
+    .spaceExplorer__hexFeature svg {
+        width: 20px;
+        height: 20px;
+    }
+    .spaceExplorer__hexFeature span {
+        font-size: 7px;
+    }
+    .spaceExplorer__gallery {
+        left: 17px;
+        right: 17px;
+        bottom: 25px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    .spaceExplorer__galleryItem {
+        flex: 0 0 auto;
+        width: 69px;
+        height: 50px;
+    }
+    .spaceExplorer__dock {
+        width: calc( 100% - 14px);
+        margin-top: -14px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 21px;
+    }
+    .spaceExplorer__divider {
+        width: 100%;
+        height: 1px;
+    }
+    .spaceExplorer__amenityGrid {
+        grid-template-columns: repeat( 3, 1fr);
+        row-gap: 17px;
+    }
+    .spaceExplorer__booking {
+        grid-column: auto;
+        flex-direction: column;
+    }
+    .spaceExplorer__booking>button {
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .spaceExplorer *,
+    .spaceExplorer *::before,
+    .spaceExplorer *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL LEFT STRUCTURE FIX
+   DO NOT REMOVE
+========================================================= */
+
+.spaceExplorer__layout {
+    width: min(1540px, calc(100% - 40px)) !important;
+    margin: 125px auto 0 !important;
+    display: grid !important;
+    grid-template-columns: 390px minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 38px !important;
+}
+
+
+/* =========================================================
+   LEFT PANEL
+========================================================= */
+
+.spaceExplorer__leftPanel {
+    position: relative !important;
+    width: 390px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    align-self: start !important;
+}
+
+
+/* =========================================================
+   INTRO — NO MORE ABSOLUTE POSITION
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__intro {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin: 0 0 34px 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__eyebrow {
+    display: block !important;
+    margin: 0 0 13px 0 !important;
+    color: #FFBF00 !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.19em !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__intro h1 {
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 0 !important;
+    color: #3A1006 !important;
+    font-size: 62px !important;
+    font-weight: 950 !important;
+    line-height: 0.91 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__intro h1 strong {
+    display: block !important;
+    color: #FFBF00 !important;
+    font: inherit !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__intro p {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 18px 0 0 0 !important;
+    color: rgba(18, 18, 18, 0.59) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   BEE
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__bee {
+    right: -200px !important;
+    top: 13px !important;
+}
+
+
+/* =========================================================
+   SELECTOR
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selector {
+    position: relative !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 11px !important;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard {
+    --accent: #FFBF00 !important;
+    --soft: #FFF5D1 !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 82px !important;
+    min-height: 82px !important;
+    display: grid !important;
+    grid-template-columns: 36px 55px minmax(0, 1fr) 35px !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 14px !important;
+    border: 1px solid rgba(112, 31, 14, 0.07) !important;
+    border-radius: 18px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 8px 22px rgba(29, 15, 9, 0.055) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    text-align: left !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard:hover {
+    transform: translateX(6px) !important;
+    border-color: #FFBF00 !important;
+    background: #FFFCF3 !important;
+    box-shadow: 0 14px 29px rgba(112, 31, 14, 0.09) !important;
+}
+
+
+/* =========================================================
+   ACTIVE CARD
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard--active {
+    background: linear-gradient( 105deg, #FFBF00 0%, #FFD45D 100%) !important;
+    border-color: #FFBF00 !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 15px 31px rgba(112, 31, 14, 0.12) !important;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__number {
+    width: 32px !important;
+    height: 32px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: #FFF6D5 !important;
+    color: #701F0E !important;
+    font-size: 9px !important;
+    font-weight: 900 !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard--active .spaceExplorer__number {
+    background: rgba(255, 255, 255, 0.88) !important;
+    color: #701F0E !important;
+}
+
+
+/* =========================================================
+   ICON — YELLOW + BROWN ONLY
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorIcon {
+    width: 53px !important;
+    height: 53px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 13px !important;
+    border: 1px solid rgba(255, 191, 0, 0.23) !important;
+    background: #FFF3C3 !important;
+    color: #701F0E !important;
+    box-shadow: none !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorIcon svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: #701F0E !important;
+    color: #701F0E !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard:hover .spaceExplorer__selectorIcon {
+    background: #FFBF00 !important;
+    color: #701F0E !important;
+    transform: rotate(-4deg) scale(1.06) !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard--active .spaceExplorer__selectorIcon {
+    background: rgba(255, 255, 255, 0.72) !important;
+    color: #701F0E !important;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorText {
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorText strong {
+    color: #301007 !important;
+    font-size: 15px !important;
+    font-weight: 850 !important;
+    line-height: 1.2 !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorText small {
+    margin-top: 4px !important;
+    color: rgba(45, 28, 20, 0.58) !important;
+    font-size: 9px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorArrow {
+    width: 34px !important;
+    height: 34px !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid rgba(112, 31, 14, 0.14) !important;
+    border-radius: 50% !important;
+    background: #FFFFFF !important;
+    color: #701F0E !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorArrow svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard:hover .spaceExplorer__selectorArrow,
+.spaceExplorer__leftPanel .spaceExplorer__selectorCard--active .spaceExplorer__selectorArrow {
+    color: #FFFFFF !important;
+    background: #701F0E !important;
+    border-color: #701F0E !important;
+}
+
+
+/* =========================================================
+   DESKTOP RIGHT ALIGNMENT
+========================================================= */
+
+.spaceExplorer__experience {
+    min-width: 0 !important;
+    align-self: start !important;
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1350px) and (min-width: 1001px) {
+    .spaceExplorer__layout {
+        width: calc(100% - 28px) !important;
+        grid-template-columns: 330px minmax(0, 1fr) !important;
+        gap: 22px !important;
+    }
+    .spaceExplorer__leftPanel {
+        width: 330px !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__intro h1 {
+        font-size: 53px !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selectorCard {
+        grid-template-columns: 32px 49px minmax(0, 1fr) 32px !important;
+        gap: 9px !important;
+        padding: 11px 10px !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selectorIcon {
+        width: 47px !important;
+        height: 47px !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+    .spaceExplorer__layout {
+        width: 100% !important;
+        margin-top: 25px !important;
+        grid-template-columns: 1fr !important;
+        gap: 38px !important;
+    }
+    .spaceExplorer__leftPanel {
+        width: 100% !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__intro {
+        max-width: 650px !important;
+        margin: 0 auto 35px !important;
+        text-align: center !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__intro p {
+        margin: 18px auto 0 !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__bee {
+        display: none !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selector {
+        display: grid !important;
+        grid-template-columns: repeat( 2, minmax(0, 1fr)) !important;
+        gap: 11px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+    .spaceExplorer__leftPanel .spaceExplorer__intro h1 {
+        font-size: clamp( 46px, 13vw, 58px) !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selector {
+        grid-template-columns: 1fr !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selectorCard {
+        transform: none !important;
+    }
+    .spaceExplorer__leftPanel .spaceExplorer__selectorCard--active {
+        transform: none !important;
+    }
+}

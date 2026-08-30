@@ -1,0 +1,616 @@
+/* =========================================================
+   GLOBAL NERDSHIVE NAVBAR
+========================================================= */
+
+.globalNavWrap,
+.globalNavWrap *,
+.globalNavWrap *::before,
+.globalNavWrap *::after {
+    box-sizing: border-box;
+}
+
+.globalNavWrap {
+    position: fixed;
+    z-index: 9999;
+    top: 16px;
+    left: 50%;
+    width: min( 1175px, calc(100vw - 100px));
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.globalNav {
+    position: relative;
+    width: 100%;
+    height: 128px;
+    display: grid;
+    grid-template-columns: 190px 1fr 180px;
+    align-items: center;
+    padding: 0 28px;
+    overflow: visible;
+    pointer-events: auto;
+    background: rgba( 255, 255, 255, 0.975);
+    border: 1px solid rgba( 18, 18, 18, 0.055);
+    border-radius: 30px;
+    box-shadow: 0 18px 48px rgba( 18, 18, 18, 0.085);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.globalNavBrand {
+    position: relative;
+    width: 115px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.globalNavBrand:hover {
+    transform: translateY(-3px);
+}
+
+.globalNavBrand img {
+    position: relative;
+    z-index: 4;
+    width: 102px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   BRAND HEXES
+========================================================= */
+
+.globalNavBrandHex {
+    position: absolute;
+    z-index: 1;
+    width: 21px;
+    height: 24px;
+    border: 2px solid rgba( 255, 191, 0, 0.45);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: globalBrandHexFloat 4s ease-in-out infinite;
+}
+
+.globalNavBrandHex--one {
+    left: -2px;
+    top: 10px;
+}
+
+.globalNavBrandHex--two {
+    right: -4px;
+    bottom: 9px;
+    width: 14px;
+    height: 16px;
+    animation-delay: -2s;
+}
+
+
+/* =========================================================
+   DESKTOP LINKS
+========================================================= */
+
+.globalNavLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 31px;
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.globalNavLink {
+    position: relative;
+    min-width: 42px;
+    padding: 13px 0 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #121212;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    transition: color 0.28s ease, transform 0.3s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.globalNavLink>span {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =========================================================
+   UNDERLINE
+========================================================= */
+
+.globalNavLink>i {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #ffbf00;
+    transition: width 0.32s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   ACTIVE HEX
+========================================================= */
+
+.globalNavLink>b {
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    width: 7px;
+    height: 8px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px) scale(0.45);
+    background: #ffbf00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    transition: opacity 0.25s ease, transform 0.34s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.globalNavLink:hover {
+    color: #701f0e;
+    transform: translateY(-2px);
+}
+
+.globalNavLink:hover>i {
+    width: 100%;
+}
+
+.globalNavLink:hover>b {
+    opacity: 0.6;
+    transform: translateX(-50%) translateY(0) scale(0.8);
+}
+
+
+/* =========================================================
+   CURRENT PAGE
+========================================================= */
+
+.globalNavLink--active {
+    color: #701f0e;
+    font-weight: 850;
+}
+
+.globalNavLink--active>i {
+    width: 100%;
+}
+
+.globalNavLink--active>b {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.globalNavLink--active>span {
+    animation: globalActiveText 0.55s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   BOOK TOUR
+========================================================= */
+
+.globalNavTour {
+    position: relative;
+    justify-self: end;
+    min-width: 158px;
+    height: 53px;
+    padding: 0 8px 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    overflow: visible;
+    color: #121212;
+    background: #ffbf00;
+    border-radius: 17px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 850;
+    box-shadow: 0 10px 24px rgba( 255, 191, 0, 0.18);
+    transition: transform 0.3s cubic-bezier( 0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.globalNavTour:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 29px rgba( 255, 191, 0, 0.24);
+}
+
+
+/* =========================================================
+   CTA ARROW
+========================================================= */
+
+.globalNavTourArrow {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #121212;
+    color: #ffffff;
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.globalNavTour:hover .globalNavTourArrow {
+    transform: rotate(-10deg) translateX(2px);
+}
+
+
+/* =========================================================
+   MINI BEE
+========================================================= */
+
+.globalNavBee {
+    position: absolute;
+    right: -17px;
+    top: -10px;
+    width: 30px;
+    height: 23px;
+    pointer-events: none;
+    animation: globalNavBeeFly 3.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MINI BEE BODY
+========================================================= */
+
+.globalNavBeeBody {
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    width: 21px;
+    height: 13px;
+    overflow: hidden;
+    border: 1.5px solid #121212;
+    border-radius: 50%;
+    background: #ffbf00;
+}
+
+.globalNavBeeBody i {
+    position: absolute;
+    top: -2px;
+    width: 3px;
+    height: 18px;
+    background: #121212;
+}
+
+.globalNavBeeBody i:first-child {
+    left: 7px;
+}
+
+.globalNavBeeBody i:last-child {
+    left: 14px;
+}
+
+
+/* =========================================================
+   MINI BEE WINGS
+========================================================= */
+
+.globalNavBeeWing {
+    position: absolute;
+    top: 2px;
+    width: 13px;
+    height: 10px;
+    border: 1px solid rgba( 18, 18, 18, 0.55);
+    border-radius: 50%;
+    background: rgba( 255, 255, 255, 0.9);
+}
+
+.globalNavBeeWing--left {
+    left: 6px;
+    transform-origin: right bottom;
+    animation: globalWingLeft 0.16s ease-in-out infinite alternate;
+}
+
+.globalNavBeeWing--right {
+    right: 0;
+    transform-origin: left bottom;
+    animation: globalWingRight 0.16s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.globalNavMenuButton {
+    display: none;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 14px;
+    background: rgba( 255, 191, 0, 0.13);
+    color: #121212;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.globalMobileMenu {
+    display: none;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes globalBrandHexFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(6deg);
+    }
+}
+
+@keyframes globalActiveText {
+    0% {
+        transform: translateY(4px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes globalNavBeeFly {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-4deg);
+    }
+    50% {
+        transform: translate( 4px, -5px) rotate(4deg);
+    }
+}
+
+@keyframes globalWingLeft {
+    from {
+        transform: rotate(-5deg);
+    }
+    to {
+        transform: rotate(-38deg);
+    }
+}
+
+@keyframes globalWingRight {
+    from {
+        transform: rotate(5deg);
+    }
+    to {
+        transform: rotate(38deg);
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media ( max-width: 1440px) {
+    .globalNavWrap {
+        top: 14px;
+        width: min( 1080px, calc(100vw - 90px));
+    }
+    .globalNav {
+        height: 112px;
+        grid-template-columns: 170px 1fr 160px;
+        padding: 0 24px;
+    }
+    .globalNavBrand {
+        width: 100px;
+        height: 87px;
+    }
+    .globalNavBrand img {
+        width: 91px;
+    }
+    .globalNavLinks {
+        gap: 25px;
+    }
+    .globalNavLink {
+        font-size: 12px;
+    }
+    .globalNavTour {
+        min-width: 145px;
+        height: 48px;
+        font-size: 12px;
+    }
+    .globalNavTourArrow {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 1000px) {
+    .globalNavWrap {
+        width: calc( 100vw - 36px);
+    }
+    .globalNav {
+        grid-template-columns: 135px 1fr 135px;
+        padding: 0 18px;
+    }
+    .globalNavLinks {
+        gap: 17px;
+    }
+    .globalNavLink {
+        font-size: 10px;
+    }
+    .globalNavTour {
+        min-width: 130px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 820px) {
+    .globalNavWrap {
+        top: 10px;
+        width: calc( 100vw - 20px);
+    }
+    .globalNav {
+        height: 72px;
+        grid-template-columns: 1fr auto;
+        padding: 0 14px;
+        border-radius: 21px;
+    }
+    .globalNavBrand {
+        width: 82px;
+        height: 59px;
+        justify-content: flex-start;
+    }
+    .globalNavBrand img {
+        width: 74px;
+    }
+    .globalNavBrandHex {
+        display: none;
+    }
+    .globalNavLinks,
+    .globalNavTour {
+        display: none;
+    }
+    .globalNavMenuButton {
+        display: flex;
+    }
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+    .globalMobileMenu {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 14px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px) scale(0.98);
+        transform-origin: top center;
+        background: rgba( 255, 255, 255, 0.985);
+        border: 1px solid rgba( 18, 18, 18, 0.055);
+        border-radius: 20px;
+        box-shadow: 0 20px 45px rgba( 18, 18, 18, 0.11);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.32s cubic-bezier( 0.22, 1, 0.36, 1);
+        pointer-events: none;
+    }
+    .globalMobileMenu--open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+    /* =====================================================
+       MOBILE LINK
+    ====================================================== */
+    .globalMobileLink {
+        position: relative;
+        min-height: 47px;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+        color: #121212;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 750;
+        transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .globalMobileLink:hover {
+        transform: translateX(3px);
+        background: rgba( 255, 191, 0, 0.07);
+    }
+    .globalMobileLink i {
+        width: 8px;
+        height: 9px;
+        background: #ffbf00;
+        clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    }
+    .globalMobileLink--active {
+        color: #701f0e;
+        background: rgba( 255, 191, 0, 0.12);
+        font-weight: 850;
+    }
+    /* =====================================================
+       MOBILE TOUR
+    ====================================================== */
+    .globalMobileTour {
+        min-height: 49px;
+        margin-top: 5px;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+        background: #ffbf00;
+        color: #121212;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 850;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .globalNavWrap *,
+    .globalNavWrap *::before,
+    .globalNavWrap *::after {
+        animation: none !important;
+        transition-duration: 0.001ms !important;
+    }
+}

@@ -1,0 +1,517 @@
+/* =========================================================
+   NERDSHIVE
+   DIFFERENT PATHS. ONE HIVE.
+   EXACT IMAGE + REAL CARD INTERACTION
+========================================================= */
+
+.whoBelongsExact,
+.whoBelongsExact *,
+.whoBelongsExact *::before,
+.whoBelongsExact *::after {
+    box-sizing: border-box;
+}
+
+.whoBelongsExact {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+    overflow: hidden;
+    background: #FFFFFF;
+    perspective: 1600px;
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW ONLY
+========================================================= */
+
+.whoBelongsExact__glow {
+    position: absolute;
+    z-index: -2;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.whoBelongsExact__glow--left {
+    left: -170px;
+    top: 30%;
+    width: 350px;
+    height: 350px;
+    background: rgba( 255, 191, 0, 0.075);
+}
+
+.whoBelongsExact__glow--right {
+    right: -180px;
+    bottom: 18%;
+    width: 380px;
+    height: 380px;
+    background: rgba( 112, 31, 14, 0.025);
+}
+
+
+/* =========================================================
+   ARTWORK
+========================================================= */
+
+.whoBelongsExact__artwork {
+    position: relative;
+    z-index: 5;
+    width: min( 1672px, 100%);
+    aspect-ratio: 1672 / 941;
+    opacity: 0;
+    transform: translateY(30px) scale(0.985);
+    transition: opacity 0.8s ease, transform 0.9s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.whoBelongsExact--visible .whoBelongsExact__artwork {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   BASE IMAGE
+========================================================= */
+
+.whoBelongsExact__baseImage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   INTERACTIVE CARD LAYER
+========================================================= */
+
+.whoBelongsExact__cardLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD HOTSPOT
+
+   IMPORTANT:
+   Outer button DOES NOT move.
+
+   Inner cardVisual moves.
+
+   Therefore interaction is visible.
+========================================================= */
+
+.whoBelongsExact__card {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    cursor: pointer;
+    pointer-events: auto;
+    perspective: 900px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   FOUNDERS
+========================================================= */
+
+.whoBelongsExact__card--founders {
+    left: 9.1%;
+    top: 29.2%;
+    width: 25.7%;
+    height: 18.7%;
+}
+
+
+/* =========================================================
+   FREELANCERS
+========================================================= */
+
+.whoBelongsExact__card--freelancers {
+    left: 66.0%;
+    top: 29.7%;
+    width: 25.2%;
+    height: 18.2%;
+}
+
+
+/* =========================================================
+   CREATORS
+========================================================= */
+
+.whoBelongsExact__card--creators {
+    left: 7.3%;
+    top: 52.9%;
+    width: 23.2%;
+    height: 16.6%;
+}
+
+
+/* =========================================================
+   REMOTE TEAMS
+========================================================= */
+
+.whoBelongsExact__card--remote {
+    left: 67.0%;
+    top: 54.2%;
+    width: 23.4%;
+    height: 17.4%;
+}
+
+
+/* =========================================================
+   STARTUPS
+========================================================= */
+
+.whoBelongsExact__card--startups {
+    left: 14.0%;
+    top: 73.1%;
+    width: 26.2%;
+    height: 19.2%;
+}
+
+
+/* =========================================================
+   PROFESSIONALS
+========================================================= */
+
+.whoBelongsExact__card--professionals {
+    left: 58.0%;
+    top: 74.2%;
+    width: 25.8%;
+    height: 18.5%;
+}
+
+
+/* =========================================================
+   VISUAL CROP WINDOW
+
+   This displays the exact same card from the approved image.
+========================================================= */
+
+.whoBelongsExact__cardVisual {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    overflow: hidden;
+    border-radius: 24px;
+    transform: translate3d( 0, 0, 0) scale(1);
+    transform-origin: center center;
+    transition: transform 0.42s cubic-bezier( 0.16, 1, 0.3, 1), filter 0.4s ease;
+    will-change: transform;
+}
+
+
+/* =========================================================
+   WHITE MASK
+
+   Hides the original card underneath while overlay lifts.
+========================================================= */
+
+.whoBelongsExact__card::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 7px;
+    border-radius: 23px;
+    background: #FFFFFF;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.whoBelongsExact__card:hover::before,
+.whoBelongsExact__card:focus-visible::before {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FULL IMAGE INSIDE EACH CROP
+========================================================= */
+
+.whoBelongsExact__cardVisual img {
+    position: absolute;
+    display: block;
+    max-width: none;
+    width: calc( 100% / var(--card-width));
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   FOUNDERS IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--founders {
+    --card-width: 0.257;
+}
+
+.whoBelongsExact__card--founders .whoBelongsExact__cardVisual img {
+    left: -35.4%;
+    top: -156.2%;
+    width: 389.1%;
+}
+
+
+/* =========================================================
+   FREELANCERS IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--freelancers {
+    --card-width: 0.252;
+}
+
+.whoBelongsExact__card--freelancers .whoBelongsExact__cardVisual img {
+    left: -262%;
+    top: -163%;
+    width: 396.8%;
+}
+
+
+/* =========================================================
+   CREATORS IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--creators {
+    --card-width: 0.232;
+}
+
+.whoBelongsExact__card--creators .whoBelongsExact__cardVisual img {
+    left: -31.5%;
+    top: -318%;
+    width: 431%;
+}
+
+
+/* =========================================================
+   REMOTE IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--remote {
+    --card-width: 0.234;
+}
+
+.whoBelongsExact__card--remote .whoBelongsExact__cardVisual img {
+    left: -286%;
+    top: -311%;
+    width: 427%;
+}
+
+
+/* =========================================================
+   STARTUPS IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--startups {
+    --card-width: 0.262;
+}
+
+.whoBelongsExact__card--startups .whoBelongsExact__cardVisual img {
+    left: -53.5%;
+    top: -381%;
+    width: 381.7%;
+}
+
+
+/* =========================================================
+   PROFESSIONALS IMAGE CROP
+========================================================= */
+
+.whoBelongsExact__card--professionals {
+    --card-width: 0.258;
+}
+
+.whoBelongsExact__card--professionals .whoBelongsExact__cardVisual img {
+    left: -225%;
+    top: -400%;
+    width: 387.6%;
+}
+
+
+/* =========================================================
+   REAL HOVER EFFECT
+========================================================= */
+
+.whoBelongsExact__card:hover .whoBelongsExact__cardVisual,
+.whoBelongsExact__card:focus-visible .whoBelongsExact__cardVisual {
+    transform: translate3d( 0, -12px, 45px) rotateX(4deg) rotateY(-2deg) scale(1.055);
+    filter: drop-shadow( 0 20px 15px rgba( 112, 31, 14, 0.14));
+}
+
+
+/* alternate movement */
+
+.whoBelongsExact__card--freelancers:hover .whoBelongsExact__cardVisual,
+.whoBelongsExact__card--remote:hover .whoBelongsExact__cardVisual,
+.whoBelongsExact__card--professionals:hover .whoBelongsExact__cardVisual {
+    transform: translate3d( 0, -12px, 45px) rotateX(4deg) rotateY(2deg) scale(1.055);
+}
+
+
+/* =========================================================
+   TOUCH EFFECT
+========================================================= */
+
+.whoBelongsExact__card:active .whoBelongsExact__cardVisual {
+    transform: translateY(-6px) scale(1.025);
+    transition-duration: 0.12s;
+}
+
+
+/* =========================================================
+   SPARK
+========================================================= */
+
+.whoBelongsExact__cardSpark {
+    position: absolute;
+    z-index: 20;
+    right: 6%;
+    top: 5%;
+    color: #FFBF00;
+    font-size: 18px;
+    opacity: 0;
+    transform: scale(0.4);
+    pointer-events: none;
+}
+
+.whoBelongsExact__card:hover .whoBelongsExact__cardSpark {
+    opacity: 1;
+    animation: whoBelongsCardSpark 1.5s ease-in-out infinite;
+}
+
+@keyframes whoBelongsCardSpark {
+    0%,
+    100% {
+        transform: scale(0.75) rotate(0deg);
+        opacity: 0.45;
+    }
+    50% {
+        transform: scale(1.35) rotate(22deg);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   CENTER HEX HOTSPOT
+========================================================= */
+
+.whoBelongsExact__center {
+    position: absolute;
+    z-index: 30;
+    left: 42.1%;
+    top: 48.5%;
+    width: 15.6%;
+    height: 26%;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CENTER RINGS
+========================================================= */
+
+.whoBelongsExact__centerRing {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1.5px solid rgba( 255, 191, 0, 0.55);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate( -50%, -50%) scale(0.7);
+    pointer-events: none;
+}
+
+.whoBelongsExact__center:hover .whoBelongsExact__centerRing,
+.whoBelongsExact__center:focus-visible .whoBelongsExact__centerRing {
+    animation: whoCenterPulse 1.8s ease-out infinite;
+}
+
+.whoBelongsExact__centerRing--one {
+    width: 85%;
+    height: 85%;
+}
+
+.whoBelongsExact__centerRing--two {
+    width: 85%;
+    height: 85%;
+    animation-delay: 0.6s !important;
+}
+
+@keyframes whoCenterPulse {
+    0% {
+        opacity: 0.7;
+        transform: translate( -50%, -50%) scale(0.68);
+    }
+    100% {
+        opacity: 0;
+        transform: translate( -50%, -50%) scale(1.35);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 900px) {
+    .whoBelongsExact {
+        min-height: auto;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 20px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    .whoBelongsExact__artwork {
+        flex: 0 0 auto;
+        width: 1200px;
+    }
+    /*
+    Touch devices still get:
+    - press animation
+    - exact composition
+  */
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .whoBelongsExact *,
+    .whoBelongsExact *::before,
+    .whoBelongsExact *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

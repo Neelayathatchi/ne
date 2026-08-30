@@ -1,0 +1,887 @@
+:root {
+    --nh-yellow: #ffbf00;
+    --nh-yellow-soft: #f8c344;
+    --nh-brown: #701f0e;
+    --nh-black: #121212;
+    --nh-white: #ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.hiveStory,
+.hiveStory *,
+.hiveStory *::before,
+.hiveStory *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HOME SECTION 02 — PURE WHITE
+========================================================= */
+
+.hiveStory {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 118px 0 108px;
+    background: #ffffff !important;
+    background-image: none !important;
+    color: var(--nh-black);
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   REMOVE ALL BACKGROUND OVERLAYS
+========================================================= */
+
+.hiveStory::before,
+.hiveStory::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* =========================================================
+   REMOVE GHOST WORDS COMPLETELY
+========================================================= */
+
+.hiveStoryGhost {
+    display: none !important;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.hiveStoryContainer {
+    position: relative;
+    z-index: 10;
+    width: min( 1380px, calc(100% - 80px));
+    min-height: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 58px;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.hiveStoryCopy {
+    position: relative;
+    z-index: 15;
+    padding-left: 12px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.hiveStoryEyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--nh-brown);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.hiveStoryEyebrow>span {
+    width: 22px;
+    height: 25px;
+    flex: 0 0 22px;
+    background: var(--nh-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: hiveStoryEyebrowFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TITLE — SOFTER PREMIUM BOLD
+========================================================= */
+
+.hiveStoryTitle {
+    margin: 35px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--nh-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 76px, 6.5vw, 116px);
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    perspective: 1000px;
+}
+
+.hiveStoryTitleLine {
+    display: block;
+    white-space: nowrap;
+    font-weight: 800;
+    transform-origin: left bottom;
+}
+
+.hiveStoryTitleLine--accent {
+    color: var(--nh-yellow-soft);
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hiveStoryBody {
+    max-width: 525px;
+    margin: 42px 0 0;
+    color: var(--nh-brown);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.72;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.hiveStoryStats {
+    width: min( 500px, 100%);
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 24px;
+}
+
+.hiveStoryStats>div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hiveStoryStats strong {
+    color: var(--nh-black);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.hiveStoryStats span {
+    color: var(--nh-brown);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hiveStoryStats>i {
+    width: 1px;
+    height: 44px;
+    background: rgba( 112, 31, 14, 0.16);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.hiveStoryCTA {
+    position: relative;
+    min-height: 60px;
+    margin-top: 36px;
+    padding: 0 13px 0 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    overflow: hidden;
+    border-radius: 17px;
+    background: var(--nh-black);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 16px 35px rgba( 18, 18, 18, 0.14);
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+.hiveStoryCTA:hover {
+    transform: translateY(-5px);
+    background: var(--nh-brown);
+}
+
+.hiveStoryCTA>b {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--nh-yellow);
+    color: var(--nh-black);
+    transition: transform 0.3s ease;
+}
+
+.hiveStoryCTA:hover>b {
+    transform: translateX(4px) rotate(-7deg);
+}
+
+
+/* =========================================================
+   NETWORK
+========================================================= */
+
+.hiveStoryNetwork {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   YELLOW ORBIT RINGS
+========================================================= */
+
+.hiveStoryNetwork__halo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate( -50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hiveStoryNetwork__halo--outer {
+    width: 88%;
+    height: 88%;
+    border: 1.7px dashed rgba( 255, 191, 0, 0.58);
+    animation: hiveShellSpin 34s linear infinite;
+}
+
+.hiveStoryNetwork__halo--middle {
+    width: 72%;
+    height: 72%;
+    border: 1.5px solid rgba( 255, 191, 0, 0.22);
+    animation: hiveShellSpinReverse 28s linear infinite;
+}
+
+.hiveStoryNetwork__halo--inner {
+    width: 59%;
+    height: 59%;
+    border: 1.5px dashed rgba( 255, 191, 0, 0.38);
+    animation: hiveShellSpin 23s linear infinite;
+}
+
+
+/* =========================================================
+   CONNECTION LINES
+========================================================= */
+
+.hiveStoryLines {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.hiveStoryLine {
+    fill: none;
+    stroke: rgba( 255, 191, 0, 0.82);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+}
+
+
+/* =========================================================
+   CENTER HIVE
+========================================================= */
+
+.hiveStoryCore {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 20;
+    width: 205px;
+    height: 230px;
+    transform: translate( -50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--nh-yellow-soft);
+    color: var(--nh-black);
+    text-align: center;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    filter: drop-shadow( 0 16px 24px rgba( 255, 191, 0, 0.15));
+    animation: hiveCoreBreath 4s ease-in-out infinite;
+}
+
+.hiveStoryCore__eyebrow {
+    color: var(--nh-black);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+}
+
+.hiveStoryCore strong {
+    margin-top: 5px;
+    color: var(--nh-black);
+    font-size: 47px;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.hiveStoryCore small {
+    margin-top: 10px;
+    color: var(--nh-black);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+}
+
+
+/* =========================================================
+   CENTER PULSE
+========================================================= */
+
+.hiveStoryCore__pulse {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    width: 155px;
+    height: 155px;
+    transform: translate( -50%, -50%);
+    border: 1px solid rgba( 255, 191, 0, 0.42);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: hiveCorePulse 3s ease-out infinite;
+}
+
+.hiveStoryCore__pulse--2 {
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================================
+   ALL OUTER HEXAGONS = YELLOW
+========================================================= */
+
+.hiveStoryCell {
+    position: absolute;
+    z-index: 12;
+    width: 145px;
+    height: 162px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--nh-yellow-soft);
+    color: var(--nh-black);
+    text-align: center;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    filter: drop-shadow( 0 13px 19px rgba( 255, 191, 0, 0.12));
+    animation: hiveCellFloat 4.7s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease, filter 0.3s ease;
+}
+
+
+/* =========================================================
+   CELL INNER
+========================================================= */
+
+.hiveStoryCellContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transform-origin: center;
+}
+
+
+/* =========================================================
+   CELL HOVER
+========================================================= */
+
+.hiveStoryCell:hover {
+    z-index: 40;
+    transform: translateY(-12px) scale(1.1);
+    background: #ffc935;
+    filter: drop-shadow( 0 22px 30px rgba( 255, 191, 0, 0.25));
+}
+
+.hiveStoryCell:hover .hiveStoryCellContent {
+    animation: hiveContentHop 0.55s cubic-bezier( 0.34, 1.56, 0.64, 1);
+}
+
+
+/* =========================================================
+   CELL NUMBER
+========================================================= */
+
+.hiveStoryCell__number {
+    color: rgba( 18, 18, 18, 0.55);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   CELL LABEL
+========================================================= */
+
+.hiveStoryCell__label {
+    width: 125px;
+    color: var(--nh-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0.035em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CELL MINI LINE
+========================================================= */
+
+.hiveStoryCell__line {
+    width: 28px;
+    height: 3px;
+    flex: 0 0 3px;
+    border-radius: 999px;
+    background: var(--nh-black);
+    transition: width 0.3s ease;
+}
+
+.hiveStoryCell:hover .hiveStoryCell__line {
+    width: 42px;
+}
+
+
+/* =========================================================
+   POSITIONS
+========================================================= */
+
+.hiveStoryCell--1 {
+    left: 5%;
+    top: 8%;
+}
+
+.hiveStoryCell--2 {
+    left: 39.5%;
+    top: -2%;
+}
+
+.hiveStoryCell--3 {
+    right: 3%;
+    top: 8%;
+}
+
+.hiveStoryCell--4 {
+    right: -2%;
+    top: 42%;
+}
+
+.hiveStoryCell--5 {
+    right: 10%;
+    bottom: 0;
+}
+
+.hiveStoryCell--6 {
+    left: 17%;
+    bottom: -2%;
+}
+
+.hiveStoryCell--7 {
+    left: -2%;
+    top: 45%;
+}
+
+
+/* =========================================================
+   BEE ORBIT
+========================================================= */
+
+.hiveStoryBeeOrbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 35;
+    width: 365px;
+    height: 365px;
+    margin-left: -182.5px;
+    margin-top: -182.5px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: hiveBeeOrbit 10s linear infinite;
+}
+
+.hiveStoryBee {
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    width: 48px;
+    height: 36px;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   BEE BODY
+========================================================= */
+
+.hiveStoryBee__body {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 30px;
+    height: 20px;
+    overflow: hidden;
+    border: 2px solid var(--nh-black);
+    border-radius: 50%;
+    background: var(--nh-yellow);
+}
+
+.hiveStoryBee__body i {
+    position: absolute;
+    top: -3px;
+    width: 5px;
+    height: 28px;
+    background: var(--nh-black);
+}
+
+.hiveStoryBee__body i:first-child {
+    left: 9px;
+}
+
+.hiveStoryBee__body i:last-child {
+    left: 19px;
+}
+
+
+/* =========================================================
+   BEE HEAD
+========================================================= */
+
+.hiveStoryBee__head {
+    position: absolute;
+    left: 2px;
+    top: 15px;
+    width: 21px;
+    height: 21px;
+    border: 2px solid var(--nh-black);
+    border-radius: 50%;
+    background: var(--nh-yellow);
+}
+
+.hiveStoryBee__head b {
+    position: absolute;
+    top: 5px;
+    width: 3px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--nh-black);
+}
+
+.hiveStoryBee__head b:first-child {
+    left: 5px;
+}
+
+.hiveStoryBee__head b:last-child {
+    right: 5px;
+}
+
+
+/* =========================================================
+   BEE WINGS
+========================================================= */
+
+.hiveStoryBee__wing {
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    border: 1.5px solid var(--nh-black);
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.hiveStoryBee__wing--left {
+    left: 14px;
+    top: 2px;
+    animation: hiveBeeWingLeft 0.13s ease-in-out infinite alternate;
+}
+
+.hiveStoryBee__wing--right {
+    left: 28px;
+    top: 3px;
+    animation: hiveBeeWingRight 0.13s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   MINI HIVE DECOR
+========================================================= */
+
+.hiveStoryMiniHive {
+    position: absolute;
+    right: 1%;
+    bottom: 18%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0.42;
+}
+
+.hiveStoryMiniHive span {
+    width: 20px;
+    height: 23px;
+    background: var(--nh-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.hiveStoryMiniHive span:nth-child(2) {
+    margin-left: 14px;
+}
+
+
+/* =========================================================
+   TOP DOTS
+========================================================= */
+
+.hiveStoryTopDots {
+    position: absolute;
+    right: 8%;
+    top: 43px;
+    display: flex;
+    gap: 7px;
+}
+
+.hiveStoryTopDots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba( 255, 191, 0, 0.65);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes hiveStoryEyebrowFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(6deg);
+    }
+}
+
+@keyframes hiveShellSpin {
+    from {
+        transform: translate( -50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate( -50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes hiveShellSpinReverse {
+    from {
+        transform: translate( -50%, -50%) rotate(360deg);
+    }
+    to {
+        transform: translate( -50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes hiveCoreBreath {
+    0%,
+    100% {
+        transform: translate( -50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate( -50%, calc(-50% - 7px)) scale(1.025);
+    }
+}
+
+@keyframes hiveCorePulse {
+    0% {
+        opacity: 0.35;
+        transform: translate( -50%, -50%) scale(0.75);
+    }
+    100% {
+        opacity: 0;
+        transform: translate( -50%, -50%) scale(2.25);
+    }
+}
+
+@keyframes hiveCellFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -8px;
+    }
+}
+
+@keyframes hiveContentHop {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    38% {
+        transform: translateY(-12px) scale(1.06);
+    }
+    65% {
+        transform: translateY(4px) scale(0.99);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hiveBeeOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hiveBeeWingLeft {
+    from {
+        transform: rotate(-8deg);
+    }
+    to {
+        transform: rotate(-50deg);
+    }
+}
+
+@keyframes hiveBeeWingRight {
+    from {
+        transform: rotate(8deg);
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 1100px) {
+    .hiveStoryContainer {
+        grid-template-columns: 1fr;
+        gap: 65px;
+    }
+    .hiveStoryCopy {
+        max-width: 760px;
+        margin: 0 auto;
+        padding-left: 0;
+        text-align: center;
+    }
+    .hiveStoryEyebrow {
+        justify-content: center;
+    }
+    .hiveStoryTitle {
+        align-items: center;
+    }
+    .hiveStoryBody {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hiveStoryStats {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hiveStoryNetwork {
+        width: 650px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 700px) {
+    .hiveStory {
+        padding: 88px 0 75px;
+        background: #ffffff !important;
+        background-image: none !important;
+    }
+    .hiveStoryContainer {
+        width: calc(100% - 30px);
+        min-height: auto;
+        gap: 38px;
+    }
+    .hiveStoryTitle {
+        font-size: clamp( 54px, 15vw, 76px);
+        line-height: 0.92;
+    }
+    .hiveStoryTitleLine {
+        white-space: normal;
+    }
+    .hiveStoryBody {
+        font-size: 15px;
+    }
+    .hiveStoryNetwork {
+        width: 680px;
+        max-width: none;
+        transform: scale(0.5);
+        transform-origin: top center;
+        margin-bottom: -320px;
+    }
+    .hiveStoryCell__label {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .hiveStoryCore,
+    .hiveStoryCell,
+    .hiveStoryBeeOrbit,
+    .hiveStoryBee__wing,
+    .hiveStoryNetwork__halo,
+    .hiveStoryEyebrow>span {
+        animation: none !important;
+    }
+}

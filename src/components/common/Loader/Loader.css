@@ -1,0 +1,602 @@
+/* =========================================================
+   NERDSHIVE FINAL CINEMATIC LOADER
+========================================================= */
+
+.nerdsFinalLoader,
+.nerdsFinalLoader *,
+.nerdsFinalLoader *::before,
+.nerdsFinalLoader *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.nerdsFinalLoader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999999;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: opacity 0.72s ease, transform 0.72s cubic-bezier( 0.22, 1, 0.36, 1), visibility 0.72s ease;
+}
+
+.nerdsFinalLoader--leaving {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.025);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.nerdsFinalLoader__center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 900px;
+    transform: translate( -50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   TOP WORD STAGE
+========================================================= */
+
+.loaderWordStage {
+    position: relative;
+    width: 800px;
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   BEE FORMATION STAGE
+========================================================= */
+
+.loaderBeeFormation {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    width: 1px;
+    height: 1px;
+    transform: translate( -50%, -50%);
+    opacity: 1;
+    transition: opacity 0.48s ease, transform 0.48s ease;
+}
+
+
+/* =========================================================
+   EACH FLYING BEE
+========================================================= */
+
+.nhFlyingBee {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 12px;
+    margin-left: -8px;
+    margin-top: -6px;
+    opacity: 0;
+    transform: translate( var(--start-x), var(--start-y)) rotate(-15deg) scale(1.9);
+    animation: nerdsBeeFly var(--bee-duration) cubic-bezier( 0.17, 0.78, 0.22, 1) var(--bee-delay) forwards;
+    will-change: transform, opacity;
+}
+
+.nhFlyingBee svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    filter: drop-shadow( 0 2px 2px rgba( 18, 18, 18, 0.1));
+}
+
+
+/* =========================================================
+   BEE WINGS
+========================================================= */
+
+.nhFlyingBee__wing--left {
+    transform-origin: 30px 22px;
+    animation: beeWingLeft 0.13s ease-in-out infinite alternate;
+}
+
+.nhFlyingBee__wing--right {
+    transform-origin: 48px 22px;
+    animation: beeWingRight 0.13s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   ONCE FORMATION COMPLETES
+========================================================= */
+
+.nerdsFinalLoader--beesReady .nhFlyingBee {
+    animation: beeFormationBreath 0.75s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   REAL TEXT
+========================================================= */
+
+.loaderJumpWord {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 20;
+    transform: translate( -50%, -50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BIG GAP NERDS / HIVE
+========================================================= */
+
+.loaderJumpWord__space {
+    width: 52px;
+    flex: 0 0 52px;
+}
+
+
+/* =========================================================
+   EACH LETTER
+========================================================= */
+
+.loaderJumpLetter {
+    position: relative;
+    display: inline-block;
+    color: #121212;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 66px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.055em;
+    opacity: 0;
+    transform: translateY(-120px) rotate(-8deg) scale(0.65);
+    transform-origin: center bottom;
+}
+
+
+/* =========================================================
+   WHEN LETTER SEQUENCE STARTS
+========================================================= */
+
+.nerdsFinalLoader--letters .loaderBeeFormation {
+    opacity: 0;
+    transform: translate( -50%, -50%) scale(0.92);
+}
+
+.nerdsFinalLoader--letters .loaderJumpWord {
+    opacity: 1;
+}
+
+.nerdsFinalLoader--letters .loaderJumpLetter {
+    animation: letterJumpIntoPlace 0.72s cubic-bezier( 0.16, 1.28, 0.42, 1) calc( var(--letter-index) * 0.105s) forwards;
+}
+
+
+/* =========================================================
+   APPROVED FINAL LOGO
+========================================================= */
+
+.loaderApprovedLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 40;
+    width: 720px;
+    height: auto;
+    transform: translate( -50%, -48%) scale(0.84);
+    opacity: 0;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow( 0 12px 28px rgba( 18, 18, 18, 0.08));
+    transition: opacity 0.55s ease, transform 0.75s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   FINAL LOGO APPEARS
+========================================================= */
+
+.nerdsFinalLoader--finalLogo .loaderJumpWord {
+    opacity: 0;
+    transform: translate( -50%, -50%) scale(0.95);
+    transition: opacity 0.38s ease, transform 0.45s ease;
+}
+
+.nerdsFinalLoader--finalLogo .loaderApprovedLogo {
+    opacity: 1;
+    transform: translate( -50%, -48%) scale(1);
+    animation: finalBeeLogoLand 0.8s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   ORIGINAL BRAND LOGO UNDER THE ANIMATION
+========================================================= */
+
+.loaderMainLogoStage {
+    position: relative;
+    width: 390px;
+    height: 245px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.loaderMainLogo {
+    position: relative;
+    z-index: 10;
+    width: 295px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow( 0 15px 32px rgba( 18, 18, 18, 0.055));
+    animation: mainLogoFloat 2.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PULSES
+========================================================= */
+
+.loaderMainLogoPulse {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 175px;
+    height: 175px;
+    border: 2px solid rgba( 255, 191, 0, 0.23);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate( -50%, -50%) scale(0.55);
+    animation: logoPulse 2.4s ease-out infinite;
+}
+
+.loaderMainLogoPulse--two {
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   WHEN FINAL IMAGE IS VISIBLE
+   LOWER LOGO FADES SO TWO LOGOS DON'T CLASH
+========================================================= */
+
+.nerdsFinalLoader--finalLogo .loaderMainLogoStage {
+    opacity: 0;
+    transform: scale(0.94);
+}
+
+
+/* =========================================================
+   ENTERING TEXT
+========================================================= */
+
+.loaderEnteringText {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    min-height: 36px;
+    padding: 8px 0;
+    margin-top: 3px;
+    overflow: visible;
+    color: #701F0E;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: 0.26em;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.loaderProgressTrack {
+    position: relative;
+    width: 305px;
+    height: 4px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba( 18, 18, 18, 0.08);
+}
+
+.loaderProgressTrack span {
+    position: absolute;
+    inset: 0;
+    background: #FFBF00;
+    transform-origin: left center;
+    transition: transform 0.08s linear;
+}
+
+
+/* =========================================================
+   PERCENT
+========================================================= */
+
+.loaderPercentage {
+    margin-top: 14px;
+    color: #121212;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.loaderPercentage small {
+    margin-left: 2px;
+    color: #701F0E;
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   HEX DECOR
+========================================================= */
+
+.nerdsLoaderHex {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat( 4, 38px);
+    gap: 3px;
+    width: 180px;
+    pointer-events: none;
+}
+
+.nerdsLoaderHex--topLeft {
+    left: 27px;
+    top: 27px;
+}
+
+.nerdsLoaderHex--bottomRight {
+    right: 27px;
+    bottom: 27px;
+    transform: rotate(180deg);
+}
+
+.nerdsLoaderHex span {
+    width: 38px;
+    height: 43px;
+    background: rgba( 255, 191, 0, 0.17);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.nerdsLoaderHex span:nth-child(3n),
+.nerdsLoaderHex span:nth-child(7n) {
+    background: rgba( 255, 191, 0, 0.66);
+}
+
+
+/* =========================================================
+   BEE FLY
+========================================================= */
+
+@keyframes nerdsBeeFly {
+    0% {
+        opacity: 0;
+        transform: translate( var(--start-x), var(--start-y)) rotate(-15deg) scale(1.9);
+    }
+    8% {
+        opacity: 1;
+    }
+    28% {
+        transform: translate( calc( var(--start-x) * 0.72), calc( var(--start-y) * 0.7)) rotate(11deg) scale(1.55);
+    }
+    53% {
+        transform: translate( calc( var(--start-x) * 0.42), calc( var(--start-y) * 0.4)) rotate(-8deg) scale(1.28);
+    }
+    76% {
+        transform: translate( calc( var(--target-x) * 0.82), calc( var(--target-y) * 0.82)) rotate(5deg) scale( calc( var(--bee-scale) * 1.17));
+    }
+    90% {
+        opacity: 1;
+        transform: translate( calc( var(--target-x) * 1.03), calc( var(--target-y) * 1.03)) rotate(-2deg) scale( calc( var(--bee-scale) * 1.05));
+    }
+    100% {
+        opacity: 1;
+        transform: translate( var(--target-x), var(--target-y)) rotate(0deg) scale( var(--bee-scale));
+    }
+}
+
+
+/* =========================================================
+   BEE FORMATION BREATH
+========================================================= */
+
+@keyframes beeFormationBreath {
+    from {
+        transform: translate( var(--target-x), var(--target-y)) scale( calc( var(--bee-scale) * 0.95));
+    }
+    to {
+        transform: translate( var(--target-x), var(--target-y)) scale( calc( var(--bee-scale) * 1.06));
+    }
+}
+
+
+/* =========================================================
+   WINGS
+========================================================= */
+
+@keyframes beeWingLeft {
+    from {
+        transform: rotate(4deg);
+    }
+    to {
+        transform: rotate(-28deg);
+    }
+}
+
+@keyframes beeWingRight {
+    from {
+        transform: rotate(-4deg);
+    }
+    to {
+        transform: rotate(28deg);
+    }
+}
+
+
+/* =========================================================
+   EACH LETTER JUMPS INTO PLACE
+========================================================= */
+
+@keyframes letterJumpIntoPlace {
+    0% {
+        opacity: 0;
+        transform: translateY(-125px) rotate(-10deg) scale(0.6);
+    }
+    45% {
+        opacity: 1;
+        transform: translateY(14px) rotate(2deg) scale(1.09);
+    }
+    67% {
+        transform: translateY(-10px) rotate(-1deg) scale(0.98);
+    }
+    82% {
+        transform: translateY(4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+
+/* =========================================================
+   APPROVED LOGO ARRIVAL
+========================================================= */
+
+@keyframes finalBeeLogoLand {
+    0% {
+        opacity: 0;
+        transform: translate( -50%, -78%) rotate(-4deg) scale(0.74);
+    }
+    62% {
+        opacity: 1;
+        transform: translate( -50%, -43%) rotate(1deg) scale(1.04);
+    }
+    82% {
+        transform: translate( -50%, -50%) rotate(-0.5deg) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translate( -50%, -48%) rotate(0deg) scale(1);
+    }
+}
+
+
+/* =========================================================
+   MAIN LOGO FLOAT
+========================================================= */
+
+@keyframes mainLogoFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* =========================================================
+   PULSE
+========================================================= */
+
+@keyframes logoPulse {
+    0% {
+        opacity: 0.38;
+        transform: translate( -50%, -50%) scale(0.55);
+    }
+    100% {
+        opacity: 0;
+        transform: translate( -50%, -50%) scale(1.75);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 768px) {
+    .nerdsFinalLoader__center {
+        width: 100%;
+    }
+    .loaderWordStage {
+        width: 760px;
+        transform: scale(0.52);
+        margin-top: -40px;
+        margin-bottom: -35px;
+    }
+    .loaderMainLogoStage {
+        width: 280px;
+        height: 220px;
+    }
+    .loaderMainLogo {
+        width: 225px;
+    }
+    .loaderEnteringText {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+    }
+    .loaderProgressTrack {
+        width: 220px;
+    }
+    .loaderApprovedLogo {
+        width: 680px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .nhFlyingBee,
+    .loaderJumpLetter,
+    .loaderMainLogo,
+    .loaderMainLogoPulse {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

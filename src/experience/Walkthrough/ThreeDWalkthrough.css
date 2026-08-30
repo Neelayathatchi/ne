@@ -1,0 +1,440 @@
+.three-walkthrough {
+    position: relative;
+    width: 100%;
+    /* 13 rooms = long scroll */
+    height: 1300vh;
+    background: #ffffff;
+}
+
+.three-walkthrough__sticky {
+    position: sticky;
+    /*
+    IMPORTANT:
+    Navbar mela irukkum.
+    Walkthrough navbar KEELA start aagum.
+  */
+    top: 104px;
+    width: 100%;
+    height: calc(100svh - 104px);
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 36px 36px 0 0;
+    box-shadow: 0 -5px 35px rgba(18, 18, 18, 0.04);
+    isolation: isolate;
+}
+
+
+/* =====================================
+   CANVAS
+===================================== */
+
+.three-walkthrough__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.three-walkthrough__canvas canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+
+/* =====================================
+   TOP BAR
+===================================== */
+
+.three-walkthrough__top {
+    position: absolute;
+    z-index: 20;
+    top: 24px;
+    left: 50%;
+    width: min( calc(100% - 64px), 1380px);
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.three-walkthrough__pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px 10px 11px;
+    background: rgba(255, 255, 255, .94);
+    border: 1px solid rgba(18, 18, 18, .07);
+    border-radius: 999px;
+    box-shadow: 0 12px 38px rgba(18, 18, 18, .08);
+}
+
+.three-walkthrough__bee {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: #ffbf00;
+    color: #121212;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.three-walkthrough__pill div {
+    display: flex;
+    flex-direction: column;
+}
+
+.three-walkthrough__pill small {
+    color: rgba(18, 18, 18, .48);
+    font-size: .62rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+}
+
+.three-walkthrough__pill strong {
+    margin-top: 2px;
+    color: #121212;
+    font-size: .82rem;
+}
+
+.three-walkthrough__count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, .94);
+    border-radius: 999px;
+    box-shadow: 0 12px 38px rgba(18, 18, 18, .08);
+}
+
+.three-walkthrough__count strong {
+    color: #701f0e;
+    font-size: .82rem;
+}
+
+.three-walkthrough__count span {
+    width: 28px;
+    height: 2px;
+    background: #ffbf00;
+}
+
+.three-walkthrough__count small {
+    color: rgba(18, 18, 18, .45);
+    font-size: .7rem;
+}
+
+
+/* =====================================
+   TEXT
+===================================== */
+
+.three-walkthrough__content {
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 6%;
+    transform: translateY(-50%);
+    width: min(430px, 38vw);
+    padding: 34px 34px 30px;
+    background: rgba(255, 255, 255, .94);
+    border: 1px solid rgba(18, 18, 18, .07);
+    border-radius: 28px;
+    box-shadow: 0 25px 80px rgba(18, 18, 18, .13);
+    animation: contentEnter .65s cubic-bezier( .22, 1, .36, 1) both;
+}
+
+.three-walkthrough__content::before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: -12px;
+    width: 24px;
+    height: 28px;
+    background: #ffbf00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.three-walkthrough__content--right {
+    left: auto;
+    right: 6%;
+}
+
+.three-walkthrough__content--right::before {
+    left: auto;
+    right: -12px;
+}
+
+.three-walkthrough__eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #701f0e;
+    font-size: .67rem;
+    font-weight: 900;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.three-walkthrough__content h2 {
+    color: #121212;
+    font-size: clamp( 3rem, 5vw, 5.7rem);
+    line-height: .9;
+    letter-spacing: -.055em;
+}
+
+.three-walkthrough__content h2 span {
+    color: #ffbf00;
+}
+
+.three-walkthrough__content p {
+    margin-top: 20px;
+    color: rgba(18, 18, 18, .64);
+    font-size: .93rem;
+    line-height: 1.7;
+}
+
+.three-walkthrough__space-pill {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 8px 12px;
+    background: rgba(255, 191, 0, .13);
+    color: #701f0e;
+    border-radius: 999px;
+    font-size: .62rem;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+
+/* =====================================
+   PROGRESS
+===================================== */
+
+.three-walkthrough__progress {
+    position: absolute;
+    z-index: 30;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 12px;
+    background: rgba(255, 255, 255, .94);
+    border-radius: 999px;
+    box-shadow: 0 12px 40px rgba(18, 18, 18, .08);
+}
+
+.three-walkthrough__progress span {
+    width: 6px;
+    height: 6px;
+    border-radius: 20px;
+    background: rgba(18, 18, 18, .14);
+    transition: width .35s ease, background .35s ease;
+}
+
+.three-walkthrough__progress span.active {
+    width: 20px;
+    background: #ffbf00;
+}
+
+
+/* =====================================
+   SCROLL
+===================================== */
+
+.three-walkthrough__scroll {
+    position: absolute;
+    z-index: 30;
+    right: 4%;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 13px;
+    background: rgba(255, 255, 255, .93);
+    border-radius: 20px;
+    box-shadow: 0 12px 38px rgba(18, 18, 18, .07);
+}
+
+.three-walkthrough__mouse {
+    position: relative;
+    width: 25px;
+    height: 40px;
+    border: 1px solid rgba(18, 18, 18, .25);
+    border-radius: 999px;
+}
+
+.three-walkthrough__mouse i {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 4px;
+    height: 7px;
+    transform: translateX(-50%);
+    background: #ffbf00;
+    border-radius: 20px;
+    animation: mouseScroll 1.5s ease-in-out infinite;
+}
+
+.three-walkthrough__scroll div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.three-walkthrough__scroll small {
+    color: rgba(18, 18, 18, .45);
+    font-size: .57rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.three-walkthrough__scroll strong {
+    margin-top: 2px;
+    color: #121212;
+    font-size: .69rem;
+}
+
+
+/* =====================================
+   ANIMATION
+===================================== */
+
+@keyframes contentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes mouseScroll {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+    30% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, 15px);
+    }
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+    .three-walkthrough__sticky {
+        top: 90px;
+        height: calc(100svh - 90px);
+    }
+    .three-walkthrough__content {
+        width: min(390px, 46vw);
+        left: 4%;
+    }
+    .three-walkthrough__content--right {
+        left: auto;
+        right: 4%;
+    }
+    .three-walkthrough__content h2 {
+        font-size: clamp( 2.8rem, 6vw, 4.8rem);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+    .three-walkthrough {
+        height: 1100vh;
+    }
+    .three-walkthrough__sticky {
+        top: 76px;
+        height: calc(100svh - 76px);
+        border-radius: 24px 24px 0 0;
+    }
+    .three-walkthrough__top {
+        top: 14px;
+        width: calc(100% - 24px);
+    }
+    .three-walkthrough__pill {
+        padding: 6px 9px 6px 6px;
+    }
+    .three-walkthrough__bee {
+        width: 32px;
+        height: 32px;
+    }
+    .three-walkthrough__pill small {
+        font-size: .48rem;
+    }
+    .three-walkthrough__pill strong {
+        font-size: .68rem;
+    }
+    .three-walkthrough__count {
+        min-height: 37px;
+        padding: 0 10px;
+        gap: 6px;
+    }
+    .three-walkthrough__count span {
+        width: 15px;
+    }
+    .three-walkthrough__content,
+    .three-walkthrough__content--right {
+        top: auto;
+        left: 14px;
+        right: 14px;
+        bottom: 68px;
+        transform: none;
+        width: auto;
+        padding: 20px 20px 18px;
+        border-radius: 22px;
+    }
+    .three-walkthrough__content h2 {
+        font-size: clamp( 2.65rem, 12vw, 4rem);
+    }
+    .three-walkthrough__content p {
+        margin-top: 13px;
+        font-size: .79rem;
+        line-height: 1.55;
+    }
+    .three-walkthrough__space-pill {
+        margin-top: 13px;
+    }
+    .three-walkthrough__progress {
+        bottom: 17px;
+    }
+    .three-walkthrough__scroll {
+        display: none;
+    }
+}
+
+
+/* =====================================
+   VERY SMALL MOBILE
+===================================== */
+
+@media (max-width: 390px) {
+    .three-walkthrough__content,
+    .three-walkthrough__content--right {
+        left: 10px;
+        right: 10px;
+        bottom: 60px;
+    }
+    .three-walkthrough__content h2 {
+        font-size: 2.55rem;
+    }
+    .three-walkthrough__content p {
+        font-size: .74rem;
+    }
+}

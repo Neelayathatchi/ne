@@ -1,0 +1,16 @@
+:root {
+    --amber: #FFBF00;
+    --walnut: #701F0E;
+    --charcoal: #121212;
+    --white: #FFFFFF;
+    --text-primary: #121212;
+    --text-muted: rgba(18, 18, 18, 0.64);
+    --container: 1320px;
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
+    --radius-xl: 44px;
+    --shadow-soft: 0 12px 40px rgba(18, 18, 18, 0.06);
+    --shadow-card: 0 24px 70px rgba(18, 18, 18, 0.10);
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -1,0 +1,2192 @@
+/* ==========================================================
+   NERDSHIVE — ABOUT / FROM IDEA TO HIVE
+   Pure white + amber + walnut brown
+========================================================== */
+
+.aboutHiveHero,
+.aboutHiveHero *,
+.aboutHiveHero *::before,
+.aboutHiveHero *::after {
+  box-sizing: border-box;
+}
+
+
+.aboutHiveHero {
+  --amber: #ffbf00;
+  --amber-deep: #f4aa00;
+  --amber-soft: #fff4cc;
+
+  --brown: #701f0e;
+  --brown-dark: #491006;
+  --brown-soft: #9e5737;
+
+  --black: #121212;
+  --white: #ffffff;
+
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    165px
+    0
+    70px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 46%,
+      rgba(255, 191, 0, 0.055),
+      transparent 24%
+    ),
+    #ffffff;
+
+  color: var(--black);
+
+  font-family:
+    Inter,
+    Poppins,
+    Arial,
+    sans-serif;
+}
+
+
+/* ==========================================================
+   MAIN CANVAS
+========================================================== */
+
+.aboutHiveHero__canvas {
+  position: relative;
+
+  width: min(
+    1580px,
+    calc(100% - 48px)
+  );
+
+  min-height: 820px;
+
+  margin: 0 auto;
+}
+
+
+/* ==========================================================
+   BACKGROUND DECOR
+========================================================== */
+
+.aboutHiveHero__decor {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+    rgba(255, 191, 0, 0.13);
+}
+
+
+.aboutHiveHero__decor--one {
+  width: 480px;
+  height: 480px;
+
+  right: -310px;
+  top: -230px;
+}
+
+
+.aboutHiveHero__decor--two {
+  width: 270px;
+  height: 270px;
+
+  left: -190px;
+  bottom: -120px;
+}
+
+
+.aboutHiveHero__decor--three {
+  width: 17px;
+  height: 17px;
+
+  right: 13%;
+  top: 39%;
+
+  border: 0;
+
+  background:
+    rgba(255, 191, 0, 0.12);
+
+  filter: blur(1px);
+
+  animation:
+    aboutDecorPulse
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+.aboutHiveHero__miniHex {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border:
+    2px solid
+    rgba(255, 191, 0, 0.28);
+
+  clip-path:
+    polygon(
+      25% 7%,
+      75% 7%,
+      100% 50%,
+      75% 93%,
+      25% 93%,
+      0 50%
+    );
+
+  pointer-events: none;
+
+  animation:
+    miniHexFloat
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+.aboutHiveHero__miniHex--one {
+  left: 39%;
+  top: 43%;
+}
+
+
+.aboutHiveHero__miniHex--two {
+  right: 7%;
+  bottom: 27%;
+
+  animation-delay: -2s;
+}
+
+
+.aboutHiveHero__miniHex--three {
+  left: 63%;
+  top: 19%;
+
+  border-color:
+    rgba(112, 31, 14, 0.2);
+
+  animation-delay: -3s;
+}
+
+
+/* ==========================================================
+   LEFT STORY
+========================================================== */
+
+.aboutHiveHero__story {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 30px;
+  top: 0;
+
+  width: 355px;
+
+  opacity: 0;
+
+  transform:
+    translateX(-35px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__story {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+
+.aboutHiveHero__brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 88px;
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.19em;
+}
+
+
+.aboutHiveHero__brand strong {
+  color: var(--amber);
+
+  font-weight: 900;
+}
+
+
+.aboutHiveHero__brandIcon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: var(--amber);
+
+  border:
+    2px solid
+    var(--amber);
+
+  clip-path:
+    polygon(
+      25% 7%,
+      75% 7%,
+      100% 50%,
+      75% 93%,
+      25% 93%,
+      0 50%
+    );
+}
+
+
+.aboutHiveHero__eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+
+  color: var(--amber-deep);
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+
+.aboutHiveHero__eyebrow i {
+  display: block;
+
+  width: 32px;
+  height: 1px;
+
+  background:
+    var(--amber);
+}
+
+
+.aboutHiveHero__title {
+  margin: 0;
+
+  color: var(--black);
+
+  font-size:
+    clamp(
+      64px,
+      5.2vw,
+      84px
+    );
+
+  font-weight: 950;
+
+  line-height: 0.91;
+
+  letter-spacing: -0.065em;
+}
+
+
+.aboutHiveHero__title span {
+  color: var(--amber);
+}
+
+
+.aboutHiveHero__titleLine {
+  width: 55px;
+  height: 5px;
+
+  margin:
+    28px
+    0
+    27px;
+
+  border-radius: 999px;
+
+  background:
+    var(--amber);
+}
+
+
+.aboutHiveHero__intro {
+  max-width: 330px;
+
+  margin: 0;
+
+  color:
+    rgba(
+      18,
+      18,
+      18,
+      0.73
+    );
+
+  font-size: 17px;
+
+  font-weight: 500;
+
+  line-height: 1.78;
+}
+
+
+.aboutHiveHero__intro strong {
+  color: var(--brown);
+
+  font-weight: 800;
+}
+
+
+.aboutHiveHero__intro
+.amberText {
+  color: var(--amber-deep);
+}
+
+
+.aboutHiveHero__storyNote {
+  width: 280px;
+
+  margin-top: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  padding:
+    17px
+    19px;
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.07);
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 12px 35px
+    rgba(18, 18, 18, 0.07);
+}
+
+
+.aboutHiveHero__storyNoteIcon {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #ffffff;
+
+  background:
+    var(--amber);
+
+  clip-path:
+    polygon(
+      25% 7%,
+      75% 7%,
+      100% 50%,
+      75% 93%,
+      25% 93%,
+      0 50%
+    );
+}
+
+
+.aboutHiveHero__storyNote p {
+  margin: 0;
+
+  color:
+    rgba(
+      18,
+      18,
+      18,
+      0.65
+    );
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.6;
+}
+
+
+/* ==========================================================
+   JOURNEY CANVAS
+========================================================== */
+
+.aboutHiveHero__journey {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 390px;
+  right: 0;
+  top: 0;
+
+  height: 760px;
+
+  transform:
+    translate(
+      var(--mouse-x),
+      var(--mouse-y)
+    );
+
+  transition:
+    transform
+    0.22s
+    ease-out;
+}
+
+
+/* ==========================================================
+   SVG PATH
+========================================================== */
+
+.aboutHiveHero__pathSvg {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+.aboutHiveHero__pathShadow,
+.aboutHiveHero__path {
+  fill: none;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+.aboutHiveHero__pathShadow {
+  stroke:
+    rgba(
+      255,
+      191,
+      0,
+      0.08
+    );
+
+  stroke-width: 13;
+}
+
+
+.aboutHiveHero__path {
+  stroke:
+    var(--amber-deep);
+
+  stroke-width: 2.7;
+
+  stroke-dasharray:
+    11 12;
+
+  opacity: 0;
+
+  filter:
+    url(#journeyGlow);
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__path {
+  opacity: 1;
+
+  animation:
+    journeyDash
+    24s
+    linear
+    infinite;
+}
+
+
+/* ==========================================================
+   BEE
+========================================================== */
+
+.aboutHiveHero__beeRunner {
+  position: absolute;
+
+  z-index: 40;
+
+  left: 0;
+  top: 0;
+
+  width: 76px;
+  height: 70px;
+
+  offset-path:
+    path(
+      "M 35 215 C 140 70 290 80 390 185 S 620 390 760 235 S 980 120 1120 245 S 1000 500 845 520 S 585 400 440 520 S 220 665 95 570"
+    );
+
+  offset-distance: 0%;
+
+  offset-rotate: auto;
+
+  animation:
+    beeFlyJourney
+    17s
+    cubic-bezier(
+      0.45,
+      0,
+      0.55,
+      1
+    )
+    infinite;
+
+  filter:
+    drop-shadow(
+      0 11px 10px
+      rgba(112, 31, 14, 0.13)
+    );
+}
+
+
+.aboutHiveHero__bee {
+  position: relative;
+
+  width: 72px;
+  height: 58px;
+}
+
+
+.aboutHiveHero__beeBody {
+  position: absolute;
+
+  left: 13px;
+  top: 20px;
+
+  width: 46px;
+  height: 30px;
+
+  overflow: hidden;
+
+  border-radius:
+    55% 45% 45% 55%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffc400,
+      #f4aa00
+    );
+
+  transform:
+    rotate(8deg);
+}
+
+
+.aboutHiveHero__beeBody i {
+  position: absolute;
+
+  top: -5px;
+
+  width: 7px;
+  height: 42px;
+
+  background:
+    #22150f;
+
+  transform:
+    rotate(-7deg);
+}
+
+
+.aboutHiveHero__beeBody i:first-child {
+  left: 15px;
+}
+
+
+.aboutHiveHero__beeBody i:last-child {
+  left: 29px;
+}
+
+
+.aboutHiveHero__beeHead {
+  position: absolute;
+
+  z-index: 5;
+
+  right: 2px;
+  top: 14px;
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffd84a,
+      #ffb400
+    );
+}
+
+
+.beeEye {
+  position: absolute;
+
+  top: 8px;
+
+  width: 4px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    #141414;
+}
+
+
+.beeEye--left {
+  left: 9px;
+}
+
+
+.beeEye--right {
+  left: 19px;
+}
+
+
+.beeSmile {
+  position: absolute;
+
+  left: 11px;
+  top: 17px;
+
+  width: 10px;
+  height: 5px;
+
+  border-bottom:
+    2px solid
+    #4d210f;
+
+  border-radius:
+    0 0 10px 10px;
+}
+
+
+.aboutHiveHero__beeWing {
+  position: absolute;
+
+  z-index: 1;
+
+  width: 28px;
+  height: 19px;
+
+  border:
+    1px solid
+    rgba(112, 31, 14, 0.12);
+
+  border-radius:
+    80% 20% 75% 25%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+
+  box-shadow:
+    inset
+    0 0 8px
+    rgba(
+      255,
+      191,
+      0,
+      0.12
+    );
+
+  transform-origin:
+    right bottom;
+}
+
+
+.aboutHiveHero__beeWing--left {
+  left: 15px;
+  top: 4px;
+
+  transform:
+    rotate(-23deg);
+
+  animation:
+    beeWingLeft
+    0.18s
+    ease-in-out
+    infinite alternate;
+}
+
+
+.aboutHiveHero__beeWing--right {
+  left: 31px;
+  top: 3px;
+
+  transform:
+    rotate(25deg);
+
+  animation:
+    beeWingRight
+    0.18s
+    ease-in-out
+    infinite alternate;
+}
+
+
+.aboutHiveHero__antenna {
+  position: absolute;
+
+  z-index: 10;
+
+  width: 14px;
+  height: 15px;
+
+  border-top:
+    2px solid
+    #19120f;
+
+  border-radius: 50%;
+}
+
+
+.aboutHiveHero__antenna::after {
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    #19120f;
+}
+
+
+.aboutHiveHero__antenna--left {
+  right: 18px;
+  top: 2px;
+
+  transform:
+    rotate(-22deg);
+}
+
+
+.aboutHiveHero__antenna--left::after {
+  right: 0;
+  top: -3px;
+}
+
+
+.aboutHiveHero__antenna--right {
+  right: 5px;
+  top: 6px;
+
+  transform:
+    rotate(20deg);
+}
+
+
+.aboutHiveHero__antenna--right::after {
+  right: 0;
+  top: -3px;
+}
+
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.aboutHiveHero__card {
+  position: absolute;
+
+  z-index: 20;
+
+  width: 330px;
+  height: 178px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding:
+    25px
+    25px
+    25px
+    39px;
+
+  border:
+    1px solid
+    rgba(18, 18, 18, 0.07);
+
+  border-radius: 29px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.97
+    );
+
+  box-shadow:
+    0 18px 45px
+    rgba(
+      18,
+      18,
+      18,
+      0.075
+    );
+
+  opacity: 0;
+
+  transform:
+    translateY(35px)
+    scale(0.94);
+
+  transition:
+    opacity
+      0.8s ease,
+    transform
+      0.8s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+    box-shadow
+      0.4s ease;
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__card {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__card--space {
+  transition-delay: 0.18s;
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__card--community {
+  transition-delay: 0.34s;
+}
+
+
+.aboutHiveHero--visible
+.aboutHiveHero__card--future {
+  transition-delay: 0.5s;
+}
+
+
+.aboutHiveHero__card:hover {
+  z-index: 50;
+
+  transform:
+    translateY(-8px)
+    rotateX(3deg)
+    rotateY(-3deg)
+    scale(1.025);
+
+  box-shadow:
+    0 28px 65px
+    rgba(
+      112,
+      31,
+      14,
+      0.12
+    );
+}
+
+
+.aboutHiveHero__card--idea {
+  left: 360px;
+  top: 5px;
+}
+
+
+.aboutHiveHero__card--space {
+  right: 16px;
+  top: 285px;
+}
+
+
+.aboutHiveHero__card--community {
+  left: 70px;
+  bottom: 20px;
+}
+
+
+.aboutHiveHero__card--future {
+  right: 170px;
+  bottom: -20px;
+}
+
+
+/* number badge */
+
+.aboutHiveHero__number {
+  position: absolute;
+
+  left: -29px;
+  top: 25px;
+
+  width: 78px;
+  height: 78px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  font-weight: 950;
+
+  clip-path:
+    polygon(
+      25% 7%,
+      75% 7%,
+      100% 50%,
+      75% 93%,
+      25% 93%,
+      0 50%
+    );
+
+  filter:
+    drop-shadow(
+      0 9px 8px
+      rgba(18,18,18,.1)
+    );
+}
+
+
+.aboutHiveHero__number--amber {
+  background:
+    linear-gradient(
+      145deg,
+      #ffd34b,
+      #f2aa00
+    );
+}
+
+
+.aboutHiveHero__number--brown {
+  background:
+    linear-gradient(
+      145deg,
+      #8b351e,
+      #4d1006
+    );
+}
+
+
+.aboutHiveHero__number--brownSoft {
+  background:
+    linear-gradient(
+      145deg,
+      #a9633f,
+      #6e2512
+    );
+}
+
+
+.aboutHiveHero__cardCopy {
+  margin-left: 32px;
+}
+
+
+.aboutHiveHero__cardCopy h3 {
+  margin: 0;
+
+  color: var(--brown);
+
+  font-size: 21px;
+
+  font-weight: 950;
+
+  letter-spacing: -0.02em;
+}
+
+
+.aboutHiveHero__cardLine {
+  display: block;
+
+  width: 34px;
+  height: 3px;
+
+  margin:
+    12px
+    0
+    16px;
+
+  border-radius: 999px;
+
+  background:
+    var(--amber);
+}
+
+
+.aboutHiveHero__cardLine--brown {
+  background:
+    var(--brown);
+}
+
+
+.aboutHiveHero__cardCopy p {
+  margin: 0;
+
+  color:
+    rgba(
+      18,
+      18,
+      18,
+      0.68
+    );
+
+  font-size: 14px;
+
+  font-weight: 550;
+
+  line-height: 1.55;
+}
+
+
+.aboutHiveHero__cardCopy strong {
+  color: var(--amber-deep);
+
+  font-weight: 850;
+}
+
+
+.aboutHiveHero__card--space
+.aboutHiveHero__cardCopy strong,
+.aboutHiveHero__card--community
+.aboutHiveHero__cardCopy strong {
+  color: var(--brown);
+}
+
+
+.aboutHiveHero__cardIcon {
+  margin-left: auto;
+
+  flex: 0 0 auto;
+
+  width: 63px;
+  height: 63px;
+
+  display: grid;
+
+  place-items: center;
+
+  color:
+    var(--amber-deep);
+
+  border:
+    1px solid
+    rgba(
+      255,
+      191,
+      0,
+      0.13
+    );
+
+  border-radius: 50%;
+
+  background:
+    #fffaf0;
+
+  transition:
+    transform
+      0.35s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+.aboutHiveHero__cardIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+
+.aboutHiveHero__card:hover
+.aboutHiveHero__cardIcon {
+  transform:
+    rotate(8deg)
+    scale(1.12);
+}
+
+
+.aboutHiveHero__cardIcon--brown {
+  color: var(--brown);
+}
+
+
+/* ==========================================================
+   CHECKPOINT NODES
+========================================================== */
+
+.aboutHiveHero__node {
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  border:
+    4px solid
+    #ffffff;
+
+  border-radius: 50%;
+
+  background:
+    var(--amber);
+
+  box-shadow:
+    0 0 0 2px
+    rgba(
+      255,
+      191,
+      0,
+      0.5
+    ),
+    0 0 25px
+    rgba(
+      255,
+      191,
+      0,
+      0.45
+    );
+
+  animation:
+    journeyNodePulse
+    2.1s
+    ease-in-out
+    infinite;
+}
+
+
+.aboutHiveHero__node--idea {
+  left: -42px;
+  bottom: 22px;
+}
+
+
+.aboutHiveHero__node--space {
+  left: -26px;
+  top: -30px;
+}
+
+
+.aboutHiveHero__node--community {
+  right: -25px;
+  top: -23px;
+}
+
+
+.aboutHiveHero__node--future {
+  left: -26px;
+  top: -27px;
+}
+
+
+/* ==========================================================
+   CENTER CORE
+========================================================== */
+
+.aboutHiveHero__core {
+  position: absolute;
+
+  z-index: 11;
+
+  left: 49%;
+  top: 42%;
+
+  width: 150px;
+  height: 150px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
+
+
+.aboutHiveHero__coreRing {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    1px dashed
+    rgba(
+      255,
+      191,
+      0,
+      0.27
+    );
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  animation:
+    coreOrbit
+    14s
+    linear
+    infinite;
+}
+
+
+.aboutHiveHero__coreRing--one {
+  width: 140px;
+  height: 140px;
+}
+
+
+.aboutHiveHero__coreRing--two {
+  width: 190px;
+  height: 190px;
+
+  animation-direction: reverse;
+
+  animation-duration: 18s;
+}
+
+
+.aboutHiveHero__coreRing--three {
+  width: 235px;
+  height: 235px;
+
+  opacity: 0.42;
+
+  animation-duration: 23s;
+}
+
+
+.aboutHiveHero__coreHex {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 50%;
+  top: 50%;
+
+  width: 110px;
+  height: 110px;
+
+  display: grid;
+
+  place-items: center;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  color: var(--amber-deep);
+
+  background:
+    #ffffff;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      191,
+      0,
+      0.35
+    );
+
+  clip-path:
+    polygon(
+      25% 7%,
+      75% 7%,
+      100% 50%,
+      75% 93%,
+      25% 93%,
+      0 50%
+    );
+
+  filter:
+    drop-shadow(
+      0 15px 18px
+      rgba(
+        112,
+        31,
+        14,
+        0.12
+      )
+    );
+
+  animation:
+    coreFloat
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+.aboutHiveHero__coreHex svg {
+  width: 44px;
+  height: 44px;
+}
+
+
+.aboutHiveHero__coreDot {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    var(--amber);
+}
+
+
+.aboutHiveHero__coreDot--one {
+  left: 8px;
+  top: 50%;
+
+  animation:
+    nodeBlink
+    2s
+    infinite;
+}
+
+
+.aboutHiveHero__coreDot--two {
+  right: 1px;
+  top: 24%;
+
+  animation:
+    nodeBlink
+    2s
+    0.5s
+    infinite;
+}
+
+
+.aboutHiveHero__coreDot--three {
+  right: 16px;
+  bottom: 9px;
+
+  animation:
+    nodeBlink
+    2s
+    1s
+    infinite;
+}
+
+
+/* ==========================================================
+   START + END
+========================================================== */
+
+.aboutHiveHero__start,
+.aboutHiveHero__end {
+  position: absolute;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color:
+    var(--brown);
+
+  font-size: 10px;
+
+  font-weight: 950;
+
+  letter-spacing: 0.17em;
+}
+
+
+.aboutHiveHero__start {
+  left: 0;
+  top: 186px;
+}
+
+
+.aboutHiveHero__end {
+  right: 18px;
+  bottom: 78px;
+}
+
+
+.aboutHiveHero__startDot,
+.aboutHiveHero__endDot {
+  position: relative;
+
+  width: 23px;
+  height: 23px;
+
+  border:
+    5px solid
+    #ffffff;
+
+  border-radius: 50%;
+
+  background:
+    var(--amber);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(
+      255,
+      191,
+      0,
+      0.25
+    ),
+    0 0 20px
+    rgba(
+      255,
+      191,
+      0,
+      0.3
+    );
+}
+
+
+/* ==========================================================
+   SPARKS
+========================================================== */
+
+.aboutHiveHero__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  font-weight: 900;
+
+  color:
+    rgba(
+      255,
+      191,
+      0,
+      0.45
+    );
+
+  animation:
+    sparkFloat
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+.aboutHiveHero__spark--one {
+  left: 28%;
+  top: 31%;
+}
+
+
+.aboutHiveHero__spark--two {
+  right: 19%;
+  top: 22%;
+
+  color:
+    rgba(
+      112,
+      31,
+      14,
+      0.18
+    );
+
+  animation-delay: -1s;
+}
+
+
+.aboutHiveHero__spark--three {
+  right: 8%;
+  bottom: 30%;
+
+  animation-delay: -2s;
+}
+
+
+.aboutHiveHero__spark--four {
+  left: 35%;
+  bottom: 15%;
+
+  color:
+    rgba(
+      112,
+      31,
+      14,
+      0.16
+    );
+
+  animation-delay: -3s;
+}
+
+
+/* ==========================================================
+   FOOTER LABEL
+========================================================== */
+
+.aboutHiveHero__footerLabel {
+  position: relative;
+
+  z-index: 20;
+
+  width: fit-content;
+
+  margin:
+    18px
+    auto
+    0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding:
+    12px
+    20px;
+
+  border:
+    1px solid
+    rgba(
+      18,
+      18,
+      18,
+      0.07
+    );
+
+  border-radius: 999px;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0 10px 30px
+    rgba(
+      18,
+      18,
+      18,
+      0.055
+    );
+
+  color:
+    rgba(
+      18,
+      18,
+      18,
+      0.58
+    );
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+
+.aboutHiveHero__footerLabel > span {
+  color: var(--amber);
+
+  font-weight: 950;
+}
+
+
+.aboutHiveHero__footerLabel i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    var(--amber);
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes journeyDash {
+  to {
+    stroke-dashoffset: -460;
+  }
+}
+
+
+@keyframes beeFlyJourney {
+  0% {
+    offset-distance: 0%;
+  }
+
+  12% {
+    offset-distance: 11%;
+  }
+
+  25% {
+    offset-distance: 28%;
+  }
+
+  40% {
+    offset-distance: 44%;
+  }
+
+  56% {
+    offset-distance: 61%;
+  }
+
+  72% {
+    offset-distance: 76%;
+  }
+
+  88% {
+    offset-distance: 91%;
+  }
+
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+
+@keyframes beeWingLeft {
+  from {
+    transform:
+      rotate(-34deg)
+      scaleY(1);
+  }
+
+  to {
+    transform:
+      rotate(3deg)
+      scaleY(0.72);
+  }
+}
+
+
+@keyframes beeWingRight {
+  from {
+    transform:
+      rotate(34deg)
+      scaleY(1);
+  }
+
+  to {
+    transform:
+      rotate(-3deg)
+      scaleY(0.72);
+  }
+}
+
+
+@keyframes coreOrbit {
+  from {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(360deg);
+  }
+}
+
+
+@keyframes coreFloat {
+  0%,
+  100% {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      translateY(-7px);
+  }
+}
+
+
+@keyframes journeyNodePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.23);
+  }
+}
+
+
+@keyframes nodeBlink {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+
+@keyframes sparkFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-10px)
+      rotate(10deg);
+  }
+}
+
+
+@keyframes miniHexFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-12px)
+      rotate(18deg);
+  }
+}
+
+
+@keyframes aboutDecorPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.3);
+  }
+}
+
+
+/* ==========================================================
+   RESPONSIVE — LAPTOP
+========================================================== */
+
+@media (max-width: 1350px) {
+
+  .aboutHiveHero__canvas {
+    min-height: 880px;
+  }
+
+
+  .aboutHiveHero__story {
+    left: 12px;
+
+    width: 310px;
+  }
+
+
+  .aboutHiveHero__journey {
+    left: 330px;
+
+    transform:
+      scale(0.91)
+      translate(
+        var(--mouse-x),
+        var(--mouse-y)
+      );
+
+    transform-origin:
+      left top;
+  }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — TABLET
+========================================================== */
+
+@media (max-width: 1050px) {
+
+  .aboutHiveHero {
+    padding-top: 135px;
+  }
+
+
+  .aboutHiveHero__canvas {
+    width:
+      calc(100% - 32px);
+
+    min-height: auto;
+  }
+
+
+  .aboutHiveHero__story {
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin:
+      0 auto
+      55px;
+
+    text-align: center;
+  }
+
+
+  .aboutHiveHero__brand {
+    justify-content: center;
+
+    margin-bottom: 45px;
+  }
+
+
+  .aboutHiveHero__eyebrow {
+    justify-content: center;
+  }
+
+
+  .aboutHiveHero__title {
+    font-size:
+      clamp(
+        58px,
+        10vw,
+        82px
+      );
+  }
+
+
+  .aboutHiveHero__titleLine {
+    margin:
+      26px auto;
+  }
+
+
+  .aboutHiveHero__intro {
+    max-width: 560px;
+
+    margin: auto;
+  }
+
+
+  .aboutHiveHero__storyNote {
+    margin:
+      32px auto 0;
+
+    text-align: left;
+  }
+
+
+  .aboutHiveHero__journey {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    top: auto;
+
+    width: 100%;
+    height: 760px;
+
+    transform: none;
+  }
+
+
+  .aboutHiveHero__card--idea {
+    left: 22%;
+  }
+
+
+  .aboutHiveHero__card--space {
+    right: 2%;
+  }
+
+
+  .aboutHiveHero__card--community {
+    left: 4%;
+  }
+
+
+  .aboutHiveHero__card--future {
+    right: 8%;
+  }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+  .aboutHiveHero {
+    padding:
+      115px
+      0
+      55px;
+  }
+
+
+  .aboutHiveHero__canvas {
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .aboutHiveHero__brand {
+    margin-bottom: 34px;
+  }
+
+
+  .aboutHiveHero__title {
+    font-size:
+      clamp(
+        50px,
+        15vw,
+        68px
+      );
+  }
+
+
+  .aboutHiveHero__intro {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  .aboutHiveHero__journey {
+    height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 28px;
+
+    padding:
+      30px
+      20px
+      20px;
+  }
+
+
+  .aboutHiveHero__pathSvg,
+  .aboutHiveHero__beeRunner,
+  .aboutHiveHero__core,
+  .aboutHiveHero__start,
+  .aboutHiveHero__end,
+  .aboutHiveHero__spark {
+    display: none;
+  }
+
+
+  .aboutHiveHero__card {
+    position: relative;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    width: 100%;
+    height: auto;
+
+    min-height: 160px;
+
+    padding:
+      25px
+      20px
+      25px
+      52px;
+
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .aboutHiveHero__number {
+    left: -13px;
+
+    width: 68px;
+    height: 68px;
+
+    font-size: 29px;
+  }
+
+
+  .aboutHiveHero__cardCopy {
+    margin-left: 25px;
+  }
+
+
+  .aboutHiveHero__cardIcon {
+    width: 55px;
+    height: 55px;
+  }
+
+
+  .aboutHiveHero__footerLabel {
+    max-width:
+      calc(100% - 30px);
+
+    overflow-x: auto;
+
+    justify-content:
+      flex-start;
+  }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .aboutHiveHero *,
+  .aboutHiveHero *::before,
+  .aboutHiveHero *::after {
+    animation-duration:
+      0.001ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.001ms !important;
+  }
+
+}

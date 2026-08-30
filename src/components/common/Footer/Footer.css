@@ -1,0 +1,676 @@
+:root {
+    --footer-yellow: #ffbf00;
+    --footer-black: #121212;
+    --footer-dark: #090d16;
+    --footer-dark-2: #0e121b;
+    --footer-white: #ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.nerdsFooter,
+.nerdsFooter *,
+.nerdsFooter *::before,
+.nerdsFooter *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.nerdsFooter {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 88px 0 36px;
+    background: linear-gradient( 145deg, #070b14 0%, #090d16 48%, #0d111b 100%);
+    color: #ffffff;
+    border-top: 3px solid var(--footer-yellow);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.nerdsFooterContainer {
+    position: relative;
+    z-index: 10;
+    width: min( 1450px, calc(100% - 70px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.nerdsFooterGrid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr 1fr 1.25fr;
+    gap: 70px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.nerdsFooterBrand {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nerdsFooterLogoWrap {
+    width: 108px;
+    min-height: 80px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba( 0, 0, 0, 0.22);
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.nerdsFooterLogoWrap:hover {
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+.nerdsFooterLogo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.nerdsFooterDescription {
+    max-width: 330px;
+    margin: 28px 0 0;
+    color: rgba( 255, 255, 255, 0.72);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.nerdsFooterTagline {
+    display: block;
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.nerdsFooterTagline span {
+    color: var(--footer-yellow);
+}
+
+
+/* =========================================================
+   BOOK TOUR
+========================================================= */
+
+.nerdsFooterTour {
+    min-height: 51px;
+    margin-top: 28px;
+    padding: 0 8px 0 19px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid rgba( 255, 191, 0, 0.32);
+    border-radius: 15px;
+    background: rgba( 255, 191, 0, 0.07);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.nerdsFooterTour:hover {
+    transform: translateY(-4px);
+    background: rgba( 255, 191, 0, 0.12);
+}
+
+.nerdsFooterTour b {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--footer-yellow);
+    color: var(--footer-black);
+    transition: transform 0.35s ease;
+}
+
+.nerdsFooterTour:hover b {
+    transform: rotate(12deg) scale(1.08);
+}
+
+
+/* =========================================================
+   COLUMN
+========================================================= */
+
+.nerdsFooterColumn {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   COLUMN TITLE
+========================================================= */
+
+.nerdsFooterColumn h3 {
+    position: relative;
+    margin: 13px 0 28px;
+    padding-bottom: 13px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.nerdsFooterColumn h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 34px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--footer-yellow);
+    transition: width 0.4s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.nerdsFooterColumn:hover h3::after {
+    width: 58px;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.nerdsFooterLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.nerdsFooterLinks a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba( 255, 255, 255, 0.72);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.nerdsFooterLinks a svg {
+    opacity: 0;
+    transform: translate( -5px, 3px);
+    color: var(--footer-yellow);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nerdsFooterLinks a:hover {
+    color: var(--footer-yellow);
+    transform: translateX(5px);
+}
+
+.nerdsFooterLinks a:hover svg {
+    opacity: 1;
+    transform: translate( 0, 0);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.nerdsFooterContact {
+    min-width: 0;
+}
+
+.nerdsFooterContactItem {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 18px;
+    color: rgba( 255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.55;
+    transition: color 0.3s ease, transform 0.35s ease;
+}
+
+.nerdsFooterContactItem:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.nerdsFooterContactIcon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 255, 191, 0, 0.28);
+    border-radius: 11px;
+    background: rgba( 255, 191, 0, 0.07);
+    color: var(--footer-yellow);
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.nerdsFooterContactItem:hover .nerdsFooterContactIcon {
+    transform: rotate(-7deg) scale(1.08);
+    background: var(--footer-yellow);
+    color: var(--footer-black);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.nerdsFooterDivider {
+    width: 100%;
+    margin: 70px 0 30px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 13px;
+}
+
+.nerdsFooterDivider>span {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, rgba( 255, 255, 255, 0.18));
+}
+
+.nerdsFooterDivider>span:last-child {
+    background: linear-gradient( 90deg, rgba( 255, 255, 255, 0.18), transparent);
+}
+
+.nerdsFooterDivider i {
+    width: 13px;
+    height: 15px;
+    background: var(--footer-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: nerdsFooterPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.nerdsFooterBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+
+/* =========================================================
+   LEGAL
+========================================================= */
+
+.nerdsFooterLegal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 13px 26px;
+}
+
+.nerdsFooterLegal a {
+    color: rgba( 255, 255, 255, 0.58);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.nerdsFooterLegal a:hover {
+    color: var(--footer-yellow);
+}
+
+.nerdsFooterBottom p {
+    margin: 0;
+    color: rgba( 255, 255, 255, 0.54);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   HONEYCOMB BACKGROUND
+========================================================= */
+
+.nerdsFooterHoney {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.08;
+}
+
+.nerdsFooterHoney--one {
+    right: 4%;
+    top: 8px;
+    width: 250px;
+    height: 210px;
+}
+
+.nerdsFooterHoney--two {
+    left: 2%;
+    bottom: -55px;
+    width: 210px;
+    height: 180px;
+}
+
+.nerdsFooterHoney span {
+    position: absolute;
+    width: 95px;
+    height: 108px;
+    border: 2px solid var(--footer-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: nerdsFooterHoneyFloat 6s ease-in-out infinite;
+}
+
+.nerdsFooterHoney span:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+
+.nerdsFooterHoney span:nth-child(2) {
+    left: 77px;
+    top: 45px;
+    animation-delay: -2s;
+}
+
+.nerdsFooterHoney span:nth-child(3) {
+    left: 154px;
+    top: 0;
+    animation-delay: -4s;
+}
+
+
+/* =========================================================
+   BEE
+========================================================= */
+
+.nerdsFooterBee {
+    position: absolute;
+    right: 12%;
+    top: 38px;
+    z-index: 5;
+    width: 74px;
+    height: 55px;
+    animation: nerdsFooterBeeFly 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BEE BODY
+========================================================= */
+
+.nerdsFooterBeeBody {
+    position: absolute;
+    left: 27px;
+    top: 24px;
+    width: 42px;
+    height: 27px;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--footer-yellow);
+}
+
+.nerdsFooterBeeBody i {
+    position: absolute;
+    top: -4px;
+    width: 6px;
+    height: 38px;
+    background: #121212;
+}
+
+.nerdsFooterBeeBody i:first-child {
+    left: 13px;
+}
+
+.nerdsFooterBeeBody i:last-child {
+    left: 27px;
+}
+
+
+/* =========================================================
+   BEE HEAD
+========================================================= */
+
+.nerdsFooterBeeHead {
+    position: absolute;
+    left: 4px;
+    top: 23px;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--footer-yellow);
+}
+
+.nerdsFooterBeeHead b {
+    position: absolute;
+    top: 10px;
+    width: 4px;
+    height: 5px;
+    border-radius: 50%;
+    background: #121212;
+}
+
+.nerdsFooterBeeHead b:first-child {
+    left: 8px;
+}
+
+.nerdsFooterBeeHead b:nth-child(2) {
+    right: 8px;
+}
+
+.nerdsFooterBeeHead>span {
+    position: absolute;
+    left: 50%;
+    bottom: 7px;
+    width: 10px;
+    height: 5px;
+    transform: translateX(-50%);
+    border-bottom: 2px solid #121212;
+    border-radius: 0 0 50% 50%;
+}
+
+
+/* =========================================================
+   WINGS
+========================================================= */
+
+.nerdsFooterBeeWing {
+    position: absolute;
+    top: 7px;
+    z-index: -1;
+    width: 30px;
+    height: 21px;
+    border: 1px solid rgba( 255, 255, 255, 0.65);
+    border-radius: 50%;
+    background: rgba( 255, 255, 255, 0.18);
+}
+
+.nerdsFooterBeeWing--left {
+    left: 25px;
+    transform-origin: right bottom;
+    animation: nerdsFooterWingLeft 0.16s ease-in-out infinite alternate;
+}
+
+.nerdsFooterBeeWing--right {
+    right: 0;
+    transform-origin: left bottom;
+    animation: nerdsFooterWingRight 0.16s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes nerdsFooterPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+@keyframes nerdsFooterHoneyFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(3deg);
+    }
+}
+
+@keyframes nerdsFooterBeeFly {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-3deg);
+    }
+    25% {
+        transform: translate( -24px, -9px) rotate(2deg);
+    }
+    50% {
+        transform: translate( -10px, 5px) rotate(-1deg);
+    }
+    75% {
+        transform: translate( 16px, -7px) rotate(3deg);
+    }
+}
+
+@keyframes nerdsFooterWingLeft {
+    from {
+        transform: rotate(-5deg);
+    }
+    to {
+        transform: rotate(-50deg);
+    }
+}
+
+@keyframes nerdsFooterWingRight {
+    from {
+        transform: rotate(5deg);
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 1100px) {
+    .nerdsFooterGrid {
+        grid-template-columns: repeat( 2, minmax( 0, 1fr));
+        gap: 55px 70px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 700px) {
+    .nerdsFooter {
+        padding: 70px 0 30px;
+    }
+    .nerdsFooterContainer {
+        width: calc(100% - 36px);
+    }
+    .nerdsFooterGrid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+    .nerdsFooterDescription {
+        max-width: 100%;
+    }
+    .nerdsFooterColumn h3 {
+        margin-top: 0;
+    }
+    .nerdsFooterDivider {
+        margin-top: 50px;
+    }
+    .nerdsFooterBottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nerdsFooterBottom p {
+        white-space: normal;
+    }
+    .nerdsFooterBee {
+        right: 8%;
+        top: 22px;
+        transform: scale(0.8);
+    }
+    .nerdsFooterHoney--one {
+        right: -80px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .nerdsFooterBee,
+    .nerdsFooterBeeWing,
+    .nerdsFooterHoney span,
+    .nerdsFooterDivider i {
+        animation: none !important;
+    }
+}

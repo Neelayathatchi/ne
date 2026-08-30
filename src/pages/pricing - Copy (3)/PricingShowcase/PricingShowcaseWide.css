@@ -1,0 +1,485 @@
+/* =========================================================
+   PRICING PAGE — BIG / WIDE / FIRST VIDEO SCALE
+========================================================= */
+
+
+/* =========================================================
+   WHOLE SECTION
+========================================================= */
+
+.pricingShowcase {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 118px 28px 65px !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pricingShowcase__header {
+    width: min( 1450px, calc(100vw - 100px)) !important;
+    max-width: none !important;
+    margin: 0 auto 34px !important;
+}
+
+.pricingShowcase__pill {
+    min-height: 42px !important;
+    padding: 8px 20px !important;
+    font-size: 12px !important;
+}
+
+.pricingShowcase__header h1 {
+    font-size: clamp( 67px, 5.1vw, 92px) !important;
+    line-height: 0.95 !important;
+}
+
+.pricingShowcase__header p {
+    margin-top: 17px !important;
+    font-size: 17px !important;
+}
+
+
+/* =========================================================
+   CATEGORY TITLES
+========================================================= */
+
+.pricingShowcase__category {
+    margin: 23px auto 18px !important;
+}
+
+.pricingShowcase__category--private {
+    margin-top: 27px !important;
+}
+
+.pricingShowcase__categoryPill {
+    min-height: 43px !important;
+    padding: 8px 26px !important;
+}
+
+.pricingShowcase__categoryPill strong {
+    font-size: 18px !important;
+}
+
+.pricingShowcase__categoryPill svg {
+    width: 21px !important;
+    height: 21px !important;
+}
+
+.pricingShowcase__category p {
+    margin-top: 8px !important;
+    font-size: 13px !important;
+}
+
+
+/* =========================================================
+   PRICING GRID
+   MAIN WIDTH INCREASE
+========================================================= */
+
+.pricingShowcase__plans {
+    width: min( 1320px, calc(100vw - 170px)) !important;
+    max-width: none !important;
+    grid-template-columns: repeat( 3, minmax( 0, 1fr)) !important;
+    gap: 26px !important;
+}
+
+
+/* =========================================================
+   CARDS — WIDTH + HEIGHT
+========================================================= */
+
+.pricingShowcase__card {
+    min-height: 500px !important;
+    padding: 30px 27px 22px !important;
+    border-radius: 19px !important;
+    box-shadow: 0 15px 36px rgba( 18, 18, 18, 0.08) !important;
+}
+
+.pricingShowcase__card:not( .pricingShowcase__card--featured):hover {
+    transform: translateY(-9px) scale(1.012) !important;
+}
+
+
+/* =========================================================
+   FEATURED CARD
+========================================================= */
+
+.pricingShowcase__card--featured {
+    box-shadow: 0 20px 45px rgba( 18, 18, 18, 0.22) !important;
+}
+
+.pricingShowcase__popularBadge {
+    top: 10px !important;
+    padding: 6px 17px !important;
+    font-size: 9px !important;
+}
+
+
+/* =========================================================
+   CARD HEAD
+========================================================= */
+
+.pricingShowcase__cardHead {
+    grid-template-columns: 72px minmax( 0, 1fr) !important;
+    gap: 17px !important;
+}
+
+.pricingShowcase__card--featured .pricingShowcase__cardHead {
+    padding-top: 26px !important;
+}
+
+.pricingShowcase__planIcon {
+    width: 67px !important;
+    height: 67px !important;
+}
+
+.pricingShowcase__planIcon svg {
+    width: 31px !important;
+    height: 31px !important;
+}
+
+
+/* =========================================================
+   CARD TITLES
+========================================================= */
+
+.pricingShowcase__card h3 {
+    font-size: 21px !important;
+    line-height: 1.15 !important;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.pricingShowcase__price {
+    margin-top: 9px !important;
+    font-size: 39px !important;
+    line-height: 1.08 !important;
+}
+
+.pricingShowcase__price>span {
+    font-size: 20px !important;
+}
+
+.pricingShowcase__price small {
+    font-size: 12px !important;
+}
+
+.pricingShowcase__dualPrice {
+    gap: 7px !important;
+    margin-top: 9px !important;
+}
+
+.pricingShowcase__dualPrice strong {
+    font-size: 12px !important;
+}
+
+.pricingShowcase__dualPrice strong span {
+    font-size: 18px !important;
+}
+
+.pricingShowcase__dualPrice small {
+    font-size: 10px !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.pricingShowcase__cardHead p {
+    margin-top: 10px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.pricingShowcase__divider {
+    margin: 19px 0 17px !important;
+}
+
+
+/* =========================================================
+   FEATURE LIST
+========================================================= */
+
+.pricingShowcase__card ul {
+    gap: 13px !important;
+}
+
+.pricingShowcase__card li {
+    gap: 11px !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+}
+
+.pricingShowcase__card li>span {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.pricingShowcase__card li svg {
+    width: 11px !important;
+    height: 11px !important;
+}
+
+
+/* =========================================================
+   CARD BOTTOM LABEL
+========================================================= */
+
+.pricingShowcase__cardFooter {
+    min-height: 49px !important;
+    margin-top: auto !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+}
+
+.pricingShowcase__cardFooter svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+
+/* =========================================================
+   SIDE FEATURE BOXES
+========================================================= */
+
+.pricingShowcase__sideFeatures--left {
+    left: 18px !important;
+    top: 410px !important;
+}
+
+.pricingShowcase__sideFeatures--right {
+    right: 18px !important;
+    top: 410px !important;
+}
+
+.pricingShowcase__sideFeatures {
+    gap: 25px !important;
+}
+
+.pricingShowcase__sideFeatures>div {
+    min-width: 175px !important;
+    min-height: 69px !important;
+    padding: 14px 16px !important;
+    border-radius: 13px !important;
+}
+
+.pricingShowcase__sideFeatures svg {
+    width: 29px !important;
+    height: 29px !important;
+}
+
+.pricingShowcase__sideFeatures strong {
+    font-size: 13px !important;
+}
+
+.pricingShowcase__sideFeatures p {
+    font-size: 11px !important;
+}
+
+
+/* =========================================================
+   CUSTOM SOLUTION STRIP
+========================================================= */
+
+.pricingShowcase__custom {
+    width: min( 1320px, calc(100vw - 170px)) !important;
+    max-width: none !important;
+    min-height: 145px !important;
+    margin: 30px auto 0 !important;
+    grid-template-columns: 245px 1fr 430px !important;
+    gap: 28px !important;
+    padding: 20px 28px !important;
+    border-radius: 18px !important;
+}
+
+.pricingShowcase__customCopy h2 {
+    font-size: 28px !important;
+}
+
+.pricingShowcase__customCopy p {
+    max-width: 480px !important;
+    margin-top: 9px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+}
+
+.pricingShowcase__customDecor {
+    height: 100px !important;
+}
+
+.pricingShowcase__customHex {
+    width: 78px !important;
+    height: 78px !important;
+}
+
+.pricingShowcase__customHex--1 {
+    left: 62px !important;
+    top: 22px !important;
+}
+
+.pricingShowcase__customHex--2 {
+    left: 124px !important;
+    top: -4px !important;
+}
+
+.pricingShowcase__customHex--3 {
+    left: 174px !important;
+    top: 35px !important;
+}
+
+.pricingShowcase__customActions {
+    gap: 16px !important;
+}
+
+.pricingShowcase__customActions a {
+    min-height: 59px !important;
+    border-radius: 9px !important;
+    font-size: 13px !important;
+}
+
+.pricingShowcase__customActions svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+
+/* =========================================================
+   BEES / DECOR — SCALE UP
+========================================================= */
+
+.pricingShowcase__bee--top {
+    left: 7% !important;
+    top: 42px !important;
+    transform: scale(1.15) !important;
+}
+
+.pricingShowcase__bee--bottom {
+    right: 4% !important;
+    bottom: 90px !important;
+    transform: scale(1.1) !important;
+}
+
+.pricingShowcase__beePath--top {
+    width: 320px !important;
+    height: 210px !important;
+}
+
+.pricingShowcase__beePath--bottom {
+    width: 330px !important;
+    height: 220px !important;
+}
+
+.pricingShowcase__honeycomb {
+    transform: scale(1.15) !important;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+    .pricingShowcase__plans,
+    .pricingShowcase__custom {
+        width: min( 1400px, calc( 100vw - 190px)) !important;
+    }
+    .pricingShowcase__card {
+        min-height: 535px !important;
+        padding: 34px 31px 24px !important;
+    }
+    .pricingShowcase__price {
+        font-size: 42px !important;
+    }
+    .pricingShowcase__card li {
+        font-size: 13px !important;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+    .pricingShowcase__plans,
+    .pricingShowcase__custom {
+        width: calc( 100% - 50px) !important;
+    }
+    .pricingShowcase__sideFeatures {
+        display: none !important;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .pricingShowcase {
+        padding: 95px 18px 50px !important;
+    }
+    .pricingShowcase__header {
+        width: 100% !important;
+    }
+    .pricingShowcase__plans {
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+    }
+    .pricingShowcase__card {
+        min-height: 475px !important;
+    }
+    .pricingShowcase__custom {
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+    }
+    .pricingShowcase__customActions {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+    .pricingShowcase {
+        padding: 82px 12px 38px !important;
+    }
+    .pricingShowcase__header h1 {
+        font-size: clamp( 47px, 13vw, 64px) !important;
+    }
+    .pricingShowcase__header h1 span {
+        display: block !important;
+        margin: 6px 0 0 !important;
+    }
+    .pricingShowcase__plans {
+        width: 100% !important;
+    }
+    .pricingShowcase__card {
+        min-height: 460px !important;
+        padding: 27px 20px 20px !important;
+    }
+    .pricingShowcase__price {
+        font-size: 34px !important;
+    }
+    .pricingShowcase__customActions {
+        grid-template-columns: 1fr !important;
+    }
+}

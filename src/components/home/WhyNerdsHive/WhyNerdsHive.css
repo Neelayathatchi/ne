@@ -1,0 +1,1145 @@
+:root {
+    --why-yellow: #ffbf00;
+    --why-yellow-soft: #f5c653;
+    --why-black: #121212;
+    --why-gray: #262626;
+    --why-white: #ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.whyHiveSection,
+.whyHiveSection *,
+.whyHiveSection *::before,
+.whyHiveSection *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.whyHiveSection {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 105px 0 100px;
+    background: #ffffff;
+    color: var(--why-black);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.whyHiveContainer {
+    position: relative;
+    z-index: 5;
+    width: min( 1450px, calc(100% - 70px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   GHOST WORD
+========================================================= */
+
+.whyHiveGhost {
+    position: absolute;
+    left: -70px;
+    top: 30%;
+    z-index: 0;
+    color: rgba( 18, 18, 18, 0.022);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 240px, 28vw, 520px);
+    font-weight: 900;
+    line-height: 0.75;
+    letter-spacing: -0.09em;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   TOP LAYOUT
+========================================================= */
+
+.whyHiveTop {
+    width: 100%;
+    min-height: 590px;
+    display: grid;
+    grid-template-columns: minmax( 0, 0.92fr) minmax( 540px, 1.08fr);
+    align-items: center;
+    gap: 80px;
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.whyHiveCopy {
+    position: relative;
+    z-index: 10;
+    max-width: 650px;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.whyHiveEyebrow {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: rgba( 18, 18, 18, 0.65);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.whyHiveEyebrow>span {
+    width: 13px;
+    height: 15px;
+    background: var(--why-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.whyHiveTitle {
+    margin: 22px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--why-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 60px, 5.8vw, 96px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    perspective: 800px;
+}
+
+.whyHiveTitleLine {
+    display: block;
+}
+
+.whyHiveTitleLine--yellow {
+    color: var(--why-yellow-soft);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.whyHiveIntro {
+    max-width: 590px;
+    margin: 28px 0 0;
+    color: rgba( 18, 18, 18, 0.62);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.whyHiveCTA {
+    min-height: 58px;
+    margin-top: 34px;
+    padding: 0 10px 0 23px;
+    display: inline-flex;
+    align-items: center;
+    gap: 17px;
+    border-radius: 18px;
+    background: linear-gradient( 145deg, #111111, #292929);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 16px 34px rgba( 18, 18, 18, 0.16);
+    transition: transform 0.38s cubic-bezier( 0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.whyHiveCTA:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 45px rgba( 18, 18, 18, 0.20);
+}
+
+.whyHiveCTA b {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--why-yellow);
+    color: var(--why-black);
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.whyHiveCTA:hover b {
+    transform: rotate(12deg) scale(1.08);
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.whyHiveVisual {
+    position: relative;
+    width: 100%;
+    height: 590px;
+    display: grid;
+    place-items: center;
+    perspective: 1200px;
+}
+
+
+/* =========================================================
+   HONEY CELLS
+========================================================= */
+
+.whyHiveHoneyCell {
+    position: absolute;
+    width: 110px;
+    height: 125px;
+    border: 2px solid rgba( 255, 191, 0, 0.22);
+    background: rgba( 255, 191, 0, 0.025);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: whyHiveCellFloat 6s ease-in-out infinite;
+}
+
+.whyHiveHoneyCell--1 {
+    left: 10%;
+    top: 8%;
+    width: 90px;
+    height: 104px;
+}
+
+.whyHiveHoneyCell--2 {
+    right: 8%;
+    top: 11%;
+    width: 125px;
+    height: 143px;
+    animation-delay: -1.2s;
+}
+
+.whyHiveHoneyCell--3 {
+    left: 2%;
+    top: 43%;
+    animation-delay: -2.4s;
+}
+
+.whyHiveHoneyCell--4 {
+    right: 4%;
+    top: 48%;
+    width: 82px;
+    height: 94px;
+    animation-delay: -0.8s;
+}
+
+.whyHiveHoneyCell--5 {
+    left: 16%;
+    bottom: 4%;
+    width: 135px;
+    height: 154px;
+    animation-delay: -3s;
+}
+
+.whyHiveHoneyCell--6 {
+    right: 18%;
+    bottom: 2%;
+    animation-delay: -1.7s;
+}
+
+.whyHiveHoneyCell--7 {
+    left: 46%;
+    top: 2%;
+    width: 66px;
+    height: 76px;
+    background: rgba( 255, 191, 0, 0.1);
+    border: 0;
+    animation-delay: -2.1s;
+}
+
+
+/* =========================================================
+   BEE ORBIT
+========================================================= */
+
+.whyHiveBeeOrbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 455px;
+    height: 455px;
+    transform: translate( -50%, -50%);
+    border: 1px dashed rgba( 255, 191, 0, 0.34);
+    border-radius: 50%;
+    animation: whyHiveOrbitRotate 25s linear infinite;
+}
+
+.whyHiveBeeOrbit::before {
+    content: "";
+    position: absolute;
+    inset: 52px;
+    border: 1px solid rgba( 18, 18, 18, 0.055);
+    border-radius: 50%;
+}
+
+.whyHiveBeeOrbit span {
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    width: 17px;
+    height: 19px;
+    transform: translateX(-50%);
+    background: var(--why-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   BIG BEE
+========================================================= */
+
+.whyHiveBee {
+    position: relative;
+    z-index: 20;
+    width: 310px;
+    height: 300px;
+    transform-origin: center;
+    animation: whyHiveBeeFloat 4.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BEE SHADOW
+========================================================= */
+
+.whyHiveBeeShadow {
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 175px;
+    height: 30px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba( 18, 18, 18, 0.11);
+    filter: blur(12px);
+    animation: whyHiveShadowPulse 4.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BEE BODY
+========================================================= */
+
+.whyHiveBeeBody {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 205px;
+    height: 215px;
+    transform: translate( -50%, -50%);
+    overflow: visible;
+    border: 5px solid #121212;
+    border-radius: 48% 48% 52% 52%;
+    background: var(--why-yellow);
+    box-shadow: 0 28px 45px rgba( 18, 18, 18, 0.17);
+    z-index: 5;
+}
+
+
+/* =========================================================
+   WINGS
+========================================================= */
+
+.whyHiveBeeWing {
+    position: absolute;
+    top: 43px;
+    z-index: 2;
+    width: 125px;
+    height: 155px;
+    border: 4px solid rgba( 18, 18, 18, 0.74);
+    background: rgba( 255, 255, 255, 0.88);
+    box-shadow: inset 0 0 0 8px rgba( 255, 191, 0, 0.08);
+}
+
+.whyHiveBeeWing--left {
+    left: 1px;
+    border-radius: 68% 42% 63% 42%;
+    transform: rotate(-28deg);
+    transform-origin: right center;
+    animation: whyHiveWingLeft 0.34s ease-in-out infinite;
+}
+
+.whyHiveBeeWing--right {
+    right: 1px;
+    border-radius: 42% 68% 42% 63%;
+    transform: rotate(28deg);
+    transform-origin: left center;
+    animation: whyHiveWingRight 0.34s ease-in-out infinite;
+}
+
+.whyHiveBeeWing span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    height: 2px;
+    transform: translate( -50%, -50%) rotate(48deg);
+    background: rgba( 18, 18, 18, 0.12);
+}
+
+
+/* =========================================================
+   ANTENNA
+========================================================= */
+
+.whyHiveAntenna {
+    position: absolute;
+    top: -37px;
+    width: 4px;
+    height: 45px;
+    border-radius: 999px;
+    background: #121212;
+    transform-origin: bottom;
+}
+
+.whyHiveAntenna::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--why-yellow);
+    border: 3px solid #121212;
+}
+
+.whyHiveAntenna--left {
+    left: 65px;
+    transform: rotate(-24deg);
+}
+
+.whyHiveAntenna--right {
+    right: 65px;
+    transform: rotate(24deg);
+}
+
+
+/* =========================================================
+   FACE
+========================================================= */
+
+.whyHiveBeeFace {
+    position: absolute;
+    left: 50%;
+    top: 38px;
+    width: 120px;
+    height: 70px;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   EYES
+========================================================= */
+
+.whyHiveBeeEye {
+    position: absolute;
+    top: 3px;
+    width: 37px;
+    height: 42px;
+    overflow: hidden;
+    border: 4px solid #121212;
+    border-radius: 50%;
+    background: #ffffff;
+    animation: whyHiveBlink 4.6s ease-in-out infinite;
+}
+
+.whyHiveBeeEye--left {
+    left: 13px;
+}
+
+.whyHiveBeeEye--right {
+    right: 13px;
+}
+
+.whyHiveBeeEye i {
+    position: absolute;
+    left: 50%;
+    top: 51%;
+    width: 13px;
+    height: 16px;
+    transform: translate( -50%, -50%);
+    border-radius: 50%;
+    background: #121212;
+    animation: whyHivePupilLook 3.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   SMILE
+========================================================= */
+
+.whyHiveBeeSmile {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 34px;
+    height: 17px;
+    transform: translateX(-50%);
+    border-bottom: 4px solid #121212;
+    border-radius: 0 0 50% 50%;
+}
+
+
+/* =========================================================
+   STRIPES
+========================================================= */
+
+.whyHiveBeeStripe {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: #171717;
+}
+
+.whyHiveBeeStripe--1 {
+    top: 125px;
+}
+
+.whyHiveBeeStripe--2 {
+    top: 170px;
+}
+
+
+/* =========================================================
+   TAIL
+========================================================= */
+
+.whyHiveBeeTail {
+    position: absolute;
+    left: 50%;
+    bottom: -33px;
+    width: 32px;
+    height: 42px;
+    transform: translateX(-50%);
+    background: #121212;
+    clip-path: polygon( 50% 100%, 0 0, 100% 0);
+}
+
+
+/* =========================================================
+   BEE SPARK
+========================================================= */
+
+.whyHiveBeeSpark {
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    z-index: 30;
+    width: 47px;
+    height: 47px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--why-yellow);
+    box-shadow: 0 12px 25px rgba( 18, 18, 18, 0.12);
+    animation: whyHiveSpark 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BEE LABEL
+========================================================= */
+
+.whyHiveBeeLabel {
+    position: absolute;
+    right: 6%;
+    bottom: 11%;
+    width: 95px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--why-black);
+    background: var(--why-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: whyHiveLabelBob 3.5s ease-in-out infinite;
+}
+
+.whyHiveBeeLabel span {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.whyHiveBeeLabel strong {
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.whyHiveCards {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat( 4, minmax( 0, 1fr));
+    gap: 20px;
+    perspective: 1300px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.whyHiveCard {
+    --card-rx: 0deg;
+    --card-ry: 0deg;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    position: relative;
+    min-height: 330px;
+    overflow: hidden;
+    padding: 28px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba( 18, 18, 18, 0.09);
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba( 18, 18, 18, 0.065);
+    transform: rotateX( var(--card-rx)) rotateY( var(--card-ry));
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out, border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.whyHiveCard:hover {
+    border-color: rgba( 255, 191, 0, 0.55);
+    box-shadow: 0 25px 50px rgba( 18, 18, 18, 0.12);
+}
+
+
+/* =========================================================
+   CARD LIGHT
+========================================================= */
+
+.whyHiveCardLight {
+    position: absolute;
+    left: var(--glow-x);
+    top: var(--glow-y);
+    width: 210px;
+    height: 210px;
+    transform: translate( -50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba( 255, 191, 0, 0.13), transparent 68%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.whyHiveCard:hover .whyHiveCardLight {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.whyHiveCardTop {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.whyHiveCardNumber {
+    color: rgba( 18, 18, 18, 0.34);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.whyHiveCardIcon {
+    width: 58px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    background: rgba( 255, 191, 0, 0.13);
+    color: #d79e00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    transition: transform 0.38s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+.whyHiveCard:hover .whyHiveCardIcon {
+    transform: translateY(-6px) rotate(8deg) scale(1.08);
+    background: var(--why-yellow);
+    color: var(--why-black);
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.whyHiveCardBody {
+    position: relative;
+    z-index: 4;
+    margin-top: 38px;
+}
+
+.whyHiveCardKicker {
+    color: #c88d00;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.whyHiveCardBody h3 {
+    margin: 10px 0 0;
+    color: var(--why-black);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.whyHiveCardBody p {
+    margin: 15px 0 0;
+    color: rgba( 18, 18, 18, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.62;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.whyHiveCardBottom {
+    position: relative;
+    z-index: 4;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.whyHiveCardBottom>span {
+    color: rgba( 18, 18, 18, 0.42);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.whyHiveCardBottom b {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--why-black);
+    color: var(--why-yellow);
+    transform: rotate(-10deg);
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+.whyHiveCard:hover .whyHiveCardBottom b {
+    transform: rotate(0deg) scale(1.08);
+    background: var(--why-yellow);
+    color: var(--why-black);
+}
+
+
+/* =========================================================
+   YELLOW EDGE
+========================================================= */
+
+.whyHiveCardEdge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 5px;
+    background: var(--why-yellow);
+    transition: width 0.5s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.whyHiveCard:hover .whyHiveCardEdge {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTTOM STATEMENT
+========================================================= */
+
+.whyHiveBottom {
+    width: min( 1050px, 100%);
+    margin: 62px auto 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto auto auto auto 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.whyHiveBottom>span {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, rgba( 255, 191, 0, 0.55));
+}
+
+.whyHiveBottom>span:last-child {
+    background: linear-gradient( 90deg, rgba( 255, 191, 0, 0.55), transparent);
+}
+
+.whyHiveBottom strong {
+    color: rgba( 18, 18, 18, 0.62);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.whyHiveBottom i {
+    width: 8px;
+    height: 9px;
+    background: var(--why-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.whyHiveDots {
+    position: absolute;
+    display: flex;
+    gap: 6px;
+}
+
+.whyHiveDots--top {
+    right: 5%;
+    top: 48px;
+}
+
+.whyHiveDots--bottom {
+    left: 5%;
+    bottom: 48px;
+}
+
+.whyHiveDots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba( 255, 191, 0, 0.65);
+    animation: whyHiveDotPulse 1.6s ease-in-out infinite;
+}
+
+.whyHiveDots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.whyHiveDots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes whyHiveBeeFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+@keyframes whyHiveShadowPulse {
+    0%,
+    100% {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-50%) scaleX(0.78);
+        opacity: 0.45;
+    }
+}
+
+@keyframes whyHiveWingLeft {
+    0%,
+    100% {
+        transform: rotate(-28deg);
+    }
+    50% {
+        transform: rotate(-42deg) scaleY(0.92);
+    }
+}
+
+@keyframes whyHiveWingRight {
+    0%,
+    100% {
+        transform: rotate(28deg);
+    }
+    50% {
+        transform: rotate(42deg) scaleY(0.92);
+    }
+}
+
+@keyframes whyHiveBlink {
+    0%,
+    44%,
+    48%,
+    100% {
+        transform: scaleY(1);
+    }
+    46% {
+        transform: scaleY(0.12);
+    }
+}
+
+@keyframes whyHivePupilLook {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    30% {
+        translate: -4px 1px;
+    }
+    65% {
+        translate: 4px -1px;
+    }
+}
+
+@keyframes whyHiveSpark {
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(15deg) scale(1.12);
+    }
+}
+
+@keyframes whyHiveLabelBob {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(4deg);
+    }
+}
+
+@keyframes whyHiveOrbitRotate {
+    from {
+        transform: translate( -50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate( -50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes whyHiveCellFloat {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+@keyframes whyHiveDotPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media ( max-width: 1250px) {
+    .whyHiveTop {
+        grid-template-columns: 1fr 520px;
+        gap: 45px;
+    }
+    .whyHiveVisual {
+        transform: scale(0.9);
+    }
+    .whyHiveCards {
+        gap: 16px;
+    }
+    .whyHiveCard {
+        min-height: 320px;
+        padding: 24px;
+    }
+    .whyHiveCardBody h3 {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 950px) {
+    .whyHiveSection {
+        padding: 82px 0 85px;
+    }
+    .whyHiveContainer {
+        width: calc( 100% - 40px);
+    }
+    .whyHiveTop {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .whyHiveCopy {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .whyHiveEyebrow {
+        justify-content: center;
+    }
+    .whyHiveTitle {
+        align-items: center;
+    }
+    .whyHiveIntro {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .whyHiveVisual {
+        height: 520px;
+    }
+    .whyHiveCards {
+        grid-template-columns: repeat( 2, minmax( 0, 1fr));
+    }
+    .whyHiveCard {
+        min-height: 300px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 620px) {
+    .whyHiveSection {
+        padding: 65px 0 72px;
+    }
+    .whyHiveContainer {
+        width: calc( 100% - 28px);
+    }
+    .whyHiveEyebrow {
+        font-size: 9px;
+    }
+    .whyHiveTitle {
+        font-size: clamp( 46px, 14vw, 62px);
+        line-height: 0.94;
+    }
+    .whyHiveIntro {
+        max-width: 340px;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+    .whyHiveVisual {
+        height: 440px;
+        transform: scale(0.8);
+        margin: -25px 0;
+    }
+    .whyHiveCards {
+        margin-top: 25px;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .whyHiveCard {
+        min-height: 285px;
+    }
+    .whyHiveBottom {
+        margin-top: 42px;
+        grid-template-columns: 1fr auto auto auto 1fr;
+        gap: 9px;
+    }
+    .whyHiveBottom strong:nth-of-type(2),
+    .whyHiveBottom strong:nth-of-type(4),
+    .whyHiveBottom i:nth-of-type(2),
+    .whyHiveBottom i:nth-of-type(3) {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .whyHiveBee,
+    .whyHiveBeeWing,
+    .whyHiveBeeEye,
+    .whyHiveBeeEye i,
+    .whyHiveBeeSpark,
+    .whyHiveBeeLabel,
+    .whyHiveBeeOrbit,
+    .whyHiveHoneyCell,
+    .whyHiveDots span,
+    .whyHiveCard {
+        animation: none !important;
+        transition: none !important;
+    }
+}

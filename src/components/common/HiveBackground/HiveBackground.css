@@ -1,0 +1,29 @@
+/* =========================================================
+   NERDSHIVE EXACT REFERENCE BACKGROUND
+   =========================================================
+   The supplied background already contains:
+
+   - top-left yellow honeycomb
+   - top-right light honeycomb
+   - left bee
+   - right bee
+   - bottom-right honeycomb
+   - small loose hexagons
+   - white background
+
+   So NO generated CSS bee or honeycomb is used here.
+========================================================= */
+
+.nh-reference-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 1672px;
+    height: 941px;
+    pointer-events: none;
+    background-color: #ffffff;
+    background-image: url("/images/misc/nerdshive-reference-bg.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 1672px 941px;
+}

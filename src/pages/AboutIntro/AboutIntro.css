@@ -1,0 +1,699 @@
+/* =========================================================
+   WHO WE ARE
+   FULL-WIDTH / NO LEFT-RIGHT PARTITION
+========================================================= */
+
+.whoSection,
+.whoSection *,
+.whoSection *::before,
+.whoSection *::after {
+    box-sizing: border-box;
+}
+
+.whoSection {
+    --who-yellow: #ffbf00;
+    --who-yellow-soft: #ffe47b;
+    --who-yellow-pale: #fff4bc;
+    --who-brown: #701f0e;
+    --who-black: #121212;
+    --who-white: #ffffff;
+    --who-pink: #ffd8d0;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 176px 0 0;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--who-black);
+}
+
+
+/* =========================================================
+   STAGE
+
+   FULL WIDTH CONTENT AREA.
+========================================================= */
+
+.whoStage {
+    position: relative;
+    z-index: 10;
+    width: min( 1380px, calc(100% - 72px));
+    min-height: 690px;
+    margin: 0 auto;
+    padding: 0 0 70px;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.whoEyebrow {
+    position: relative;
+    z-index: 30;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--who-brown);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+}
+
+.whoEyebrow>span {
+    width: 12px;
+    height: 14px;
+    background: var(--who-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    animation: whoEyebrowPop 2.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GIANT TITLE
+========================================================= */
+
+.whoTitle {
+    position: relative;
+    z-index: 20;
+    max-width: 1280px;
+    margin: 22px auto 0;
+    padding: 0;
+    perspective: 1300px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 59px, 6.25vw, 103px);
+    font-weight: 950;
+    line-height: 0.88;
+    letter-spacing: -0.068em;
+}
+
+.whoTitleLine {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+
+.whoTitleLine>span {
+    display: block;
+    transform-origin: center bottom;
+}
+
+.whoTitleLine em {
+    color: var(--who-yellow);
+    font-style: normal;
+}
+
+
+/* =========================================================
+   INTRO COPY
+========================================================= */
+
+.whoIntroCopy {
+    position: relative;
+    z-index: 30;
+    max-width: 790px;
+    margin: 29px auto 0;
+    color: rgba( 18, 18, 18, 0.61);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.82;
+}
+
+
+/* =========================================================
+   LIVING SENTENCE
+
+   THIS IS ONE CONTINUOUS CREATIVE ELEMENT,
+   NOT A CARD ROW.
+========================================================= */
+
+.whoLivingLine {
+    position: relative;
+    z-index: 40;
+    width: fit-content;
+    max-width: calc(100% - 70px);
+    min-height: 72px;
+    margin: 37px auto 0;
+    padding: 10px 17px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px;
+    border: 1px solid rgba( 18, 18, 18, 0.07);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 17px 38px rgba( 18, 18, 18, 0.07);
+    transform-style: preserve-3d;
+}
+
+.whoLivingLine__spark {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--who-brown);
+    background: var(--who-yellow);
+}
+
+.whoLivingLine>span {
+    color: rgba( 18, 18, 18, 0.5);
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.whoLivingLine>strong {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--who-yellow-pale);
+    color: var(--who-brown);
+    font-size: 13px;
+    font-weight: 900;
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+.whoLivingLine>strong:nth-of-type(2) {
+    background: var(--who-brown);
+    color: #ffffff;
+}
+
+.whoLivingLine>strong:nth-of-type(3) {
+    background: var(--who-black);
+    color: var(--who-yellow);
+}
+
+.whoLivingLine>strong:hover {
+    transform: translateY(-4px) rotate(-2deg) scale(1.05);
+}
+
+.whoLivingLine>i {
+    color: var(--who-yellow);
+    font-size: 17px;
+    font-weight: 950;
+    font-style: normal;
+}
+
+.whoLivingLine__tail {
+    color: var(--who-yellow);
+    font-size: 18px;
+    animation: whoTailPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOATING WORD TAGS
+========================================================= */
+
+.whoFloat {
+    position: absolute;
+    z-index: 50;
+    min-height: 48px;
+    padding: 8px 13px 8px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba( 18, 18, 18, 0.075);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    transition: transform 0.35s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+.whoFloat:hover {
+    transform: translateY(-5px) scale(1.04);
+}
+
+.whoFloat__icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+}
+
+.whoFloat>span {
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   EACH TAG GETS DIFFERENT CHARACTER
+========================================================= */
+
+.whoFloat--one {
+    left: 4.5%;
+    top: 88px;
+    background: #fff2b3;
+    color: var(--who-brown);
+}
+
+.whoFloat--one .whoFloat__icon {
+    background: var(--who-yellow);
+}
+
+.whoFloat--two {
+    right: 5%;
+    top: 97px;
+    background: var(--who-brown);
+    color: #ffffff;
+}
+
+.whoFloat--two .whoFloat__icon {
+    background: var(--who-yellow);
+    color: var(--who-brown);
+}
+
+.whoFloat--three {
+    left: 2%;
+    top: 365px;
+    background: var(--who-black);
+    color: #ffffff;
+}
+
+.whoFloat--three .whoFloat__icon {
+    background: #ffffff;
+    color: var(--who-black);
+}
+
+.whoFloat--four {
+    right: 1.5%;
+    top: 330px;
+    background: #fff0eb;
+    color: var(--who-brown);
+}
+
+.whoFloat--four .whoFloat__icon {
+    background: #ffd5c8;
+}
+
+.whoFloat--five {
+    right: 13%;
+    bottom: 70px;
+    background: #fff6cf;
+    color: var(--who-brown);
+}
+
+.whoFloat--five .whoFloat__icon {
+    background: var(--who-yellow);
+}
+
+
+/* =========================================================
+   RANDOM DOODLES
+
+   SMALL + CONTROLLED.
+========================================================= */
+
+.whoDoodle {
+    position: absolute;
+    z-index: 15;
+    pointer-events: none;
+    user-select: none;
+    font-family: Inter, Arial, sans-serif;
+    font-weight: 900;
+}
+
+.whoDoodle--yellow {
+    left: 16%;
+    bottom: 101px;
+    color: var(--who-yellow);
+    font-size: 28px;
+    animation: whoDoodleSpin 6s linear infinite;
+}
+
+.whoDoodle--brown {
+    right: 21%;
+    top: 26px;
+    color: rgba( 112, 31, 14, 0.22);
+    font-size: 27px;
+    animation: whoDoodleFloat 2.8s ease-in-out infinite;
+}
+
+.whoDoodle--black {
+    left: 20%;
+    top: 29px;
+    color: rgba( 18, 18, 18, 0.12);
+    font-size: 24px;
+    animation: whoDoodleFloat 3.4s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   TINY BEE
+
+   JUST A BRAND DETAIL,
+   NOT THE MAIN VISUAL.
+========================================================= */
+
+.whoTinyBee {
+    position: absolute;
+    left: 8%;
+    bottom: 50px;
+    z-index: 25;
+    width: 42px;
+    height: 30px;
+    animation: whoBeeTravel 8s ease-in-out infinite;
+}
+
+.whoTinyBee__body {
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    width: 30px;
+    height: 18px;
+    overflow: hidden;
+    border: 1.6px solid var(--who-black);
+    border-radius: 50%;
+    background: var(--who-yellow);
+}
+
+.whoTinyBee__body i {
+    position: absolute;
+    top: -3px;
+    width: 4px;
+    height: 25px;
+    background: var(--who-black);
+}
+
+.whoTinyBee__body i:first-child {
+    left: 8px;
+}
+
+.whoTinyBee__body i:last-child {
+    left: 18px;
+}
+
+.whoTinyBee__wing {
+    position: absolute;
+    top: 1px;
+    width: 16px;
+    height: 13px;
+    border: 1.2px solid rgba( 18, 18, 18, 0.42);
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.whoTinyBee__wing--one {
+    left: 11px;
+    animation: whoWingLeft 0.13s ease-in-out infinite alternate;
+}
+
+.whoTinyBee__wing--two {
+    left: 24px;
+    animation: whoWingRight 0.13s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.whoCursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 1px solid rgba( 255, 191, 0, 0.45);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.whoCursor::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    transform: translate( -50%, -50%);
+    border-radius: 50%;
+    background: var(--who-yellow);
+}
+
+
+/* =========================================================
+   KINETIC RIBBON
+========================================================= */
+
+.whoRibbon {
+    position: relative;
+    z-index: 30;
+    width: 104%;
+    height: 78px;
+    margin-left: -2%;
+    overflow: hidden;
+    background: var(--who-yellow);
+    transform: rotate(-1.2deg);
+    transform-origin: center;
+    box-shadow: 0 13px 35px rgba( 255, 191, 0, 0.18);
+}
+
+.whoRibbonTrack {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0 25px;
+    white-space: nowrap;
+    transform: translateX(0);
+}
+
+.whoRibbonTrack span {
+    color: var(--who-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 950;
+    letter-spacing: -0.035em;
+}
+
+.whoRibbonTrack i {
+    color: var(--who-brown);
+    font-size: 15px;
+    font-style: normal;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes whoEyebrowPop {
+    0%,
+    100% {
+        transform: scale(1) rotate(0);
+    }
+    50% {
+        transform: scale(1.25) rotate(8deg);
+    }
+}
+
+@keyframes whoTailPulse {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.3) rotate(12deg);
+    }
+}
+
+@keyframes whoDoodleSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes whoDoodleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes whoWingLeft {
+    from {
+        transform: rotate(-5deg);
+    }
+    to {
+        transform: rotate(-44deg);
+    }
+}
+
+@keyframes whoWingRight {
+    from {
+        transform: rotate(5deg);
+    }
+    to {
+        transform: rotate(44deg);
+    }
+}
+
+@keyframes whoBeeTravel {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-4deg);
+    }
+    25% {
+        transform: translate( 34px, -13px) rotate(6deg);
+    }
+    50% {
+        transform: translate( 72px, 5px) rotate(-3deg);
+    }
+    75% {
+        transform: translate( 37px, 13px) rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media ( max-width: 1180px) {
+    .whoStage {
+        width: calc( 100% - 48px);
+        min-height: 650px;
+    }
+    .whoFloat--one {
+        left: 1%;
+    }
+    .whoFloat--two {
+        right: 1%;
+    }
+    .whoFloat--three {
+        left: 0;
+    }
+    .whoFloat--four {
+        right: 0;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 900px) {
+    .whoSection {
+        min-height: auto;
+        padding-top: 145px;
+    }
+    .whoStage {
+        width: calc( 100% - 36px);
+        min-height: 700px;
+    }
+    .whoTitle {
+        font-size: clamp( 50px, 9vw, 78px);
+    }
+    .whoFloat {
+        transform: scale(0.9);
+    }
+    .whoFloat--one {
+        top: 75px;
+    }
+    .whoFloat--two {
+        top: 120px;
+    }
+    .whoFloat--three {
+        top: auto;
+        bottom: 95px;
+    }
+    .whoFloat--four {
+        top: auto;
+        bottom: 140px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 620px) {
+    .whoSection {
+        padding-top: 118px;
+    }
+    .whoStage {
+        width: calc( 100% - 24px);
+        min-height: auto;
+        padding-bottom: 70px;
+    }
+    .whoTitle {
+        font-size: clamp( 43px, 12vw, 59px);
+        line-height: 0.93;
+    }
+    .whoIntroCopy {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+    .whoLivingLine {
+        max-width: 100%;
+        border-radius: 25px;
+        padding: 10px;
+        gap: 8px;
+    }
+    .whoLivingLine__spark {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+    .whoLivingLine>strong {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+    .whoFloat {
+        display: none;
+    }
+    .whoDoodle {
+        display: none;
+    }
+    .whoTinyBee {
+        left: 10px;
+        bottom: 25px;
+    }
+    .whoRibbon {
+        height: 61px;
+    }
+    .whoRibbonTrack {
+        gap: 20px;
+    }
+    .whoRibbonTrack span {
+        font-size: 18px;
+    }
+    .whoCursor {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .whoSection *,
+    .whoSection *::before,
+    .whoSection *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

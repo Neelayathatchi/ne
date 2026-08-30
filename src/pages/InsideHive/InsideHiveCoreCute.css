@@ -1,0 +1,664 @@
+/* =========================================================
+   NERDSHIVE — CUTE PREMIUM CENTER CORE OVERRIDE
+   Website Yellow: #FFBF00
+   NO GLOW ON CARD — glow only belongs to page background
+========================================================= */
+
+
+/* =========================================================
+   MAIN YELLOW CORE CARD
+========================================================= */
+
+.insideHive__coreCard {
+    position: absolute;
+    z-index: 15;
+    left: 50%;
+    top: 0;
+    width: 34%;
+    height: 558px;
+    padding: 28px 34px 30px;
+    overflow: hidden;
+    border-radius: 34px 34px 42px 42px;
+    border: 1px solid rgba(112, 31, 14, 0.1);
+    background: #FFBF00;
+    box-shadow: 0 24px 55px rgba(69, 16, 6, 0.12);
+    opacity: 0;
+    transform: translateX(-50%) translateY(35px) scale(0.94) rotateX(var(--hive-rotate-x)) rotateY(var(--hive-rotate-y));
+    transform-style: preserve-3d;
+    transition: opacity 0.8s 0.14s ease, transform 0.8s 0.14s cubic-bezier( 0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.insideHive--visible .insideHive__coreCard {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1) rotateX(var(--hive-rotate-x)) rotateY(var(--hive-rotate-y));
+}
+
+.insideHive__coreCard:hover {
+    box-shadow: 0 31px 65px rgba(69, 16, 6, 0.16);
+}
+
+
+/* =========================================================
+   CUTE INTERNAL BACKGROUND SHAPES
+========================================================= */
+
+.insideHive__coreCard::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    right: -75px;
+    top: -78px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: cuteCoreCircle 7s ease-in-out infinite;
+}
+
+.insideHive__coreCard::after {
+    content: "";
+    position: absolute;
+    left: -75px;
+    bottom: -85px;
+    width: 210px;
+    height: 210px;
+    border: 1px dashed rgba(112, 31, 14, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: cuteCoreCircleReverse 12s linear infinite;
+}
+
+
+/* =========================================================
+   SUBTLE MOVING SHIMMER
+   NOT GLOW — just soft surface movement
+========================================================= */
+
+.insideHive__coreShimmer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient( 110deg, transparent 28%, rgba( 255, 255, 255, 0.18) 46%, transparent 64%);
+    transform: translateX(-140%);
+    animation: cuteCoreShimmer 6.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   OUR CORE TAG
+========================================================= */
+
+.insideHive__coreTag {
+    position: relative;
+    z-index: 8;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 13px;
+    border: 1px solid rgba( 255, 255, 255, 0.26);
+    border-radius: 10px 10px 10px 4px;
+    background: #5A1609;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(69, 16, 6, 0.14);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    transition: transform 0.3s ease;
+}
+
+.insideHive__coreTag:hover {
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+.insideHive__coreTag svg {
+    width: 13px;
+    height: 13px;
+    color: #FFBF00;
+    fill: #FFBF00;
+}
+
+
+/* =========================================================
+   CENTER ICON AREA
+========================================================= */
+
+.insideHive__coreTop {
+    position: relative;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    margin: 18px 0 10px;
+}
+
+.insideHive__coreLogoOrbit {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: grid;
+    place-items: center;
+}
+
+
+/* outer rotating rings */
+
+.insideHive__orbit {
+    position: absolute;
+    border: 1px dashed rgba( 112, 31, 14, 0.18);
+    border-radius: 50%;
+    animation: cuteCoreOrbit 14s linear infinite;
+}
+
+.insideHive__orbit--1 {
+    width: 132px;
+    height: 132px;
+}
+
+.insideHive__orbit--2 {
+    width: 155px;
+    height: 155px;
+    opacity: 0.55;
+    animation: cuteCoreOrbitReverse 20s linear infinite;
+}
+
+
+/* =========================================================
+   HEXAGON CORE
+========================================================= */
+
+.insideHive__coreIcon {
+    position: relative;
+    z-index: 5;
+    width: 108px;
+    height: 108px;
+    display: grid;
+    place-items: center;
+    color: #701F0E;
+    background: #ffffff;
+    border: 2px solid rgba( 112, 31, 14, 0.12);
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    filter: drop-shadow( 0 12px 14px rgba( 69, 16, 6, 0.12));
+    animation: cuteCoreIconFloat 3.8s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.insideHive__coreIcon:hover {
+    transform: translateY(-5px) rotate(5deg) scale(1.08);
+}
+
+.insideHive__coreIcon svg {
+    width: 43px;
+    height: 43px;
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   CUTE SMALL BUBBLES AROUND CORE
+========================================================= */
+
+.insideHive__coreLogoOrbit::before,
+.insideHive__coreLogoOrbit::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid rgba( 112, 31, 14, 0.12);
+    animation: cuteBubbleFloat 3s ease-in-out infinite;
+}
+
+.insideHive__coreLogoOrbit::before {
+    width: 12px;
+    height: 12px;
+    left: 7px;
+    top: 32px;
+}
+
+.insideHive__coreLogoOrbit::after {
+    width: 8px;
+    height: 8px;
+    right: 11px;
+    bottom: 31px;
+    animation-delay: -1.4s;
+}
+
+
+/* =========================================================
+   STARTUP ENERGY TITLE
+========================================================= */
+
+.insideHive__coreCard>h3 {
+    position: relative;
+    z-index: 7;
+    margin: 4px 0 12px;
+    text-align: center;
+    color: #15110E;
+    font-size: clamp( 32px, 2.35vw, 40px);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+
+/* cute underline */
+
+.insideHive__coreCard>h3::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background: #701F0E;
+    transform-origin: center;
+    animation: cuteTitleLine 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CORE DESCRIPTION
+========================================================= */
+
+.insideHive__coreCard>p {
+    position: relative;
+    z-index: 7;
+    max-width: 370px;
+    margin: 0 auto;
+    text-align: center;
+    color: rgba( 44, 23, 12, 0.79);
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BOTTOM PEOPLE AREA
+========================================================= */
+
+.insideHive__coreBottom {
+    position: absolute;
+    z-index: 10;
+    left: 29px;
+    right: 29px;
+    bottom: 27px;
+    display: flex;
+    align-items: center;
+    min-height: 63px;
+    padding: 10px 11px 10px 12px;
+    border: 1px solid rgba( 112, 31, 14, 0.1);
+    border-radius: 22px;
+    background: rgba( 255, 255, 255, 0.27);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   AVATARS
+========================================================= */
+
+.insideHive__people {
+    display: flex;
+    align-items: center;
+}
+
+.insideHive__people span {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    margin-left: -7px;
+    border: 3px solid #FFBF00;
+    border-radius: 50%;
+    background: #701F0E;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba( 69, 16, 6, 0.1);
+    font-size: 10px;
+    font-weight: 950;
+    transition: transform 0.3s ease;
+}
+
+.insideHive__people span:first-child {
+    margin-left: 0;
+}
+
+.insideHive__people span:hover {
+    z-index: 5;
+    transform: translateY(-6px) rotate(-5deg) scale(1.1);
+}
+
+.insideHive__people span:nth-child(2):hover {
+    transform: translateY(-6px) rotate(4deg) scale(1.1);
+}
+
+
+/* =========================================================
+   PEOPLE COPY
+========================================================= */
+
+.insideHive__peopleCopy {
+    margin-left: 11px;
+    display: flex;
+    flex-direction: column;
+}
+
+.insideHive__peopleCopy strong {
+    color: #491006;
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.insideHive__peopleCopy span {
+    margin-top: 3px;
+    color: rgba( 73, 16, 6, 0.68);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CENTER CTA BUTTON
+========================================================= */
+
+.insideHive__coreArrow {
+    position: relative;
+    margin-left: auto;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border: 2px solid rgba( 255, 255, 255, 0.82);
+    border-radius: 50%;
+    background: #701F0E;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba( 69, 16, 6, 0.18);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier( 0.16, 1, 0.3, 1), background 0.35s ease;
+}
+
+.insideHive__coreArrow::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba( 255, 191, 0, 0.38);
+    border-radius: 50%;
+}
+
+.insideHive__coreArrow:hover {
+    transform: translateX(4px) rotate(-7deg) scale(1.08);
+    background: #4A1007;
+}
+
+.insideHive__coreArrow svg {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================================================
+   BEE — CUTER
+========================================================= */
+
+.insideHive__bee {
+    position: absolute;
+    z-index: 20;
+    right: 28px;
+    top: 137px;
+    width: 65px;
+    height: 57px;
+    animation: cuteBeeFly 4.2s ease-in-out infinite;
+}
+
+.insideHive__beeBody {
+    position: absolute;
+    left: 8px;
+    top: 21px;
+    width: 42px;
+    height: 26px;
+    overflow: hidden;
+    border-radius: 55% 44% 44% 55%;
+    background: #FFBF00;
+    transform: rotate(7deg);
+    box-shadow: 0 6px 10px rgba( 69, 16, 6, 0.1);
+}
+
+.insideHive__beeBody i {
+    position: absolute;
+    top: -4px;
+    width: 6px;
+    height: 36px;
+    background: #17100D;
+}
+
+.insideHive__beeBody i:first-child {
+    left: 13px;
+}
+
+.insideHive__beeBody i:last-child {
+    left: 27px;
+}
+
+.insideHive__beeHead {
+    position: absolute;
+    z-index: 5;
+    right: 2px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba( 69, 16, 6, 0.1);
+    border-radius: 50%;
+    background: #FFD765;
+}
+
+
+/* =========================================================
+   BEE WINGS
+========================================================= */
+
+.insideHive__beeWing {
+    background: rgba( 255, 255, 255, 0.96);
+    border: 1px solid rgba( 69, 16, 6, 0.09);
+}
+
+
+/* =========================================================
+   BEE TRAIL
+========================================================= */
+
+.insideHive__beeTrail {
+    width: 86px;
+    height: 95px;
+    border-left: 2px dashed rgba( 112, 31, 14, 0.32);
+}
+
+
+/* =========================================================
+   SPARKS
+========================================================= */
+
+.insideHive__spark {
+    z-index: 6;
+    font-size: 16px;
+    color: rgba( 255, 255, 255, 0.95);
+    animation: cuteCoreSpark 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes cuteCoreShimmer {
+    0%,
+    68% {
+        transform: translateX(-140%);
+    }
+    100% {
+        transform: translateX(140%);
+    }
+}
+
+@keyframes cuteCoreCircle {
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.06) translateY(8px);
+    }
+}
+
+@keyframes cuteCoreCircleReverse {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes cuteCoreOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cuteCoreOrbitReverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes cuteCoreIconFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-7px) rotate(2deg);
+    }
+}
+
+@keyframes cuteBubbleFloat {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.15);
+    }
+}
+
+@keyframes cuteTitleLine {
+    0%,
+    100% {
+        transform: scaleX(0.7);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes cuteBeeFly {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-4deg);
+    }
+    25% {
+        transform: translate( -6px, -9px) rotate(2deg);
+    }
+    50% {
+        transform: translate( 5px, -15px) rotate(5deg);
+    }
+    75% {
+        transform: translate( 8px, -5px) rotate(-1deg);
+    }
+}
+
+@keyframes cuteCoreSpark {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.75) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(14deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+    .insideHive__coreCard {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: min( 560px, 100%);
+        height: 520px;
+        margin: 0 auto 15px;
+        transform: translateY(35px) scale(0.95);
+    }
+    .insideHive--visible .insideHive__coreCard {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .insideHive__coreCard {
+        width: 100%;
+        height: 510px;
+        padding: 24px 20px;
+    }
+    .insideHive__coreBottom {
+        left: 18px;
+        right: 18px;
+        bottom: 20px;
+    }
+    .insideHive__people span {
+        width: 33px;
+        height: 33px;
+    }
+    .insideHive__coreArrow {
+        width: 47px;
+        height: 47px;
+    }
+    .insideHive__bee {
+        right: 15px;
+        transform: scale(0.85);
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .insideHive__coreCard,
+    .insideHive__coreCard *,
+    .insideHive__coreCard::before,
+    .insideHive__coreCard::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

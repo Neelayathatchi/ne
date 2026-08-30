@@ -1,0 +1,15 @@
+.text-amber {
+    color: var(--amber);
+}
+
+.text-walnut {
+    color: var(--walnut);
+}
+
+.bg-white {
+    background: var(--white);
+}
+
+.bg-charcoal {
+    background: var(--charcoal);
+}

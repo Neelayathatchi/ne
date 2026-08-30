@@ -1,0 +1,139 @@
+.localRoots,
+.localRoots *,
+.localRoots *::before,
+.localRoots *::after {
+    box-sizing: border-box;
+}
+
+.localRoots {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 0;
+    overflow: hidden;
+    background: #FFFFFF;
+    perspective: 1600px;
+}
+
+
+/* =========================================
+   ARTWORK
+========================================= */
+
+.localRoots__artwork {
+    --local-x: 0px;
+    --local-y: 0px;
+    position: relative;
+    width: min( 1580px, calc(100% - 30px));
+    margin: auto;
+    opacity: 0;
+    transform: translate3d( var(--local-x), calc( 25px + var(--local-y)), 0) scale(0.985);
+    transition: opacity 0.8s ease, transform 0.85s cubic-bezier( 0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.localRoots--visible .localRoots__artwork {
+    opacity: 1;
+    transform: translate3d( var(--local-x), var(--local-y), 0) scale(1);
+}
+
+
+/* =========================================
+   EXACT IMAGE
+========================================= */
+
+.localRoots__artwork img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border: 0;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================
+   VERY SUBTLE FLOAT
+========================================= */
+
+.localRoots--visible .localRoots__artwork {
+    animation: localRootsFloat 7s 1s ease-in-out infinite;
+}
+
+@keyframes localRootsFloat {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: -3px;
+    }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media ( max-width: 1400px) {
+    .localRoots {
+        min-height: auto;
+        padding: 25px 0;
+    }
+    .localRoots__artwork {
+        width: min( 1450px, calc(100% - 20px));
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media ( max-width: 950px) {
+    .localRoots {
+        min-height: auto;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 20px 0;
+        background: #FFFFFF;
+        -webkit-overflow-scrolling: touch;
+    }
+    .localRoots__artwork {
+        flex: 0 0 auto;
+        width: 1150px;
+        margin: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media ( max-width: 650px) {
+    .localRoots__artwork {
+        width: 1000px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media ( prefers-reduced-motion : reduce) {
+    .localRoots__artwork {
+        animation: none !important;
+        transition-duration: 0.001ms !important;
+        opacity: 1;
+        transform: none;
+    }
+}

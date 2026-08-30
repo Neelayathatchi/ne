@@ -1,0 +1,740 @@
+:root {
+    --shell-yellow: #ffbf00;
+    --shell-yellow-soft: #f3c75e;
+    --shell-black: #121212;
+    --shell-charcoal: #252525;
+    --shell-white: #ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.shellGallerySection,
+.shellGallerySection *,
+.shellGallerySection *::before,
+.shellGallerySection *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.shellGallerySection {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 78px 0 88px;
+    background: #ffffff;
+    background-image: none;
+    color: var(--shell-black);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.shellGalleryContainer {
+    position: relative;
+    z-index: 5;
+    width: min( 1520px, calc(100% - 54px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.shellGalleryHeader {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.shellGalleryEyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba( 18, 18, 18, 0.66);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.17em;
+}
+
+.shellGalleryEyebrow>span {
+    width: 12px;
+    height: 14px;
+    background: var(--shell-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   TITLE — EXACTLY 2 LINES
+========================================================= */
+
+.shellGalleryTitle {
+    margin: 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    color: var(--shell-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: clamp( 54px, 4.8vw, 76px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.shellGalleryTitleLine {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.shellGalleryTitleLine--yellow {
+    color: var(--shell-yellow-soft);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.shellGalleryIntro {
+    max-width: 610px;
+    margin: 15px auto 0;
+    color: rgba( 18, 18, 18, 0.58);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.shellGalleryStage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================================
+   GALLERY
+   TOP ROW = 7
+   BOTTOM ROW = 6
+========================================================= */
+
+.shellGalleryHive {
+    position: relative;
+    width: 1480px;
+    height: 560px;
+    margin: 8px auto 0;
+}
+
+
+/* =========================================================
+   HEX SIZE — BIGGER
+========================================================= */
+
+.shellHex {
+    --shell-x: 0px;
+    --shell-y: 0px;
+    position: absolute;
+    z-index: 10;
+    width: 190px;
+    height: 218px;
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.4s cubic-bezier( 0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   WHITE BORDER
+========================================================= */
+
+.shellHexBorder {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    background: #ffffff;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+    filter: drop-shadow( 0 10px 15px rgba( 18, 18, 18, 0.09));
+    transition: background 0.3s ease, filter 0.3s ease;
+}
+
+
+/* =========================================================
+   IMAGE CLIP
+========================================================= */
+
+.shellHexClip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ededed;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.shellHex:hover,
+.shellHex--active {
+    z-index: 100;
+    transform: translateY(-7px) scale(1.06);
+}
+
+.shellHex:hover .shellHexBorder,
+.shellHex--active .shellHexBorder {
+    background: var(--shell-yellow);
+    filter: drop-shadow( 0 18px 24px rgba( 18, 18, 18, 0.15));
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.shellHexImage {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: calc( 100% + 20px);
+    height: calc( 100% + 20px);
+    object-fit: cover;
+    transform: translate( var(--shell-x), var(--shell-y)) scale(1.04);
+    transition: transform 0.28s ease-out, filter 0.35s ease;
+}
+
+.shellHex:hover .shellHexImage,
+.shellHex--active .shellHexImage {
+    transform: translate( var(--shell-x), var(--shell-y)) scale(1.11);
+    filter: saturate(1.06) contrast(1.02);
+}
+
+
+/* =========================================================
+   SHADE
+========================================================= */
+
+.shellHexShade {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient( 180deg, transparent 35%, rgba(0, 0, 0, 0.04) 58%, rgba(0, 0, 0, 0.72) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shellHex:hover .shellHexShade,
+.shellHex--active .shellHexShade {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.shellHexNumber {
+    position: absolute;
+    left: 50%;
+    top: 19px;
+    z-index: 5;
+    min-width: 34px;
+    height: 24px;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: rgba( 255, 255, 255, 0.94);
+    color: var(--shell-black);
+    font-size: 8px;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shellHex:hover .shellHexNumber,
+.shellHex--active .shellHexNumber {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.shellHexText {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 29px;
+    z-index: 5;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.35s ease;
+}
+
+.shellHex:hover .shellHexText,
+.shellHex--active .shellHexText {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.shellHexText span {
+    display: block;
+    color: rgba( 255, 255, 255, 0.73);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.shellHexText strong {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.06;
+}
+
+
+/* =========================================================
+   TOP ROW — 7 BIG HEXAGONS
+========================================================= */
+
+.shellHex--01 {
+    left: 45px;
+    top: 20px;
+}
+
+.shellHex--02 {
+    left: 245px;
+    top: 20px;
+}
+
+.shellHex--03 {
+    left: 445px;
+    top: 20px;
+}
+
+.shellHex--04 {
+    left: 645px;
+    top: 20px;
+}
+
+.shellHex--05 {
+    left: 845px;
+    top: 20px;
+}
+
+.shellHex--06 {
+    left: 1045px;
+    top: 20px;
+}
+
+.shellHex--07 {
+    left: 1245px;
+    top: 20px;
+}
+
+
+/* =========================================================
+   BOTTOM ROW — 6 BIG HEXAGONS
+========================================================= */
+
+.shellHex--08 {
+    left: 145px;
+    top: 250px;
+}
+
+.shellHex--09 {
+    left: 345px;
+    top: 250px;
+}
+
+.shellHex--10 {
+    left: 545px;
+    top: 250px;
+}
+
+.shellHex--11 {
+    left: 745px;
+    top: 250px;
+}
+
+.shellHex--12 {
+    left: 945px;
+    top: 250px;
+}
+
+.shellHex--13 {
+    left: 1145px;
+    top: 250px;
+}
+
+
+/* =========================================================
+   ACTIVE INFO
+========================================================= */
+
+.shellGalleryActive {
+    width: 520px;
+    min-height: 82px;
+    margin-top: 20px;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 56px 1fr 44px;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid rgba( 18, 18, 18, 0.08);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 15px 34px rgba( 18, 18, 18, 0.075);
+}
+
+
+/* =========================================================
+   ACTIVE HEX
+========================================================= */
+
+.shellGalleryActiveHex {
+    width: 56px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    background: var(--shell-yellow);
+    color: var(--shell-black);
+    font-size: 11px;
+    font-weight: 800;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+
+/* =========================================================
+   ACTIVE COPY
+========================================================= */
+
+.shellGalleryActiveCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.shellGalleryActiveCopy span {
+    color: rgba( 18, 18, 18, 0.46);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.shellGalleryActiveCopy strong {
+    color: var(--shell-black);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   ACTIVE ARROW
+========================================================= */
+
+.shellGalleryActiveArrow {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient( 145deg, #111111, #292929);
+    color: var(--shell-yellow);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.shellGalleryFooter {
+    width: min( 1080px, 100%);
+    margin: 28px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+
+/* =========================================================
+   FOOTER COPY
+========================================================= */
+
+.shellGalleryFooterCopy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shellGalleryFooterCopy>span {
+    width: 13px;
+    height: 15px;
+    background: var(--shell-yellow);
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.shellGalleryFooterCopy p {
+    margin: 0;
+    color: rgba( 18, 18, 18, 0.56);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.shellGalleryFooterCopy strong {
+    color: var(--shell-black);
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.shellGalleryCTA {
+    min-height: 53px;
+    padding: 0 10px 0 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    border-radius: 16px;
+    background: linear-gradient( 145deg, #111111, #292929);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 750;
+    box-shadow: 0 13px 27px rgba( 18, 18, 18, 0.14);
+    transition: transform 0.35s ease;
+}
+
+.shellGalleryCTA:hover {
+    transform: translateY(-4px);
+}
+
+.shellGalleryCTA b {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--shell-yellow);
+    color: var(--shell-black);
+}
+
+
+/* =========================================================
+   DECOR DOTS
+========================================================= */
+
+.shellGalleryDots {
+    position: absolute;
+    display: flex;
+    gap: 6px;
+}
+
+.shellGalleryDots--left {
+    left: 5%;
+    top: 40px;
+}
+
+.shellGalleryDots--right {
+    right: 5%;
+    bottom: 50px;
+}
+
+.shellGalleryDots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba( 255, 191, 0, 0.62);
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media ( max-width: 1500px) {
+    .shellGalleryHive {
+        transform: scale(0.92);
+        transform-origin: top center;
+        margin-bottom: -35px;
+    }
+}
+
+
+/* =========================================================
+   MEDIUM LAPTOP
+========================================================= */
+
+@media ( max-width: 1250px) {
+    .shellGalleryHive {
+        transform: scale(0.78);
+        transform-origin: top center;
+        margin-bottom: -100px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media ( max-width: 850px) {
+    .shellGallerySection {
+        padding: 68px 0 76px;
+    }
+    .shellGalleryContainer {
+        width: calc(100% - 32px);
+    }
+    .shellGalleryHeader {
+        margin-bottom: 28px;
+    }
+    .shellGalleryTitle {
+        font-size: clamp( 48px, 8vw, 65px);
+    }
+    .shellGalleryHive {
+        width: 100%;
+        height: auto;
+        margin-top: 22px;
+        margin-bottom: 0;
+        display: grid;
+        grid-template-columns: repeat( 2, minmax( 0, 1fr));
+        gap: 20px 16px;
+        transform: none;
+    }
+    .shellHex,
+    .shellHex--01,
+    .shellHex--02,
+    .shellHex--03,
+    .shellHex--04,
+    .shellHex--05,
+    .shellHex--06,
+    .shellHex--07,
+    .shellHex--08,
+    .shellHex--09,
+    .shellHex--10,
+    .shellHex--11,
+    .shellHex--12,
+    .shellHex--13 {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        height: 290px;
+        transform: none;
+    }
+    .shellGalleryActive {
+        margin-top: 30px;
+        width: min( 520px, 100%);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media ( max-width: 620px) {
+    .shellGallerySection {
+        padding: 58px 0 68px;
+    }
+    .shellGalleryContainer {
+        width: calc(100% - 28px);
+    }
+    .shellGalleryHeader {
+        margin-bottom: 26px;
+    }
+    .shellGalleryEyebrow {
+        font-size: 9px;
+    }
+    .shellGalleryTitle {
+        font-size: clamp( 42px, 13vw, 57px);
+        line-height: 0.98;
+    }
+    .shellGalleryTitleLine {
+        white-space: normal;
+    }
+    .shellGalleryIntro {
+        max-width: 340px;
+        font-size: 14px;
+    }
+    .shellGalleryHive {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .shellHex {
+        width: min( 320px, 90vw);
+        height: 365px;
+        justify-self: center;
+    }
+    .shellGalleryActive {
+        width: 100%;
+        grid-template-columns: 50px 1fr 42px;
+        margin-top: 28px;
+    }
+    .shellGalleryActiveHex {
+        width: 50px;
+        height: 54px;
+    }
+    .shellGalleryActiveCopy strong {
+        font-size: 17px;
+    }
+    .shellGalleryFooter {
+        margin-top: 28px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media ( prefers-reduced-motion: reduce) {
+    .shellHex,
+    .shellHexImage {
+        transition: none !important;
+    }
+}

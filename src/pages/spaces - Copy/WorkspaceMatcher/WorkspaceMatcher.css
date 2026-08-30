@@ -1,0 +1,1114 @@
+/* =========================================================
+   NERDSHIVE — WORKSPACE MATCHER
+   PREMIUM INTERACTIVE CONFIGURATOR
+
+   Main Brand:
+   #FFBF00
+   #701F0E
+   #FFFFFF
+========================================================= */
+
+.workspaceMatcher,
+.workspaceMatcher *,
+.workspaceMatcher *::before,
+.workspaceMatcher *::after {
+    box-sizing: border-box;
+}
+
+.workspaceMatcher {
+    --yellow: #FFBF00;
+    --yellow-soft: #FFF5D0;
+    --brown: #701F0E;
+    --brown-dark: #351008;
+    --white: #FFFFFF;
+    --black: #121212;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 105px 42px 95px;
+    overflow: hidden;
+    background: #FFFFFF;
+    color: var(--black);
+    font-family: "Poppins", "Inter", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.workspaceMatcher__header {
+    width: min( 950px, 100%);
+    margin: 0 auto 48px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.workspaceMatcher--visible .workspaceMatcher__header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* eyebrow */
+
+.workspaceMatcher__eyebrow {
+    width: fit-content;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid rgba( 255, 191, 0, 0.45);
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: #701F0E;
+}
+
+.workspaceMatcher__eyebrow svg {
+    width: 13px;
+    height: 13px;
+    color: #FFBF00;
+}
+
+.workspaceMatcher__eyebrow span {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.workspaceMatcher__eyebrow i {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #FFBF00;
+}
+
+.workspaceMatcher__eyebrow small {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba( 112, 31, 14, 0.5);
+}
+
+
+/* title */
+
+.workspaceMatcher__header h2 {
+    margin: 0;
+    color: #351008;
+    font-size: clamp( 55px, 5.8vw, 92px);
+    font-weight: 950;
+    line-height: 0.91;
+    letter-spacing: -0.06em;
+}
+
+.workspaceMatcher__header h2 span {
+    display: block;
+    color: #FFBF00;
+}
+
+.workspaceMatcher__header p {
+    max-width: 600px;
+    margin: 19px auto 0;
+    color: rgba( 18, 18, 18, 0.57);
+    font-size: 14px;
+    font-weight: 520;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   EXPERIENCE GRID
+========================================================= */
+
+.workspaceMatcher__experience {
+    width: min( 1460px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.04fr 0.96fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   CONFIGURATOR
+========================================================= */
+
+.workspaceMatcher__configurator {
+    position: relative;
+    padding: 28px 30px;
+    border: 1px solid rgba( 112, 31, 14, 0.075);
+    border-radius: 32px;
+    background: #FFFFFF;
+    box-shadow: 0 18px 48px rgba( 45, 20, 11, 0.065);
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity 0.8s 0.12s ease, transform 0.8s 0.12s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.workspaceMatcher--visible .workspaceMatcher__configurator {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   CONFIG HEADER
+========================================================= */
+
+.workspaceMatcher__configHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 19px;
+    border-bottom: 1px dashed rgba( 112, 31, 14, 0.12);
+}
+
+.workspaceMatcher__configHeader>div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.workspaceMatcher__configHeader span {
+    color: #FFBF00;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.workspaceMatcher__configHeader strong {
+    color: #351008;
+    font-size: 16px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   STEP COUNTER
+========================================================= */
+
+.workspaceMatcher__stepCounter {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.workspaceMatcher__stepCounter span {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 255, 191, 0, 0.28);
+    border-radius: 50%;
+    background: #FFF9E9;
+    color: #701F0E;
+    font-size: 8px;
+    font-weight: 900;
+}
+
+.workspaceMatcher__stepCounter i {
+    width: 18px;
+    height: 1px;
+    background: rgba( 255, 191, 0, 0.55);
+}
+
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+.workspaceMatcher__question {
+    position: relative;
+}
+
+.workspaceMatcher__questionNumber {
+    position: absolute;
+    left: -7px;
+    top: 3px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    background: #FFF3C3;
+    color: #701F0E;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.workspaceMatcher__questionHeading {
+    padding-left: 51px;
+    margin-bottom: 16px;
+}
+
+.workspaceMatcher__questionHeading span {
+    color: #FFBF00;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.workspaceMatcher__questionHeading h3 {
+    margin: 4px 0 0;
+    color: #351008;
+    font-size: 19px;
+    font-weight: 850;
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   CHOICES
+========================================================= */
+
+.workspaceMatcher__choices {
+    display: grid;
+    grid-template-columns: repeat( 3, minmax( 0, 1fr));
+    gap: 10px;
+}
+
+.workspaceMatcher__question:first-of-type .workspaceMatcher__choices {
+    grid-template-columns: repeat( 2, minmax( 0, 1fr));
+}
+
+.workspaceMatcher__choice {
+    --choice-index: 0;
+    position: relative;
+    min-height: 88px;
+    display: grid;
+    grid-template-columns: 45px 1fr 22px;
+    align-items: center;
+    gap: 9px;
+    padding: 12px;
+    overflow: hidden;
+    border: 1px solid rgba( 112, 31, 14, 0.075);
+    border-radius: 17px;
+    background: #FFFFFF;
+    text-align: left;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: matcherChoiceIn 0.48s calc( var(--choice-index) * 0.06s) forwards;
+    transition: border-color 0.3s ease, transform 0.3s cubic-bezier( 0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workspaceMatcher__choice:hover {
+    transform: translateY(-4px);
+    border-color: #FFBF00;
+    box-shadow: 0 12px 24px rgba( 112, 31, 14, 0.07);
+}
+
+.workspaceMatcher__choice--active {
+    border-color: #FFBF00;
+    background: linear-gradient( 135deg, #FFF7D8, #FFFFFF);
+    box-shadow: inset 3px 0 0 #FFBF00;
+}
+
+
+/* icon */
+
+.workspaceMatcher__choiceIcon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: #701F0E;
+    background: #FFF4C7;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.workspaceMatcher__choiceIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.workspaceMatcher__choice:hover .workspaceMatcher__choiceIcon {
+    transform: rotate(-5deg) scale(1.07);
+}
+
+.workspaceMatcher__choice--active .workspaceMatcher__choiceIcon {
+    background: #FFBF00;
+}
+
+
+/* copy */
+
+.workspaceMatcher__choiceCopy {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.workspaceMatcher__choiceCopy strong {
+    color: #351008;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.workspaceMatcher__choiceCopy small {
+    margin-top: 3px;
+    color: rgba( 18, 18, 18, 0.48);
+    font-size: 8px;
+    line-height: 1.25;
+}
+
+
+/* check */
+
+.workspaceMatcher__choiceCheck {
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba( 112, 31, 14, 0.12);
+    border-radius: 50%;
+    color: transparent;
+    background: #FFFFFF;
+    transition: color 0.25s ease, background 0.25s ease, transform 0.3s ease;
+}
+
+.workspaceMatcher__choiceCheck svg {
+    width: 11px;
+    height: 11px;
+}
+
+.workspaceMatcher__choice--active .workspaceMatcher__choiceCheck {
+    color: #FFFFFF;
+    background: #701F0E;
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   JOURNEY LINE
+========================================================= */
+
+.workspaceMatcher__journeyLine {
+    position: relative;
+    height: 34px;
+    margin-left: 13px;
+}
+
+.workspaceMatcher__journeyLine::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: repeating-linear-gradient( to bottom, #FFBF00 0 4px, transparent 4px 8px);
+}
+
+.workspaceMatcher__journeyLine span {
+    position: absolute;
+    left: -3px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #FFBF00;
+    transform: translateY(-50%);
+    animation: journeyPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   RESULT PANEL
+========================================================= */
+
+.workspaceMatcher__result {
+    --match-accent: #FFBF00;
+    --match-soft: #FFF4C7;
+    --score: 95;
+    position: relative;
+    min-height: 725px;
+    padding: 28px 30px 26px;
+    overflow: hidden;
+    border: 1px solid rgba( 112, 31, 14, 0.075);
+    border-radius: 34px;
+    background: linear-gradient( 145deg, #FFFFFF 15%, var(--match-soft) 160%);
+    box-shadow: 0 22px 55px rgba( 45, 20, 11, 0.085);
+    opacity: 0;
+    transform: translateX(30px) scale(0.98);
+    transition: opacity 0.8s 0.2s ease, transform 0.8s 0.2s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+.workspaceMatcher--visible .workspaceMatcher__result {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+
+/* changing */
+
+.workspaceMatcher__result--changing .workspaceMatcher__scoreCopy,
+.workspaceMatcher__result--changing .workspaceMatcher__emblemCore,
+.workspaceMatcher__result--changing .workspaceMatcher__resultMeta,
+.workspaceMatcher__result--changing .workspaceMatcher__benefits {
+    animation: matcherResultSwap 0.6s cubic-bezier( 0.16, 1, 0.3, 1);
+}
+
+
+/* =========================================================
+   RESULT TOP
+========================================================= */
+
+.workspaceMatcher__resultTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.workspaceMatcher__matchStatus {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid rgba( 112, 31, 14, 0.08);
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: rgba( 112, 31, 14, 0.55);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+}
+
+.workspaceMatcher__matchStatus span {
+    color: #701F0E;
+    font-weight: 900;
+}
+
+.workspaceMatcher__matchStatus i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FFBF00;
+    animation: matchStatusPulse 1.6s infinite;
+}
+
+.workspaceMatcher__resultNumber {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba( 112, 31, 14, 0.58);
+    font-size: 8px;
+    font-weight: 850;
+}
+
+.workspaceMatcher__resultNumber svg {
+    width: 15px;
+    height: 15px;
+    color: #FFBF00;
+}
+
+
+/* =========================================================
+   SCORE AREA
+========================================================= */
+
+.workspaceMatcher__scoreArea {
+    display: grid;
+    grid-template-columns: 145px minmax( 0, 1fr);
+    gap: 21px;
+    align-items: center;
+    margin-top: 36px;
+}
+
+
+/* ring */
+
+.workspaceMatcher__scoreRing {
+    position: relative;
+    width: 138px;
+    height: 138px;
+}
+
+.workspaceMatcher__scoreRing svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.workspaceMatcher__scoreTrack,
+.workspaceMatcher__scoreProgress {
+    fill: none;
+    stroke-width: 8;
+}
+
+.workspaceMatcher__scoreTrack {
+    stroke: rgba( 112, 31, 14, 0.07);
+}
+
+.workspaceMatcher__scoreProgress {
+    stroke: var(--match-accent);
+    stroke-linecap: round;
+    stroke-dasharray: 370.7;
+    stroke-dashoffset: calc( 370.7 - ( 370.7 * var(--score)) / 100);
+    transition: stroke-dashoffset 0.9s cubic-bezier( 0.16, 1, 0.3, 1), stroke 0.4s ease;
+}
+
+.workspaceMatcher__scoreCenter {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.workspaceMatcher__scoreCenter strong {
+    color: #351008;
+    font-size: 37px;
+    font-weight: 950;
+    letter-spacing: -0.05em;
+}
+
+.workspaceMatcher__scoreCenter strong small {
+    font-size: 16px;
+    color: #FFBF00;
+}
+
+.workspaceMatcher__scoreCenter span {
+    margin-top: -3px;
+    color: rgba( 112, 31, 14, 0.48);
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+
+/* copy */
+
+.workspaceMatcher__scoreCopy>span {
+    color: #FFBF00;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.workspaceMatcher__scoreCopy h3 {
+    margin: 7px 0 9px;
+    color: #351008;
+    font-size: clamp( 36px, 3vw, 48px);
+    font-weight: 950;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+}
+
+.workspaceMatcher__scoreCopy p {
+    max-width: 390px;
+    margin: 0;
+    color: rgba( 18, 18, 18, 0.59);
+    font-size: 11px;
+    line-height: 1.58;
+}
+
+
+/* =========================================================
+   EMBLEM
+========================================================= */
+
+.workspaceMatcher__spaceEmblem {
+    position: relative;
+    width: 165px;
+    height: 165px;
+    margin: 26px auto 21px;
+    display: grid;
+    place-items: center;
+}
+
+.workspaceMatcher__emblemOrbit {
+    position: absolute;
+    border: 1px dashed rgba( 112, 31, 14, 0.18);
+    border-radius: 50%;
+    animation: matcherOrbit 14s linear infinite;
+}
+
+.workspaceMatcher__emblemOrbit--one {
+    width: 145px;
+    height: 145px;
+}
+
+.workspaceMatcher__emblemOrbit--two {
+    width: 165px;
+    height: 165px;
+    opacity: 0.55;
+    animation-duration: 20s;
+    animation-direction: reverse;
+}
+
+.workspaceMatcher__emblemCore {
+    position: relative;
+    z-index: 3;
+    width: 108px;
+    height: 108px;
+    display: grid;
+    place-items: center;
+    clip-path: polygon( 25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+    color: #701F0E;
+    background: var(--match-accent);
+    transition: background 0.4s ease;
+}
+
+.workspaceMatcher__emblemCore svg {
+    width: 40px;
+    height: 40px;
+}
+
+
+/* =========================================================
+   RESULT META
+========================================================= */
+
+.workspaceMatcher__resultMeta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.workspaceMatcher__resultMeta>div {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 69px;
+    padding: 11px 13px;
+    border: 1px solid rgba( 112, 31, 14, 0.07);
+    border-radius: 15px;
+    background: rgba( 255, 255, 255, 0.78);
+}
+
+.workspaceMatcher__resultMeta svg {
+    width: 20px;
+    height: 20px;
+    color: #FFBF00;
+}
+
+.workspaceMatcher__resultMeta span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: rgba( 18, 18, 18, 0.37);
+    font-size: 7px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+}
+
+.workspaceMatcher__resultMeta strong {
+    color: #701F0E;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: normal;
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.workspaceMatcher__benefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 16px;
+}
+
+.workspaceMatcher__benefits span {
+    --benefit-index: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: #701F0E;
+    background: #FFF4C7;
+    font-size: 8px;
+    font-weight: 750;
+    animation: benefitIn 0.45s calc( var(--benefit-index) * 0.08s) both;
+}
+
+.workspaceMatcher__benefits svg {
+    width: 11px;
+    height: 11px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.workspaceMatcher__cta {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.workspaceMatcher__cta>button {
+    width: min( 320px, 100%);
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    padding: 8px 9px 8px 21px;
+    border: 0;
+    border-radius: 999px;
+    color: #351008;
+    background: #FFBF00;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier( 0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.workspaceMatcher__cta>button:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 13px 28px rgba( 255, 191, 0, 0.28);
+}
+
+.workspaceMatcher__cta button i {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background: #701F0E;
+    transition: transform 0.3s ease;
+}
+
+.workspaceMatcher__cta button:hover i {
+    transform: rotate(-8deg) scale(1.06);
+}
+
+.workspaceMatcher__cta button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.workspaceMatcher__cta>small {
+    display: block;
+    margin-top: 9px;
+    color: rgba( 18, 18, 18, 0.45);
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   PATH
+========================================================= */
+
+.workspaceMatcher__hivePath {
+    position: absolute;
+    right: -20px;
+    bottom: 175px;
+    width: 145px;
+    height: 85px;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.workspaceMatcher__hivePath::before {
+    content: "";
+    position: absolute;
+    inset: 22px 15px;
+    border-top: 1px dashed rgba( 255, 191, 0, 0.7);
+    border-radius: 50%;
+    transform: rotate(-9deg);
+}
+
+.workspaceMatcher__pathNode {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #FFBF00;
+    animation: pathNodePulse 2s ease-in-out infinite;
+}
+
+.workspaceMatcher__pathNode--1 {
+    left: 20px;
+    top: 36px;
+}
+
+.workspaceMatcher__pathNode--2 {
+    left: 53px;
+    top: 27px;
+    animation-delay: -0.4s;
+}
+
+.workspaceMatcher__pathNode--3 {
+    left: 91px;
+    top: 25px;
+    animation-delay: -0.8s;
+}
+
+.workspaceMatcher__pathNode--4 {
+    right: 17px;
+    top: 36px;
+    animation-delay: -1.2s;
+}
+
+
+/* little bee */
+
+.workspaceMatcher__pathBee {
+    position: absolute;
+    right: 36px;
+    top: 7px;
+    width: 30px;
+    height: 22px;
+    animation: resultBeeFloat 3s ease-in-out infinite;
+}
+
+.workspaceMatcher__pathBee span {
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 21px;
+    height: 13px;
+    border-radius: 999px;
+    background: #FFBF00;
+}
+
+.workspaceMatcher__pathBee span::before,
+.workspaceMatcher__pathBee span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 13px;
+    background: #351008;
+}
+
+.workspaceMatcher__pathBee span::before {
+    left: 6px;
+}
+
+.workspaceMatcher__pathBee span::after {
+    left: 13px;
+}
+
+.workspaceMatcher__pathBee i {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 8px;
+    border: 1px solid rgba( 112, 31, 14, 0.16);
+    border-radius: 60%;
+    background: #FFFFFF;
+}
+
+.workspaceMatcher__pathBee i:nth-child(2) {
+    left: 5px;
+    transform: rotate(-25deg);
+}
+
+.workspaceMatcher__pathBee i:nth-child(3) {
+    left: 15px;
+    transform: rotate(25deg);
+}
+
+
+/* =========================================================
+   CORNER ICON
+========================================================= */
+
+.workspaceMatcher__resultCorner {
+    position: absolute;
+    right: -27px;
+    top: 93px;
+    width: 80px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #701F0E;
+    background: rgba( 255, 191, 0, 0.12);
+    transform: rotate(14deg);
+}
+
+.workspaceMatcher__resultCorner svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes matcherChoiceIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes matcherResultSwap {
+    0% {
+        opacity: 0;
+        transform: translateY(13px) scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes matcherOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes journeyPulse {
+    0%,
+    100% {
+        transform: translateY(-50%) scale(0.8);
+        box-shadow: 0 0 0 0 rgba( 255, 191, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.2);
+        box-shadow: 0 0 0 5px rgba( 255, 191, 0, 0);
+    }
+}
+
+@keyframes matchStatusPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes benefitIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pathNodePulse {
+    0%,
+    100% {
+        transform: scale(0.7);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+@keyframes resultBeeFloat {
+    0%,
+    100% {
+        transform: translate( 0, 0) rotate(-5deg);
+    }
+    50% {
+        transform: translate( -8px, -6px) rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+    .workspaceMatcher {
+        padding: 90px 20px 75px;
+    }
+    .workspaceMatcher__experience {
+        grid-template-columns: 1fr;
+    }
+    .workspaceMatcher__result {
+        min-height: 650px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+    .workspaceMatcher {
+        padding: 75px 11px 55px;
+    }
+    .workspaceMatcher__header h2 {
+        font-size: clamp( 48px, 13vw, 62px);
+    }
+    .workspaceMatcher__configurator,
+    .workspaceMatcher__result {
+        padding: 21px 15px;
+        border-radius: 24px;
+    }
+    .workspaceMatcher__configHeader {
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .workspaceMatcher__stepCounter {
+        gap: 4px;
+    }
+    .workspaceMatcher__stepCounter span {
+        width: 26px;
+        height: 26px;
+    }
+    .workspaceMatcher__stepCounter i {
+        width: 9px;
+    }
+    .workspaceMatcher__questionHeading h3 {
+        font-size: 17px;
+    }
+    .workspaceMatcher__choices,
+    .workspaceMatcher__question:first-of-type .workspaceMatcher__choices {
+        grid-template-columns: 1fr;
+    }
+    .workspaceMatcher__choice {
+        min-height: 74px;
+    }
+    .workspaceMatcher__scoreArea {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .workspaceMatcher__scoreRing {
+        margin: auto;
+    }
+    .workspaceMatcher__scoreCopy p {
+        margin: 0 auto;
+    }
+    .workspaceMatcher__resultMeta {
+        grid-template-columns: 1fr;
+    }
+    .workspaceMatcher__hivePath {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .workspaceMatcher *, .workspaceMatcher *::before, .workspaceMatcher *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

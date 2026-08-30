@@ -1,0 +1,989 @@
+/* =========================================================
+   NERDSHIVE — SPACES HERO
+   SAFE + CLEAN + 5 SPACES VISIBLE
+========================================================= */
+
+.spacesHero,
+.spacesHero *,
+.spacesHero *::before,
+.spacesHero *::after {
+    box-sizing: border-box;
+}
+
+.spacesHero {
+    --amber: #ffbf00;
+    --amber-soft: #ffe186;
+    --amber-pale: #fff6cd;
+    --brown: #701f0e;
+    --brown-soft: #93412d;
+    --black: #121212;
+    --white: #ffffff;
+    width: 100%;
+    min-height: 100vh;
+    padding: 175px 0 70px;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.spacesHero__container {
+    position: relative;
+    width: min(1380px, calc(100% - 72px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.spacesHero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brown);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    animation: spacesFadeUp 0.7s ease both;
+}
+
+.spacesHero__eyebrowMark {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: var(--amber);
+    transform: rotate(45deg);
+    animation: spacesDiamond 2.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.spacesHero__title {
+    max-width: 1150px;
+    margin: 20px 0 0;
+    font-size: clamp(64px, 6.4vw, 106px);
+    font-weight: 950;
+    line-height: 0.86;
+    letter-spacing: -0.07em;
+}
+
+.spacesHero__title>span {
+    display: block;
+    animation: spacesTitleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.spacesHero__title>span:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.spacesHero__titleAccent {
+    color: var(--amber);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.spacesHero__intro {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    animation: spacesFadeUp 0.8s 0.15s ease both;
+}
+
+.spacesHero__intro>p {
+    max-width: 700px;
+    margin: 0;
+    color: rgba(18, 18, 18, 0.6);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.spacesHero__hint {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 9px 15px 9px 9px;
+    border: 1px solid rgba(18, 18, 18, 0.06);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 12px 27px rgba(18, 18, 18, 0.06);
+}
+
+.spacesHero__hintDot {
+    position: relative;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background: var(--amber);
+}
+
+.spacesHero__hintDot::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--brown);
+    animation: spacesPulse 1.5s ease-in-out infinite;
+}
+
+.spacesHero__hint>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.spacesHero__hint small {
+    color: rgba(112, 31, 14, 0.5);
+    font-size: 7px;
+    font-weight: 950;
+    letter-spacing: 0.14em;
+}
+
+.spacesHero__hint strong {
+    color: var(--brown);
+    font-size: 11px;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   FIVE SPACE GRID
+========================================================= */
+
+.spacesHero__grid {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    margin-top: 65px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: end;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   SPACE CARD
+========================================================= */
+
+.spaceCard {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font: inherit;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, filter 0.35s ease;
+    animation: spacesCardIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.spaceCard:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.spaceCard:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+.spaceCard:nth-child(4) {
+    animation-delay: 0.24s;
+}
+
+.spaceCard:nth-child(5) {
+    animation-delay: 0.32s;
+}
+
+.spaceCard:hover,
+.spaceCard:focus-visible,
+.spaceCard--active {
+    z-index: 50;
+    transform: translateY(-16px) scale(1.035);
+    box-shadow: 0 27px 48px rgba(18, 18, 18, 0.14);
+    filter: saturate(1.04);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.spaceCard__number {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    z-index: 15;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--brown);
+    font-size: 8px;
+    font-weight: 950;
+    box-shadow: 0 7px 15px rgba(18, 18, 18, 0.07);
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.spaceCard__name {
+    position: absolute;
+    left: 50%;
+    bottom: -22px;
+    transform: translateX(-50%);
+    min-width: 108px;
+    height: 43px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid rgba(18, 18, 18, 0.06);
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 10px 22px rgba(18, 18, 18, 0.08);
+    white-space: nowrap;
+}
+
+.spaceCard__name span {
+    color: var(--brown);
+    font-size: 12px;
+}
+
+.spaceCard__name strong {
+    color: var(--black);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: 0.08em;
+}
+
+.spaceCard__name--meeting span {
+    color: var(--amber);
+}
+
+
+/* =========================================================
+   01 COWORK
+========================================================= */
+
+.spaceCard--cowork {
+    height: 215px;
+    border-radius: 30px 30px 65px 30px;
+    background: #fff0a8;
+}
+
+.coworkScene {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 56px;
+    bottom: 26px;
+}
+
+.coworkTable {
+    position: absolute;
+    width: 65px;
+    height: 39px;
+    border-radius: 11px;
+    background: var(--amber);
+}
+
+.coworkLaptop {
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    width: 24px;
+    height: 18px;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    background: var(--brown);
+}
+
+.coworkChair {
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    width: 19px;
+    height: 19px;
+    transform: translateX(-50%);
+    border: 3px solid var(--brown);
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.coworkTable--one {
+    left: 4px;
+    top: 6px;
+    transform: rotate(-7deg);
+}
+
+.coworkTable--two {
+    right: 4px;
+    top: 6px;
+    transform: rotate(7deg);
+}
+
+.coworkTable--three {
+    left: 50%;
+    bottom: 7px;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   02 PRIVATE
+========================================================= */
+
+.spaceCard--private {
+    height: 255px;
+    border-radius: 30px;
+    background: var(--brown);
+}
+
+.privateScene {
+    position: absolute;
+    left: 19px;
+    right: 19px;
+    top: 53px;
+    bottom: 22px;
+}
+
+.privateScene__room {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fff4c6;
+}
+
+.privateScene__room::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: rgba(112, 31, 14, 0.18);
+}
+
+.privateScene__room::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(112, 31, 14, 0.18);
+}
+
+.privateDesk {
+    position: absolute;
+    left: 23px;
+    bottom: 26px;
+    width: 76px;
+    height: 34px;
+    border-radius: 8px;
+    background: var(--amber);
+}
+
+.privateMonitor {
+    position: absolute;
+    left: 50%;
+    bottom: 23px;
+    width: 36px;
+    height: 27px;
+    transform: translateX(-50%);
+    border: 4px solid var(--black);
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.privateMonitor i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 7px;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    background: var(--amber);
+    animation: privateScreen 2s ease-in-out infinite;
+}
+
+.privateDoor {
+    position: absolute;
+    right: 9px;
+    bottom: 0;
+    width: 31px;
+    height: 67px;
+    border: 3px solid var(--brown);
+    border-bottom: 0;
+    background: rgba(255, 255, 255, 0.55);
+    transform-origin: right center;
+    transition: transform 0.45s ease;
+}
+
+.privateDoor i {
+    position: absolute;
+    left: 5px;
+    top: 31px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--brown);
+}
+
+.spaceCard--private:hover .privateDoor,
+.spaceCard--private.spaceCard--active .privateDoor {
+    transform: perspective(160px) rotateY(-45deg);
+}
+
+
+/* =========================================================
+   03 MEETING
+========================================================= */
+
+.spaceCard--meeting {
+    height: 225px;
+    border-radius: 31px;
+    background: var(--black);
+}
+
+.meetingScene {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    width: 150px;
+    height: 108px;
+    transform: translate(-50%, -50%);
+}
+
+.meetingTable {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 105px;
+    height: 58px;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    border-radius: 50%;
+    background: var(--amber);
+}
+
+.meetingSeat {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    background: var(--brown);
+    animation: meetingPulse 2s ease-in-out infinite;
+}
+
+.meetingSeat--1 {
+    left: 5px;
+    top: 6px;
+}
+
+.meetingSeat--2 {
+    left: 63px;
+    top: 0;
+    animation-delay: 0.2s;
+}
+
+.meetingSeat--3 {
+    right: 5px;
+    top: 6px;
+    animation-delay: 0.4s;
+}
+
+.meetingSeat--4 {
+    left: 5px;
+    bottom: 5px;
+    animation-delay: 0.6s;
+}
+
+.meetingSeat--5 {
+    left: 63px;
+    bottom: 0;
+    animation-delay: 0.8s;
+}
+
+.meetingSeat--6 {
+    right: 5px;
+    bottom: 5px;
+    animation-delay: 1s;
+}
+
+
+/* =========================================================
+   04 FOCUS
+========================================================= */
+
+.spaceCard--focus {
+    height: 245px;
+    border-radius: 64px 28px 28px 28px;
+    background: #fff2b7;
+}
+
+.focusScene {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    width: 115px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+}
+
+.focusScene__desk {
+    position: absolute;
+    left: 5px;
+    bottom: 31px;
+    width: 103px;
+    height: 16px;
+    border-radius: 8px;
+    background: var(--brown);
+}
+
+.focusScene__monitor {
+    position: absolute;
+    left: 31px;
+    bottom: 47px;
+    width: 46px;
+    height: 35px;
+    border: 4px solid var(--black);
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.focusScene__monitor span {
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    width: 22px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--amber);
+    animation: focusScreen 1.7s ease-in-out infinite;
+}
+
+.focusScene__lamp {
+    position: absolute;
+    right: 0;
+    bottom: 46px;
+    width: 30px;
+    height: 56px;
+    border-left: 4px solid var(--brown);
+}
+
+.focusScene__lamp span {
+    position: absolute;
+    left: -13px;
+    top: -3px;
+    width: 28px;
+    height: 18px;
+    border-radius: 16px 16px 4px 4px;
+    background: var(--amber);
+}
+
+.focusScene__lamp i {
+    position: absolute;
+    left: -11px;
+    top: 15px;
+    width: 26px;
+    height: 35px;
+    opacity: 0;
+    background: rgba(255, 191, 0, 0.34);
+    clip-path: polygon( 20% 0, 80% 0, 100% 100%, 0 100%);
+    transition: opacity 0.3s ease;
+}
+
+.spaceCard--focus:hover .focusScene__lamp i,
+.spaceCard--focus.spaceCard--active .focusScene__lamp i {
+    opacity: 1;
+}
+
+.focusScene__chair {
+    position: absolute;
+    left: 38px;
+    bottom: 1px;
+    width: 40px;
+    height: 31px;
+    border-radius: 14px 14px 6px 6px;
+    background: var(--black);
+}
+
+
+/* =========================================================
+   05 LOUNGE
+========================================================= */
+
+.spaceCard--lounge {
+    height: 210px;
+    border-radius: 30px 64px 30px 30px;
+    background: #ffd7ca;
+}
+
+.loungeScene {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    width: 126px;
+    height: 95px;
+    transform: translate(-50%, -50%);
+}
+
+.loungeChair {
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 75px;
+    height: 60px;
+    border-radius: 32px 32px 15px 15px;
+    background: var(--brown);
+}
+
+.loungeChair::before,
+.loungeChair::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    width: 17px;
+    height: 35px;
+    border-radius: 12px;
+    background: var(--brown-soft);
+}
+
+.loungeChair::before {
+    left: -7px;
+}
+
+.loungeChair::after {
+    right: -7px;
+}
+
+.loungeChair span {
+    position: absolute;
+    left: 50%;
+    top: 13px;
+    width: 34px;
+    height: 22px;
+    transform: translateX(-50%);
+    border-radius: 9px;
+    background: var(--amber);
+}
+
+.loungeTable {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.coffeeCup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 23px;
+    height: 19px;
+    transform: translate(-50%, -50%);
+    border-radius: 5px 5px 8px 8px;
+    background: var(--amber);
+}
+
+.coffeeCup span {
+    position: absolute;
+    right: -7px;
+    top: 4px;
+    width: 9px;
+    height: 10px;
+    border: 3px solid var(--amber);
+    border-left: 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.coffeeSteam {
+    position: absolute;
+    top: -14px;
+    width: 5px;
+    height: 14px;
+    border-left: 2px solid var(--brown);
+    border-radius: 50%;
+    animation: coffeeSteam 1.4s ease-out infinite;
+}
+
+.coffeeSteam--one {
+    left: 5px;
+}
+
+.coffeeSteam--two {
+    right: 4px;
+    animation-delay: 0.4s;
+}
+
+
+/* =========================================================
+   ACTIVE INFO
+========================================================= */
+
+.spacesHero__activeInfo {
+    width: min(470px, 100%);
+    min-height: 92px;
+    margin: 72px auto 0;
+    padding: 12px 17px 12px 12px;
+    display: grid;
+    grid-template-columns: 58px 1fr 30px;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid rgba(18, 18, 18, 0.06);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(18, 18, 18, 0.1);
+    animation: activeInfoIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.spacesHero__activeNumber {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 17px;
+    background: var(--amber);
+    color: var(--brown);
+    font-size: 15px;
+    font-weight: 950;
+}
+
+.spacesHero__activeCopy {
+    display: flex;
+    flex-direction: column;
+}
+
+.spacesHero__activeCopy small {
+    color: rgba(112, 31, 14, 0.5);
+    font-size: 7px;
+    font-weight: 950;
+    letter-spacing: 0.14em;
+}
+
+.spacesHero__activeCopy strong {
+    margin-top: 3px;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.spacesHero__activeCopy p {
+    margin: 3px 0 0;
+    color: rgba(18, 18, 18, 0.5);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.spacesHero__activeArrow {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--brown);
+    color: var(--amber);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes spacesFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spacesTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spacesDiamond {
+    0%,
+    100% {
+        transform: rotate(45deg) scale(1);
+    }
+    50% {
+        transform: rotate(58deg) scale(1.2);
+    }
+}
+
+@keyframes spacesPulse {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+@keyframes spacesCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes privateScreen {
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+    50% {
+        opacity: 0.35;
+        transform: translate(-50%, -50%) scaleX(0.55);
+    }
+}
+
+@keyframes meetingPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes focusScreen {
+    0%,
+    100% {
+        width: 22px;
+    }
+    50% {
+        width: 11px;
+    }
+}
+
+@keyframes coffeeSteam {
+    from {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-13px);
+    }
+}
+
+@keyframes activeInfoIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+    .spacesHero__container {
+        width: calc(100% - 40px);
+    }
+    .spacesHero__intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .spacesHero__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 70px 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+    .spacesHero {
+        padding: 120px 0 55px;
+    }
+    .spacesHero__container {
+        width: calc(100% - 24px);
+    }
+    .spacesHero__title {
+        font-size: clamp(48px, 13vw, 64px);
+        line-height: 0.9;
+    }
+    .spacesHero__intro>p {
+        font-size: 14px;
+    }
+    .spacesHero__grid {
+        grid-template-columns: 1fr;
+        gap: 68px;
+        margin-top: 45px;
+    }
+    .spaceCard {
+        width: min(300px, 100%);
+        justify-self: center;
+    }
+    .spacesHero__activeInfo {
+        margin-top: 60px;
+    }
+}

@@ -1,0 +1,258 @@
+.communityPreview {
+    position: relative;
+    width: min( 1320px, calc( 100% - 48px));
+    min-height: 790px;
+    margin: 110px auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 42px;
+    background: #fff8e5;
+}
+
+.communityPreview__content {
+    position: relative;
+    z-index: 10;
+    width: min( 760px, calc( 100% - 48px));
+    text-align: center;
+}
+
+.communityPreview__eyebrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.communityPreview__eyebrow i {
+    width: 18px;
+    height: 21px;
+    background: #ffbf00;
+    clip-path: polygon( 25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);
+}
+
+.communityPreview__eyebrow strong {
+    color: #701f0e;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.17em;
+}
+
+.communityPreview h2 {
+    margin: 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    color: #121212;
+    font-size: clamp( 80px, 8vw, 135px);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+}
+
+.communityPreview h2 span:last-child {
+    color: #ffbf00;
+}
+
+.communityPreview__content p {
+    max-width: 600px;
+    margin: 44px auto 0;
+    color: #701f0e;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.communityPreview__content a {
+    min-height: 55px;
+    margin-top: 33px;
+    padding: 0 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background: #121212;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BACKGROUND WORDS
+========================================================= */
+
+.communityPreview__word {
+    position: absolute;
+    z-index: 1;
+    color: rgba( 112, 31, 14, 0.055);
+    font-size: 65px;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+}
+
+.communityPreview__word--one {
+    left: 5%;
+    top: 13%;
+}
+
+.communityPreview__word--two {
+    right: 5%;
+    top: 15%;
+}
+
+.communityPreview__word--three {
+    left: 4%;
+    bottom: 15%;
+}
+
+.communityPreview__word--four {
+    right: 3%;
+    bottom: 16%;
+}
+
+.communityPreview__word--five {
+    left: 45%;
+    bottom: 1%;
+}
+
+
+/* =========================================================
+   BEE
+========================================================= */
+
+.communityBee {
+    position: absolute;
+    z-index: 20;
+    left: -100px;
+    top: 70%;
+    width: 70px;
+    height: 55px;
+    animation: communityBeeFly 12s linear infinite;
+}
+
+.communityBee__body {
+    position: absolute;
+    left: 22px;
+    top: 21px;
+    width: 42px;
+    height: 28px;
+    overflow: hidden;
+    border: 3px solid #121212;
+    border-radius: 50%;
+    background: #ffbf00;
+}
+
+.communityBee__body i {
+    position: absolute;
+    top: -4px;
+    width: 8px;
+    height: 38px;
+    background: #121212;
+}
+
+.communityBee__body i:first-child {
+    left: 13px;
+}
+
+.communityBee__body i:last-child {
+    left: 28px;
+}
+
+.communityBee__head {
+    position: absolute;
+    left: 6px;
+    top: 22px;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #121212;
+    border-radius: 50%;
+    background: #ffbf00;
+}
+
+.communityBee__head b {
+    position: absolute;
+    top: 7px;
+    width: 5px;
+    height: 7px;
+    border-radius: 50%;
+    background: #121212;
+}
+
+.communityBee__head b:first-child {
+    left: 7px;
+}
+
+.communityBee__head b:last-child {
+    right: 7px;
+}
+
+.communityBee__wing {
+    position: absolute;
+    width: 28px;
+    height: 18px;
+    border: 2px solid #121212;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.communityBee__wing--left {
+    left: 25px;
+    top: 5px;
+    rotate: -30deg;
+    animation: communityWingLeft 0.14s ease-in-out infinite alternate;
+}
+
+.communityBee__wing--right {
+    left: 45px;
+    top: 7px;
+    rotate: 27deg;
+    animation: communityWingRight 0.14s ease-in-out infinite alternate;
+}
+
+@keyframes communityBeeFly {
+    0% {
+        left: -100px;
+        top: 75%;
+        transform: rotate(-8deg);
+    }
+    20% {
+        left: 18%;
+        top: 18%;
+        transform: rotate(6deg);
+    }
+    44% {
+        left: 45%;
+        top: 62%;
+        transform: rotate(-5deg);
+    }
+    68% {
+        left: 70%;
+        top: 25%;
+        transform: rotate(7deg);
+    }
+    100% {
+        left: calc( 100% + 100px);
+        top: 55%;
+        transform: rotate(-4deg);
+    }
+}
+
+@keyframes communityWingLeft {
+    from {
+        rotate: -15deg;
+    }
+    to {
+        rotate: -45deg;
+    }
+}
+
+@keyframes communityWingRight {
+    from {
+        rotate: 15deg;
+    }
+    to {
+        rotate: 45deg;
+    }
+}
