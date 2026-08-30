@@ -3,19 +3,20 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 
+import "./styles/reset.css";
+import "./styles/variables.css";
+import "./styles/typography.css";
+import "./styles/globals.css";
+import "./styles/animations.css";
+import "./styles/utilities.css";
 
-const root =
-  document.getElementById("root");
+/* MUST BE LAST — mobile overrides */
+import "./styles/mobile-final.css";
 
 
-if (!root) {
-  throw new Error(
-    'Root element with id="root" not found.'
-  );
-}
-
-
-ReactDOM.createRoot(root).render(
+ReactDOM.createRoot(
+  document.getElementById("root")!
+).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
