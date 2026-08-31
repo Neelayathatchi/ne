@@ -1,426 +1,737 @@
-/* =========================================================
-   NERDSHIVE — EMERGENCY MOBILE FIX
-   Desktop untouched
+﻿/* =========================================================
+   NERDSHIVE
+   FINAL REAL MOBILE RESPONSIVE PATCH
+   Desktop remains untouched
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
 
   html,
   body,
   #root {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     overflow-x: hidden !important;
-  }
-
-  body {
-    margin: 0 !important;
   }
 
   *,
   *::before,
   *::after {
-    box-sizing: border-box !important;
+    box-sizing: border-box;
   }
 
   img,
   video,
   iframe,
-  canvas,
-  svg {
-    max-width: 100% !important;
+  canvas {
+    max-width: 100%;
   }
 
-  main,
-  section {
+
+  /* =====================================================
+     GLOBAL NAVBAR — MOBILE
+  ====================================================== */
+
+  .nh-navbar-wrap {
+    position: fixed !important;
+    top: 10px !important;
+    left: 50% !important;
+
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+
+    transform: translateX(-50%) !important;
+
+    z-index: 99999 !important;
+  }
+
+  .nh-navbar {
     width: 100% !important;
-    max-width: 100% !important;
+    height: 68px !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+
+    padding: 0 12px !important;
+
+    border-radius: 20px !important;
+  }
+
+  .nh-navbar__brand {
+    width: 80px !important;
+    height: 58px !important;
+
+    justify-content: flex-start !important;
+  }
+
+  .nh-navbar__brand img {
+    width: 72px !important;
+    height: auto !important;
+  }
+
+  .nh-navbar__links,
+  .nh-navbar__cta {
+    display: none !important;
+  }
+
+  .nh-navbar__menu-button {
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
+  }
+
+  .nh-mobile-menu {
+    top: 76px !important;
+
+    width: 100% !important;
+
+    padding: 12px !important;
+
+    border-radius: 18px !important;
+  }
+
+
+  /* =====================================================
+     OLD/GLOBAL PREMIUM NAV FALLBACK
+  ====================================================== */
+
+  .globalPremiumNav {
+    position: fixed !important;
+
+    left: 50% !important;
+    top: 10px !important;
+
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+
+    height: 70px !important;
+
+    transform: translateX(-50%) !important;
+
+    transform-origin: top center !important;
+
+    z-index: 99999 !important;
+  }
+
+  .globalPremiumNav .premiumNav {
+    position: relative !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 70px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      1fr
+      auto !important;
+
+    padding: 0 12px !important;
+
+    border-radius: 20px !important;
+  }
+
+  .globalPremiumNav .premiumNav__brand {
+    width: 82px !important;
+    height: 58px !important;
+
+    justify-content: flex-start !important;
+  }
+
+  .globalPremiumNav .premiumNav__logo {
+    width: 72px !important;
+  }
+
+  .globalPremiumNav .premiumNav__links {
+    display: none !important;
+  }
+
+  .globalPremiumNav .premiumNav__cta {
+    width: 125px !important;
+    height: 43px !important;
+
+    display: flex !important;
+
+    font-size: 11px !important;
+
+    border-radius: 13px !important;
+  }
+
+  .globalPremiumNav .premiumNav__ctaArrow {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .premiumNavBee,
+  .premiumNav__trail {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     PREMIUM WALKTHROUGH
+     KEEP SCROLL STORY — REMOVE DESKTOP CANVAS SCALING
+  ====================================================== */
+
+  .premiumWalkthrough {
+    position: relative !important;
+
+    width: 100% !important;
+
+    /*
+      13 scenes.
+      ScrollTrigger still gets enough scrolling distance.
+    */
+    height: 1100vh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+  }
+
+
+  .premiumWalkthrough__sticky {
+    position: sticky !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100svh !important;
+
+    overflow: hidden !important;
+
+    background: #ffffff !important;
+  }
+
+
+  /* =====================================================
+     BACKGROUND
+  ====================================================== */
+
+  .premiumBackground {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+
+    opacity: 0.72 !important;
+  }
+
+
+  /* =====================================================
+     IMPORTANT:
+     CANCEL INLINE 1672px MASTER SCALE
+  ====================================================== */
+
+  .premiumMaster {
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 100svh !important;
+
+    transform: none !important;
+
+    transform-origin: center !important;
+
     overflow: hidden !important;
   }
 
-  /* ---------- NAVBAR ---------- */
 
-  nav,
-  .premiumNav,
-  .globalPremiumNav {
-    width: calc(100% - 24px) !important;
-    max-width: calc(100% - 24px) !important;
-    left: 12px !important;
-    right: 12px !important;
+  /* =====================================================
+     HERO — REAL MOBILE STACK
+  ====================================================== */
+
+  .premiumHero {
+    position: relative !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 100svh !important;
+
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    grid-template-rows:
+      auto
+      minmax(230px, 1fr) !important;
+
+    gap: 13px !important;
+
+    padding:
+      92px
+      13px
+      24px !important;
+
+    overflow: hidden !important;
+
+    border: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    background: transparent !important;
+  }
+
+
+  /* =====================================================
+     LEFT CONTENT
+  ====================================================== */
+
+  .premiumLeft {
+    position: relative !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+
+    overflow: visible !important;
+
+    background: transparent !important;
+
+    z-index: 10 !important;
+  }
+
+
+  .premiumCopy {
+    position: relative !important;
+
+    left: auto !important;
+    top: auto !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    transform: none !important;
+
+    animation: none !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* =====================================================
+     EYEBROW
+  ====================================================== */
+
+  .premiumEyebrow {
+    gap: 9px !important;
+  }
+
+  .premiumEyebrow i {
+    width: 14px !important;
+    height: 16px !important;
+
+    flex: 0 0 14px !important;
+  }
+
+  .premiumEyebrow strong {
+    max-width: calc(100vw - 60px) !important;
+
+    font-size: 9px !important;
+
+    letter-spacing: 0.11em !important;
+
+    white-space: normal !important;
+  }
+
+
+  /* =====================================================
+     MOBILE TITLE
+  ====================================================== */
+
+  .premiumCopy h1 {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 12px 0 0 !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 0 !important;
+
+    overflow: visible !important;
+
+    font-size: clamp(
+      34px,
+      10vw,
+      45px
+    ) !important;
+
+    line-height: 0.88 !important;
+
+    letter-spacing: -0.055em !important;
+  }
+
+
+  .premiumCopy h1 span {
+    width: auto !important;
+    max-width: 100% !important;
+
+    overflow: visible !important;
+
+    white-space: normal !important;
+
+    line-height: inherit !important;
+
     transform: none !important;
   }
 
-  .premiumNav__links {
-    display: none !important;
+
+  /* desktop somewhere-fit override remove */
+
+  .premiumCopy h1 span.accent:last-child {
+    width: auto !important;
+
+    transform: none !important;
+
+    overflow: visible !important;
   }
 
-  .premiumNav__logo {
-    max-width: 72px !important;
+
+  /* =====================================================
+     DESCRIPTION
+  ====================================================== */
+
+  .premiumCopy p {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 13px 0 0 !important;
+
+    font-size: 12px !important;
+
+    font-weight: 500 !important;
+
+    line-height: 1.48 !important;
   }
 
-  .premiumNav__cta {
-    min-width: auto !important;
-    padding: 0 12px !important;
+
+  /* =====================================================
+     ACTIONS
+  ====================================================== */
+
+  .premiumActions {
+    width: 100% !important;
+
+    margin-top: 14px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 12px !important;
+  }
+
+
+  .premiumExploreButton {
+    width: 164px !important;
+    height: 44px !important;
+
+    flex: 0 0 164px !important;
+
+    gap: 9px !important;
+
+    border-radius: 13px !important;
+
+    font-size: 11px !important;
+
+    box-shadow:
+      0 9px 20px
+      rgba(18, 18, 18, 0.13) !important;
+  }
+
+
+  .premiumExploreButton b {
+    font-size: 15px !important;
+  }
+
+
+  .sceneMeta {
+    gap: 6px !important;
+  }
+
+
+  .sceneMeta strong {
     font-size: 11px !important;
   }
 
-  /* ---------- HERO / WALKTHROUGH ---------- */
 
-  .premiumWalkthrough,
-  .premiumWalkthrough__hero,
-  .premiumWalkthrough__scene,
-  .premiumWalkthrough__stage,
-  .cinematicWalkthrough,
-  .imageWalkthrough,
-  .threeDWalkthrough {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
+  .sceneMeta i {
+    width: 20px !important;
+
+    flex: 0 0 20px !important;
   }
 
-  .premiumWalkthrough {
-    padding-top: 90px !important;
+
+  .sceneMeta span {
+    max-width: 68px !important;
+
+    font-size: 7px !important;
+
+    letter-spacing: 0.06em !important;
   }
 
-  .premiumWalkthrough__hero,
-  .premiumWalkthrough__content {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 30px 16px !important;
-  }
 
-  .premiumWalkthrough img,
-  .premiumWalkthrough video {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    object-fit: cover !important;
-  }
+  /* =====================================================
+     DOTS
+  ====================================================== */
 
-  /* remove desktop-sized empty scroll areas */
-
-  [style*="100vh"],
-  [style*="200vh"],
-  [style*="300vh"],
-  [style*="400vh"],
-  [style*="500vh"] {
-    min-height: auto !important;
-  }
-
-  /* ---------- TEXT ---------- */
-
-  h1 {
-    font-size: clamp(34px, 10vw, 46px) !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.04em !important;
-    max-width: 100% !important;
-    overflow-wrap: normal !important;
-    word-break: normal !important;
-  }
-
-  h2 {
-    font-size: clamp(27px, 7.5vw, 36px) !important;
-    line-height: 1.08 !important;
-    max-width: 100% !important;
-  }
-
-  h3 {
-    font-size: 20px !important;
-    line-height: 1.15 !important;
-  }
-
-  p {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    max-width: 100% !important;
-  }
-
-  /* ---------- HOME ---------- */
-
-  .hiveStory,
-  .facilities,
-  .whyNerdsHive,
-  .community,
-  .hiveDay {
-    padding: 55px 16px !important;
-    min-height: auto !important;
-    height: auto !important;
-  }
-
-  .hiveStory__inner,
-  .facilities__inner,
-  .whyNerdsHive__inner,
-  .community__inner,
-  .hiveDay__inner {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: auto !important;
-  }
-
-  .facilities__grid,
-  .whyNerdsHive__grid,
-  .community__grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* ---------- ABOUT ---------- */
-
-  .aboutHero,
-  .aboutIntro,
-  .insideHive,
-  .missionVision,
-  .ourStory,
-  .peopleWeBuildFor,
-  .whoBelongs,
-  .localRoots,
-  .aboutDifference,
-  .aboutFinal,
-  .valuesMotion,
-  .whoWeAre {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-    padding: 55px 16px !important;
-  }
-
-  .aboutHero {
-    padding-top: 110px !important;
-  }
-
-  .missionVision__grid,
-  .peopleWeBuildFor__grid,
-  .whoBelongs__grid,
-  .aboutDifference__grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* ---------- SPACES ---------- */
-
-  .spacesHero,
-  .spaceExplorer,
-  .workStyleSlider,
-  .workspaceMatcher {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-    padding: 55px 16px !important;
-  }
-
-  .spacesHero {
-    padding-top: 110px !important;
-  }
-
-  .spaceExplorer__layout,
-  .workspaceMatcher__layout {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-  }
-
-  .spaceExplorer__visual,
-  .spaceExplorer__visual img {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: 4 / 3 !important;
-    object-fit: cover !important;
-  }
-
-  .workStyleSlider__cards {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  /* ---------- SERVICES ---------- */
-
-  .servicesHero,
-  .serviceHighlights,
-  .serviceJourney,
-  .serviceUniverse,
-  .servicePersonaMatch,
-  .creatorOffer,
-  .includedPerks,
-  .servicesCTA {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 55px 16px !important;
-  }
-
-  .servicesHero {
-    padding-top: 110px !important;
-  }
-
-  .serviceHighlights__grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* ---------- PRICING ---------- */
-
-  .pricingShowcase {
-    padding: 110px 14px 55px !important;
-    min-height: auto !important;
-  }
-
-  .pricingShowcase__plans {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .pricingShowcase__card {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-    padding: 22px 18px !important;
-  }
-
-  .pricingShowcase__price {
-    font-size: 34px !important;
-  }
-
-  .pricingShowcase__sideFeatures,
-  .pricingShowcase__bee--top,
-  .pricingShowcase__bee--bottom,
-  .pricingShowcase__beePath--top,
-  .pricingShowcase__beePath--bottom {
+  .premiumDots {
     display: none !important;
   }
 
-  .pricingShowcase__custom {
-    display: flex !important;
-    flex-direction: column !important;
+
+  /* =====================================================
+     IMAGE PANEL
+  ====================================================== */
+
+  .premiumVisual {
+    position: relative !important;
+
     width: 100% !important;
-    min-height: auto !important;
-    padding: 24px 18px !important;
-  }
+    height: 100% !important;
 
-  /* ---------- CONTACT ---------- */
+    min-height: 230px !important;
 
-  .contactExperience {
-    padding: 110px 14px 50px !important;
-    min-height: auto !important;
-  }
+    margin: 0 !important;
 
-  .contactExperience__main {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .contactExperience__contactCard {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-  }
-
-  .contactExperience__formCard {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
-    padding: 22px 16px !important;
-  }
-
-  .contactExperience__formRow {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  .contactExperience__map,
-  .contactExperience__map iframe {
-    width: 100% !important;
-    height: 260px !important;
-    min-height: 260px !important;
-  }
-
-  .contactExperience__experienceStrip {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* ---------- FOOTER ---------- */
-
-  footer,
-  .footer,
-  .siteFooter {
-    width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
     overflow: hidden !important;
+
+    border-radius: 20px !important;
+
+    box-shadow:
+      0 13px 32px
+      rgba(18, 18, 18, 0.10) !important;
+
+    perspective: none !important;
   }
 
-  .footer__inner,
-  .footer__grid,
-  .siteFooter__grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+
+  .premiumImageStage {
+    position: absolute !important;
+
+    inset: 0 !important;
+
     width: 100% !important;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
+    height: 100% !important;
+
+    border-radius: inherit !important;
   }
 
-  footer h3,
-  .footer h3,
-  .siteFooter h3 {
-    font-size: 17px !important;
+
+  .premiumImage {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
   }
 
-  footer p,
-  footer a,
-  .footer p,
-  .footer a,
-  .siteFooter p,
-  .siteFooter a {
-    font-size: 12px !important;
-    line-height: 1.65 !important;
+
+  .premiumImage img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
   }
 
-  /* ---------- CARDS ---------- */
 
-  [class*="card"],
-  [class*="Card"] {
-    max-width: 100% !important;
+  /* =====================================================
+     IMAGE DETAILS
+  ====================================================== */
+
+  .premiumCorner {
+    left: 12px !important;
+    top: 12px !important;
+
+    width: 22px !important;
+    height: 22px !important;
   }
 
-  /* eliminate accidental desktop transforms */
 
-  section * {
+  .premiumCount {
+    top: 11px !important;
+    right: 11px !important;
+
+    min-width: 52px !important;
+
+    padding: 7px 9px !important;
+  }
+
+
+  .premiumCount strong {
+    font-size: 10px !important;
+  }
+
+
+  .premiumCount span {
+    font-size: 8px !important;
+  }
+
+
+  .premiumCaption {
+    left: 11px !important;
+    bottom: 11px !important;
+
+    min-width: 0 !important;
+
+    max-width: calc(100% - 70px) !important;
+
+    padding: 8px 10px !important;
+
+    border-radius: 11px !important;
+  }
+
+
+  .premiumCaption small {
+    font-size: 6px !important;
+  }
+
+
+  .premiumCaption strong {
+    margin-top: 3px !important;
+
+    font-size: 10px !important;
+  }
+
+
+  .premiumRing {
+    right: 11px !important;
+    bottom: 11px !important;
+
+    width: 37px !important;
+    height: 37px !important;
+  }
+
+
+  .premiumRing span {
+    font-size: 8px !important;
+  }
+
+
+  /* =====================================================
+     REMOVE DESKTOP SCROLL BADGE
+  ====================================================== */
+
+  .premiumScroll {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     PROGRESS
+  ====================================================== */
+
+  .premiumProgress {
+    position: absolute !important;
+
+    left: 13px !important;
+    right: 13px !important;
+    bottom: 8px !important;
+
+    height: 3px !important;
+
+    border-radius: 999px !important;
+  }
+
+
+  /* =====================================================
+     GENERAL PAGE MOBILE SAFETY
+  ====================================================== */
+
+  main,
+  section {
+    max-width: 100vw;
+  }
+
+  section img {
     max-width: 100%;
   }
+
 }
 
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
 @media (max-width: 420px) {
-  h1 {
-    font-size: 36px !important;
+
+  .premiumHero {
+    padding:
+      88px
+      11px
+      22px !important;
+
+    gap: 10px !important;
+
+    grid-template-rows:
+      auto
+      minmax(215px, 1fr) !important;
   }
 
-  h2 {
-    font-size: 28px !important;
+  .premiumCopy h1 {
+    margin-top: 10px !important;
+
+    font-size: clamp(
+      31px,
+      9.5vw,
+      38px
+    ) !important;
   }
 
-  .hiveStory,
-  .facilities,
-  .whyNerdsHive,
-  .community,
-  .hiveDay,
-  .aboutIntro,
-  .insideHive,
-  .missionVision,
-  .ourStory,
-  .peopleWeBuildFor,
-  .whoBelongs,
-  .localRoots,
-  .aboutDifference,
-  .serviceHighlights,
-  .serviceJourney,
-  .serviceUniverse {
-    padding-left: 13px !important;
-    padding-right: 13px !important;
+  .premiumCopy p {
+    margin-top: 10px !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.42 !important;
   }
+
+  .premiumActions {
+    margin-top: 11px !important;
+  }
+
+  .premiumExploreButton {
+    width: 150px !important;
+    height: 41px !important;
+
+    flex-basis: 150px !important;
+
+    font-size: 10px !important;
+  }
+
+  .premiumVisual {
+    min-height: 215px !important;
+
+    border-radius: 17px !important;
+  }
+
 }
