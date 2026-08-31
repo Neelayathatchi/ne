@@ -5,3 +5,5 @@ dist/
 .vscode/
 *.log
 nerdshive-final.zip
+.vercel
+.env*
