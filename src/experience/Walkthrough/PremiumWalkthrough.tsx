@@ -1,4 +1,4 @@
-import {
+﻿import {
   useEffect,
   useMemo,
   useRef,
@@ -38,7 +38,7 @@ const PremiumWalkthrough = () => {
 
   const [isMobile, setIsMobile] =
     useState(
-      () => window.innerWidth <= 820
+      () => window.innerWidth <= 1100
     );
 
   /* =====================================================
@@ -48,7 +48,7 @@ const PremiumWalkthrough = () => {
   useEffect(() => {
     const updateMobile = () => {
       setIsMobile(
-        window.innerWidth <= 820
+        window.innerWidth <= 1100
       );
     };
 
@@ -369,7 +369,7 @@ const PremiumWalkthrough = () => {
     };
 
   /* =====================================================
-     POINTER TILT — DESKTOP ONLY
+     POINTER TILT â€” DESKTOP ONLY
   ===================================================== */
 
   useEffect(() => {
@@ -645,7 +645,7 @@ const PremiumWalkthrough = () => {
                     Explore the Space
 
                     <b>
-                      ↘
+                      â†˜
                     </b>
                   </button>
 
