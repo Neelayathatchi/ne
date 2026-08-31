@@ -1,492 +1,426 @@
 /* =========================================================
-   NERDSHIVE â€” FINAL MOBILE RESPONSIVE LAYER
+   NERDSHIVE — EMERGENCY MOBILE FIX
    Desktop untouched
 ========================================================= */
 
 @media (max-width: 768px) {
-    /* =======================================================
-     GLOBAL
-  ======================================================= */
-    html,
-    body,
-    #root {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden !important;
-    }
-    body {
-        margin: 0;
-    }
-    * {
-        box-sizing: border-box;
-    }
-    img,
-    video,
-    canvas,
-    iframe {
-        max-width: 100% !important;
-    }
-    img {
-        height: auto;
-    }
-    section,
-    main {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    /* =======================================================
-     COMMON NAVBAR
-  ======================================================= */
-    .globalPremiumNav,
-    .premiumNav {
-        position: fixed !important;
-        top: 10px !important;
-        left: 50% !important;
-        width: calc(100vw - 20px) !important;
-        max-width: calc(100vw - 20px) !important;
-        height: 72px !important;
-        transform: translateX(-50%) !important;
-        border-radius: 20px !important;
-        padding: 0 12px !important;
-    }
-    .premiumNav__brand {
-        width: 82px !important;
-        min-width: 82px !important;
-    }
-    .premiumNav__logo {
-        width: 74px !important;
-        max-width: 74px !important;
-    }
-    .premiumNav__links {
-        display: none !important;
-    }
-    .premiumNav__cta {
-        min-width: 118px !important;
-        height: 43px !important;
-        padding: 0 13px !important;
-        font-size: 11px !important;
-        border-radius: 13px !important;
-    }
-    .premiumNav__ctaArrow {
-        width: 27px !important;
-        height: 27px !important;
-    }
-    .premiumNavBee,
-    .premiumNav__trail {
-        display: none !important;
-    }
-    /* =======================================================
-     GLOBAL TYPOGRAPHY
-  ======================================================= */
-    h1 {
-        max-width: 100%;
-        font-size: clamp( 36px, 10vw, 52px) !important;
-        line-height: 1.02 !important;
-        letter-spacing: -0.035em !important;
-        overflow-wrap: break-word;
-    }
-    h2 {
-        font-size: clamp( 28px, 8vw, 40px) !important;
-        line-height: 1.08 !important;
-    }
-    h3 {
-        line-height: 1.15 !important;
-    }
-    p {
-        line-height: 1.6;
-    }
-    /* =======================================================
-     HOME / WALKTHROUGH
-  ======================================================= */
-    .premiumWalkthrough,
-    .cinematicWalkthrough,
-    .imageWalkthrough,
-    .threeDWalkthrough {
-        width: 100% !important;
-        max-width: 100vw !important;
-    }
-    .premiumWalkthrough__hero,
-    .premiumWalkthrough__content {
-        width: calc(100% - 24px) !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    .premiumWalkthrough img,
-    .premiumWalkthrough video {
-        width: 100% !important;
-        max-width: 100% !important;
-        object-fit: cover !important;
-    }
-    /* =======================================================
-     HOME SECTIONS
-  ======================================================= */
-    .hiveStory,
-    .facilities,
-    .whyNerdsHive,
-    .community,
-    .hiveDay,
-    .workspaceGallery,
-    .homeSections {
-        width: 100% !important;
-        padding-left: 14px !important;
-        padding-right: 14px !important;
-    }
-    .hiveStory__inner,
-    .facilities__inner,
-    .whyNerdsHive__inner,
-    .community__inner,
-    .hiveDay__inner {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    /* =======================================================
-     GENERIC GRIDS
-  ======================================================= */
-    .facilities__grid,
-    .whyNerdsHive__grid,
-    .community__grid,
-    .workspaceGallery__grid,
-    .serviceHighlights__grid,
-    .spaceExplorer__grid,
-    .workspaceMatcher__grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
-    /* =======================================================
-     ABOUT PAGE
-  ======================================================= */
-    .aboutHero,
-    .aboutIntro,
-    .insideHive,
-    .missionVision,
-    .ourStory,
-    .peopleWeBuildFor,
-    .whoBelongs,
-    .localRoots,
-    .aboutDifference,
-    .aboutFinal,
-    .valuesMotion,
-    .whoWeAre {
-        width: 100% !important;
-        padding-left: 14px !important;
-        padding-right: 14px !important;
-    }
-    .aboutHero {
-        padding-top: 105px !important;
-    }
-    .aboutHero__inner,
-    .aboutIntro__inner,
-    .insideHive__inner,
-    .missionVision__inner,
-    .ourStory__inner,
-    .peopleWeBuildFor__inner,
-    .whoBelongs__inner,
-    .localRoots__inner {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    .missionVision__grid,
-    .peopleWeBuildFor__grid,
-    .whoBelongs__grid,
-    .aboutDifference__grid {
-        grid-template-columns: 1fr !important;
-    }
-    /* =======================================================
-     SPACES
-  ======================================================= */
-    .spacesHero,
-    .spaceExplorer,
-    .workStyleSlider,
-    .workspaceMatcher {
-        width: 100% !important;
-        padding-left: 14px !important;
-        padding-right: 14px !important;
-    }
-    .spacesHero {
-        padding-top: 105px !important;
-    }
-    .spaceExplorer__layout {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-    .spaceExplorer__visual {
-        min-height: 300px !important;
-        height: auto !important;
-    }
-    .spaceExplorer__visual img {
-        width: 100% !important;
-        min-height: 270px !important;
-        object-fit: cover !important;
-        border-radius: 18px !important;
-    }
-    .workStyleSlider__cards {
-        grid-template-columns: 1fr !important;
-    }
-    /* =======================================================
-     SERVICES
-  ======================================================= */
-    .servicesHero,
-    .serviceHighlights,
-    .serviceJourney,
-    .serviceUniverse,
-    .servicePersonaMatch,
-    .creatorOffer,
-    .includedPerks,
-    .servicesCTA {
-        width: 100% !important;
-        padding-left: 14px !important;
-        padding-right: 14px !important;
-    }
-    .servicesHero {
-        padding-top: 110px !important;
-    }
-    .servicesHero__inner,
-    .serviceHighlights__inner {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    .serviceHighlights__grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
-    .serviceHighlights__card {
-        min-height: auto !important;
-        padding: 22px 18px !important;
-    }
-    /* =======================================================
-     PRICING
-  ======================================================= */
-    .pricingShowcase {
-        width: 100% !important;
-        padding: 105px 12px 40px !important;
-    }
-    .pricingShowcase__header {
-        width: 100% !important;
-        margin-bottom: 25px !important;
-        padding: 0 5px !important;
-    }
-    .pricingShowcase__header h1 {
-        font-size: clamp( 39px, 11vw, 55px) !important;
-        line-height: 1 !important;
-    }
-    .pricingShowcase__header h1 span {
-        display: block;
-        margin: 5px 0 0 !important;
-    }
-    .pricingShowcase__header p {
-        font-size: 14px !important;
-        padding: 0 8px !important;
-    }
-    .pricingShowcase__plans {
-        width: 100% !important;
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 18px !important;
-    }
-    .pricingShowcase__card {
-        width: 100% !important;
-        min-height: auto !important;
-        padding: 25px 20px 20px !important;
-        border-radius: 18px !important;
-    }
-    .pricingShowcase__cardHead {
-        grid-template-columns: 58px 1fr !important;
-        gap: 14px !important;
-    }
-    .pricingShowcase__planIcon {
-        width: 55px !important;
-        height: 55px !important;
-    }
-    .pricingShowcase__price {
-        font-size: 34px !important;
-    }
-    .pricingShowcase__card li {
-        font-size: 12px !important;
-    }
-    .pricingShowcase__sideFeatures {
-        display: none !important;
-    }
-    .pricingShowcase__custom {
-        width: 100% !important;
-        min-height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        padding: 25px 19px !important;
-        text-align: center !important;
-    }
-    .pricingShowcase__customDecor {
-        display: none !important;
-    }
-    .pricingShowcase__customActions {
-        width: 100% !important;
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
-    }
-    .pricingShowcase__bee--top,
-    .pricingShowcase__bee--bottom,
-    .pricingShowcase__beePath--top,
-    .pricingShowcase__beePath--bottom {
-        display: none !important;
-    }
-    /* =======================================================
-     CONTACT
-  ======================================================= */
-    .contactExperience {
-        width: 100% !important;
-        padding: 105px 12px 30px !important;
-    }
-    .contactExperience__hero {
-        width: 100% !important;
-        margin-bottom: 28px !important;
-        padding: 0 5px !important;
-    }
-    .contactExperience__hero h1 {
-        font-size: clamp( 39px, 11vw, 54px) !important;
-        line-height: 1 !important;
-    }
-    .contactExperience__hero h1 span {
-        display: block !important;
-        margin: 5px 0 0 !important;
-    }
-    .contactExperience__hero p {
-        font-size: 14px !important;
-    }
-    .contactExperience__main {
-        width: 100% !important;
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-    .contactExperience__contactCard {
-        width: 100% !important;
-        min-height: auto !important;
-        display: grid !important;
-        grid-template-columns: 48px minmax(0, 1fr) !important;
-        gap: 12px !important;
-        padding: 12px !important;
-    }
-    .contactExperience__contactIcon {
-        width: 46px !important;
-        height: 46px !important;
-    }
-    .contactExperience__roundAction,
-    .contactExperience__miniAction {
-        grid-column: 2 !important;
-        width: fit-content !important;
-    }
-    .contactExperience__contactText p,
-    .contactExperience__contactText a {
-        overflow-wrap: anywhere;
-    }
-    .contactExperience__map {
-        width: 100% !important;
-        height: 300px !important;
-        min-height: 300px !important;
-    }
-    .contactExperience__map iframe {
-        height: 300px !important;
-        min-height: 300px !important;
-    }
-    .contactExperience__formCard {
-        width: 100% !important;
-        min-height: auto !important;
-        padding: 23px 16px !important;
-        border-radius: 18px !important;
-    }
-    .contactExperience__formHeader {
-        align-items: flex-start !important;
-        gap: 8px !important;
-    }
-    .contactExperience__formHeader h2 {
-        font-size: 27px !important;
-    }
-    .contactExperience__formRow {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 17px !important;
-    }
-    .contactExperience__inputWrap input {
-        height: 52px !important;
-    }
-    .contactExperience__inputWrap textarea {
-        min-height: 170px !important;
-        height: 170px !important;
-    }
-    .contactExperience__whatsappButton {
-        min-height: 54px !important;
-        font-size: 12px !important;
-    }
-    .contactExperience__experienceStrip {
-        width: 100% !important;
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 18px !important;
-        padding: 22px 18px !important;
-    }
-    .contactExperience__experienceStrip>i {
-        display: none !important;
-    }
-    .contactExperience__bee--top,
-    .contactExperience__flightPath {
-        display: none !important;
-    }
-    /* =======================================================
-     FOOTER
-  ======================================================= */
-    footer,
-    .footer,
-    .siteFooter {
-        width: 100% !important;
-        overflow: hidden !important;
-    }
-    .footer__inner,
-    .footer__grid,
-    .siteFooter__grid {
-        width: 100% !important;
-        grid-template-columns: 1fr !important;
-        gap: 25px !important;
-        padding-left: 18px !important;
-        padding-right: 18px !important;
-    }
-    /* =======================================================
-     BUTTONS
-  ======================================================= */
-    button,
-    a {
-        -webkit-tap-highlight-color: transparent;
-    }
-    button {
-        max-width: 100%;
-    }
+
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    margin: 0 !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
+  img,
+  video,
+  iframe,
+  canvas,
+  svg {
+    max-width: 100% !important;
+  }
+
+  main,
+  section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* ---------- NAVBAR ---------- */
+
+  nav,
+  .premiumNav,
+  .globalPremiumNav {
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    transform: none !important;
+  }
+
+  .premiumNav__links {
+    display: none !important;
+  }
+
+  .premiumNav__logo {
+    max-width: 72px !important;
+  }
+
+  .premiumNav__cta {
+    min-width: auto !important;
+    padding: 0 12px !important;
+    font-size: 11px !important;
+  }
+
+  /* ---------- HERO / WALKTHROUGH ---------- */
+
+  .premiumWalkthrough,
+  .premiumWalkthrough__hero,
+  .premiumWalkthrough__scene,
+  .premiumWalkthrough__stage,
+  .cinematicWalkthrough,
+  .imageWalkthrough,
+  .threeDWalkthrough {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .premiumWalkthrough {
+    padding-top: 90px !important;
+  }
+
+  .premiumWalkthrough__hero,
+  .premiumWalkthrough__content {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 30px 16px !important;
+  }
+
+  .premiumWalkthrough img,
+  .premiumWalkthrough video {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+  }
+
+  /* remove desktop-sized empty scroll areas */
+
+  [style*="100vh"],
+  [style*="200vh"],
+  [style*="300vh"],
+  [style*="400vh"],
+  [style*="500vh"] {
+    min-height: auto !important;
+  }
+
+  /* ---------- TEXT ---------- */
+
+  h1 {
+    font-size: clamp(34px, 10vw, 46px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.04em !important;
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  h2 {
+    font-size: clamp(27px, 7.5vw, 36px) !important;
+    line-height: 1.08 !important;
+    max-width: 100% !important;
+  }
+
+  h3 {
+    font-size: 20px !important;
+    line-height: 1.15 !important;
+  }
+
+  p {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+
+  /* ---------- HOME ---------- */
+
+  .hiveStory,
+  .facilities,
+  .whyNerdsHive,
+  .community,
+  .hiveDay {
+    padding: 55px 16px !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .hiveStory__inner,
+  .facilities__inner,
+  .whyNerdsHive__inner,
+  .community__inner,
+  .hiveDay__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+  }
+
+  .facilities__grid,
+  .whyNerdsHive__grid,
+  .community__grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .aboutHero,
+  .aboutIntro,
+  .insideHive,
+  .missionVision,
+  .ourStory,
+  .peopleWeBuildFor,
+  .whoBelongs,
+  .localRoots,
+  .aboutDifference,
+  .aboutFinal,
+  .valuesMotion,
+  .whoWeAre {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 55px 16px !important;
+  }
+
+  .aboutHero {
+    padding-top: 110px !important;
+  }
+
+  .missionVision__grid,
+  .peopleWeBuildFor__grid,
+  .whoBelongs__grid,
+  .aboutDifference__grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ---------- SPACES ---------- */
+
+  .spacesHero,
+  .spaceExplorer,
+  .workStyleSlider,
+  .workspaceMatcher {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 55px 16px !important;
+  }
+
+  .spacesHero {
+    padding-top: 110px !important;
+  }
+
+  .spaceExplorer__layout,
+  .workspaceMatcher__layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .spaceExplorer__visual,
+  .spaceExplorer__visual img {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+  }
+
+  .workStyleSlider__cards {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ---------- SERVICES ---------- */
+
+  .servicesHero,
+  .serviceHighlights,
+  .serviceJourney,
+  .serviceUniverse,
+  .servicePersonaMatch,
+  .creatorOffer,
+  .includedPerks,
+  .servicesCTA {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 55px 16px !important;
+  }
+
+  .servicesHero {
+    padding-top: 110px !important;
+  }
+
+  .serviceHighlights__grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ---------- PRICING ---------- */
+
+  .pricingShowcase {
+    padding: 110px 14px 55px !important;
+    min-height: auto !important;
+  }
+
+  .pricingShowcase__plans {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .pricingShowcase__card {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 22px 18px !important;
+  }
+
+  .pricingShowcase__price {
+    font-size: 34px !important;
+  }
+
+  .pricingShowcase__sideFeatures,
+  .pricingShowcase__bee--top,
+  .pricingShowcase__bee--bottom,
+  .pricingShowcase__beePath--top,
+  .pricingShowcase__beePath--bottom {
+    display: none !important;
+  }
+
+  .pricingShowcase__custom {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 24px 18px !important;
+  }
+
+  /* ---------- CONTACT ---------- */
+
+  .contactExperience {
+    padding: 110px 14px 50px !important;
+    min-height: auto !important;
+  }
+
+  .contactExperience__main {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .contactExperience__contactCard {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .contactExperience__formCard {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 22px 16px !important;
+  }
+
+  .contactExperience__formRow {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .contactExperience__map,
+  .contactExperience__map iframe {
+    width: 100% !important;
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+
+  .contactExperience__experienceStrip {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer,
+  .footer,
+  .siteFooter {
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .footer__inner,
+  .footer__grid,
+  .siteFooter__grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    width: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  footer h3,
+  .footer h3,
+  .siteFooter h3 {
+    font-size: 17px !important;
+  }
+
+  footer p,
+  footer a,
+  .footer p,
+  .footer a,
+  .siteFooter p,
+  .siteFooter a {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* ---------- CARDS ---------- */
+
+  [class*="card"],
+  [class*="Card"] {
+    max-width: 100% !important;
+  }
+
+  /* eliminate accidental desktop transforms */
+
+  section * {
+    max-width: 100%;
+  }
 }
 
-
-/* =========================================================
-   EXTRA SMALL MOBILE
-========================================================= */
-
 @media (max-width: 420px) {
-    h1 {
-        font-size: clamp( 34px, 10.5vw, 44px) !important;
-    }
-    .pricingShowcase,
-    .contactExperience {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-    .pricingShowcase__card,
-    .contactExperience__formCard {
-        border-radius: 15px !important;
-    }
-    .premiumNav__cta {
-        min-width: 108px !important;
-        padding: 0 10px !important;
-    }
-    .premiumNav__ctaText {
-        font-size: 10px !important;
-    }
+  h1 {
+    font-size: 36px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  .hiveStory,
+  .facilities,
+  .whyNerdsHive,
+  .community,
+  .hiveDay,
+  .aboutIntro,
+  .insideHive,
+  .missionVision,
+  .ourStory,
+  .peopleWeBuildFor,
+  .whoBelongs,
+  .localRoots,
+  .aboutDifference,
+  .serviceHighlights,
+  .serviceJourney,
+  .serviceUniverse {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+  }
 }
