@@ -9,1000 +9,823 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import {
-  walkthroughScenes,
-} from "../../data/walkthroughScenes";
+import { walkthroughScenes } from "../../data/walkthroughScenes";
+
+import MobileWalkthrough from "./MobileWalkthrough";
 
 import "./PremiumWalkthrough.css";
 
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(
-  ScrollTrigger
-);
+const MASTER_WIDTH = 1672;
+const MASTER_HEIGHT = 941;
 
+const PremiumWalkthrough = () => {
+  const sectionRef =
+    useRef<HTMLElement | null>(null);
 
-const MASTER_WIDTH =
-  1672;
+  const visualRef =
+    useRef<HTMLDivElement | null>(null);
 
-const MASTER_HEIGHT =
-  941;
+  const imageStageRef =
+    useRef<HTMLDivElement | null>(null);
 
+  const [scale, setScale] =
+    useState(1);
 
-const PremiumWalkthrough =
-  () => {
+  const [progress, setProgress] =
+    useState(0);
 
-    const sectionRef =
-      useRef<HTMLElement | null>(
-        null
+  const [isMobile, setIsMobile] =
+    useState(
+      () => window.innerWidth <= 820
+    );
+
+  /* =====================================================
+     MOBILE DETECTION
+  ===================================================== */
+
+  useEffect(() => {
+    const updateMobile = () => {
+      setIsMobile(
+        window.innerWidth <= 820
       );
+    };
 
-    const visualRef =
-      useRef<HTMLDivElement | null>(
-        null
+    updateMobile();
+
+    window.addEventListener(
+      "resize",
+      updateMobile
+    );
+
+    return () => {
+      window.removeEventListener(
+        "resize",
+        updateMobile
       );
+    };
+  }, []);
 
-    const imageStageRef =
-      useRef<HTMLDivElement | null>(
-        null
-      );
+  /* =====================================================
+     MASTER SCALE
+  ===================================================== */
 
+  useEffect(() => {
+    const updateScale = () => {
+      const nextScale =
+        Math.min(
+          window.innerWidth /
+            MASTER_WIDTH,
 
-    const [
-      scale,
-      setScale,
-    ] = useState(1);
+          window.innerHeight /
+            MASTER_HEIGHT
+        );
 
+      setScale(nextScale);
+    };
 
-    const [
-      progress,
-      setProgress,
-    ] = useState(0);
+    updateScale();
 
+    window.addEventListener(
+      "resize",
+      updateScale
+    );
 
-    /* =====================================================
-       MASTER SCALE
-    ===================================================== */
-
-    useEffect(() => {
-      const updateScale =
-        () => {
-
-          const nextScale =
-            Math.min(
-              window.innerWidth /
-                MASTER_WIDTH,
-
-              window.innerHeight /
-                MASTER_HEIGHT
-            );
-
-
-          setScale(
-            nextScale
-          );
-        };
-
-
-      updateScale();
-
-
-      window.addEventListener(
+    return () => {
+      window.removeEventListener(
         "resize",
         updateScale
       );
+    };
+  }, []);
 
+  /* =====================================================
+     PRELOAD IMAGES
+  ===================================================== */
 
-      return () => {
-        window.removeEventListener(
-          "resize",
-          updateScale
-        );
-      };
-    }, []);
+  useEffect(() => {
+    walkthroughScenes.forEach(
+      (scene) => {
+        const image =
+          new Image();
 
+        image.src =
+          scene.image;
 
-    /* =====================================================
-       PRELOAD IMAGES
-    ===================================================== */
-
-    useEffect(() => {
-
-      walkthroughScenes.forEach(
-        (
-          scene
-        ) => {
-
-          const image =
-            new Image();
-
-
-          image.src =
-            scene.image;
-
-
-          image.decoding =
-            "async";
-
-        }
-      );
-
-    }, []);
-
-
-    /* =====================================================
-       SCROLL
-    ===================================================== */
-
-    useEffect(() => {
-
-      const section =
-        sectionRef.current;
-
-
-      if (!section) {
-        return;
+        image.decoding =
+          "async";
       }
+    );
+  }, []);
 
+  /* =====================================================
+     DESKTOP SCROLL
+  ===================================================== */
 
-      const trigger =
-        ScrollTrigger.create({
+  useEffect(() => {
+    /*
+      Mobile has its own component.
+      Do not create desktop ScrollTrigger
+      on mobile.
+    */
 
-          trigger:
-            section,
+    if (isMobile) {
+      return;
+    }
 
-          start:
-            "top top",
+    const section =
+      sectionRef.current;
 
-          end:
-            "bottom bottom",
+    if (!section) {
+      return;
+    }
 
-          scrub:
-            0.8,
+    const trigger =
+      ScrollTrigger.create({
+        trigger: section,
 
-          invalidateOnRefresh:
-            true,
+        start: "top top",
 
+        end: "bottom bottom",
 
-          onUpdate:
-            (
-              self
-            ) => {
+        scrub: 0.8,
 
-              setProgress(
-                Math.min(
-                  self.progress,
-                  0.999999
-                )
-              );
+        invalidateOnRefresh:
+          true,
 
-            },
+        onUpdate: (self) => {
+          setProgress(
+            Math.min(
+              self.progress,
+              0.999999
+            )
+          );
+        },
+      });
 
-        });
+    return () => {
+      trigger.kill();
+    };
+  }, [isMobile]);
 
+  /* =====================================================
+     ACTIVE SCENE
+  ===================================================== */
 
-      return () => {
-        trigger.kill();
-      };
+  const totalScenes =
+    walkthroughScenes.length;
 
-    }, []);
+  const rawScene =
+    Math.min(
+      progress *
+        totalScenes,
 
+      totalScenes -
+        0.000001
+    );
 
-    /* =====================================================
-       ACTIVE SCENE
-    ===================================================== */
+  const activeIndex =
+    Math.floor(rawScene);
 
-    const totalScenes =
-      walkthroughScenes.length;
+  const sceneProgress =
+    rawScene -
+    activeIndex;
 
+  const activeScene =
+    walkthroughScenes[
+      activeIndex
+    ];
 
-    const rawScene =
-      Math.min(
-        progress *
-          totalScenes,
+  const sceneNumber =
+    String(
+      activeIndex + 1
+    ).padStart(
+      2,
+      "0"
+    );
 
-        totalScenes -
-          0.000001
-      );
+  /* =====================================================
+     IMAGE STYLE
+  ===================================================== */
 
-
-    const activeIndex =
-      Math.floor(
-        rawScene
-      );
-
-
-    const sceneProgress =
-      rawScene -
-      activeIndex;
-
-
-    const activeScene =
-      walkthroughScenes[
+  const getImageStyle =
+    (
+      index: number
+    ): CSSProperties => {
+      if (
+        index ===
         activeIndex
-      ];
-
-
-    const sceneNumber =
-      String(
-        activeIndex +
-          1
-      ).padStart(
-        2,
-        "0"
-      );
-
-
-    /* =====================================================
-       IMAGE STYLE
-    ===================================================== */
-
-    const getImageStyle =
-      (
-        index:
-          number
-      ): CSSProperties => {
-
+      ) {
         if (
-          index ===
-          activeIndex
+          sceneProgress <
+          0.72
         ) {
+          const t =
+            sceneProgress /
+            0.72;
 
-          if (
-            sceneProgress <
+          const smooth =
+            t *
+            t *
+            (
+              3 -
+              2 * t
+            );
+
+          return {
+            zIndex: 6,
+
+            opacity: 1,
+
+            transform: `
+              scale(
+                ${
+                  1 +
+                  smooth *
+                    0.07
+                }
+              )
+
+              translate3d(
+                0,
+                ${
+                  -smooth *
+                  3
+                }px,
+                0
+              )
+            `,
+          };
+        }
+
+        const t =
+          (
+            sceneProgress -
             0.72
-          ) {
+          ) /
+          0.28;
 
-            const t =
-              sceneProgress /
-              0.72;
-
-
-            const smooth =
-              t *
-              t *
-              (
-                3 -
-                2 *
-                  t
-              );
-
-
-            return {
-
-              zIndex:
-                6,
-
-              opacity:
-                1,
-
-              transform: `
-                scale(
-                  ${
-                    1 +
-                    smooth *
-                      0.07
-                  }
-                )
-
-                translate3d(
-                  0,
-                  ${
-                    -smooth *
-                    3
-                  }px,
-                  0
-                )
-              `,
-
-            };
-
-          }
-
-
-          const t =
-            (
-              sceneProgress -
-              0.72
-            ) /
-            0.28;
-
-
-          const smooth =
-            t *
-            t *
-            (
-              3 -
-              2 *
-                t
-            );
-
-
-          return {
-
-            zIndex:
-              6,
-
-            opacity:
-              1 -
-              smooth,
-
-            transform: `
-              scale(
-                ${
-                  1.07 -
-                  smooth *
-                    0.085
-                }
-              )
-
-              translate3d(
-                0,
-                ${
-                  -3 -
-                  smooth *
-                    5
-                }px,
-                0
-              )
-            `,
-
-          };
-        }
-
-
-        if (
-          index ===
-          activeIndex +
-            1
-        ) {
-
-          const t =
-            Math.max(
-              0,
-
-              Math.min(
-                1,
-
-                (
-                  sceneProgress -
-                  0.74
-                ) /
-                0.26
-              )
-            );
-
-
-          const smooth =
-            t *
-            t *
-            (
-              3 -
-              2 *
-                t
-            );
-
-
-          return {
-
-            zIndex:
-              5,
-
-            opacity:
-              smooth,
-
-            transform: `
-              scale(
-                ${
-                  0.985 +
-                  smooth *
-                    0.015
-                }
-              )
-
-              translate3d(
-                0,
-                ${
-                  14 -
-                  smooth *
-                    14
-                }px,
-                0
-              )
-            `,
-
-          };
-        }
-
+        const smooth =
+          t *
+          t *
+          (
+            3 -
+            2 * t
+          );
 
         return {
-
-          zIndex:
-            1,
+          zIndex: 6,
 
           opacity:
-            0,
+            1 -
+            smooth,
 
-          transform:
-            "scale(.985)",
+          transform: `
+            scale(
+              ${
+                1.07 -
+                smooth *
+                  0.085
+              }
+            )
 
+            translate3d(
+              0,
+              ${
+                -3 -
+                smooth *
+                  5
+              }px,
+              0
+            )
+          `,
         };
-
-      };
-
-
-    /* =====================================================
-       POINTER TILT
-    ===================================================== */
-
-    useEffect(() => {
-
-      const visual =
-        visualRef.current;
-
-
-      const stage =
-        imageStageRef.current;
-
-
-      if (
-        !visual ||
-        !stage
-      ) {
-        return;
       }
 
+      if (
+        index ===
+        activeIndex + 1
+      ) {
+        const t =
+          Math.max(
+            0,
 
-      const move =
-        (
-          event:
-            PointerEvent
-        ) => {
+            Math.min(
+              1,
 
-          if (
-            window.innerWidth <
-            900
-          ) {
-            return;
-          }
+              (
+                sceneProgress -
+                0.74
+              ) /
+              0.26
+            )
+          );
 
+        const smooth =
+          t *
+          t *
+          (
+            3 -
+            2 * t
+          );
 
-          const rect =
-            visual
-              .getBoundingClientRect();
+        return {
+          zIndex: 5,
 
+          opacity:
+            smooth,
 
-          const x =
-            (
-              event.clientX -
-              rect.left
-            ) /
+          transform: `
+            scale(
+              ${
+                0.985 +
+                smooth *
+                  0.015
+              }
+            )
+
+            translate3d(
+              0,
+              ${
+                14 -
+                smooth *
+                  14
+              }px,
+              0
+            )
+          `,
+        };
+      }
+
+      return {
+        zIndex: 1,
+
+        opacity: 0,
+
+        transform:
+          "scale(.985)",
+      };
+    };
+
+  /* =====================================================
+     POINTER TILT — DESKTOP ONLY
+  ===================================================== */
+
+  useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
+    const visual =
+      visualRef.current;
+
+    const stage =
+      imageStageRef.current;
+
+    if (
+      !visual ||
+      !stage
+    ) {
+      return;
+    }
+
+    const move =
+      (
+        event: PointerEvent
+      ) => {
+        if (
+          window.innerWidth <
+          900
+        ) {
+          return;
+        }
+
+        const rect =
+          visual
+            .getBoundingClientRect();
+
+        const x =
+          (
+            event.clientX -
+            rect.left
+          ) /
             rect.width -
-            0.5;
+          0.5;
 
-
-          const y =
-            (
-              event.clientY -
-              rect.top
-            ) /
+        const y =
+          (
+            event.clientY -
+            rect.top
+          ) /
             rect.height -
-            0.5;
+          0.5;
 
+        gsap.to(
+          stage,
+          {
+            rotateY:
+              x * 1.8,
 
-          gsap.to(
-            stage,
-            {
+            rotateX:
+              -y * 1.3,
 
-              rotateY:
-                x *
-                1.8,
+            x:
+              x * 3,
 
-              rotateX:
-                -y *
-                1.3,
+            y:
+              y * 2,
 
-              x:
-                x *
-                3,
+            transformPerspective:
+              1800,
 
-              y:
-                y *
-                2,
+            duration:
+              0.7,
 
-              transformPerspective:
-                1800,
+            ease:
+              "power3.out",
+          }
+        );
+      };
 
-              duration:
-                0.7,
+    const leave = () => {
+      gsap.to(
+        stage,
+        {
+          rotateX: 0,
 
-              ease:
-                "power3.out",
+          rotateY: 0,
 
-            }
-          );
-        };
+          x: 0,
 
+          y: 0,
 
-      const leave =
-        () => {
+          duration:
+            0.8,
 
-          gsap.to(
-            stage,
-            {
+          ease:
+            "power3.out",
+        }
+      );
+    };
 
-              rotateX: 0,
+    visual.addEventListener(
+      "pointermove",
+      move
+    );
 
-              rotateY: 0,
+    visual.addEventListener(
+      "pointerleave",
+      leave
+    );
 
-              x: 0,
-
-              y: 0,
-
-              duration:
-                0.8,
-
-              ease:
-                "power3.out",
-
-            }
-          );
-
-        };
-
-
-      visual.addEventListener(
+    return () => {
+      visual.removeEventListener(
         "pointermove",
         move
       );
 
-
-      visual.addEventListener(
+      visual.removeEventListener(
         "pointerleave",
         leave
       );
+    };
+  }, [isMobile]);
 
+  /* =====================================================
+     DOTS
+  ===================================================== */
 
-      return () => {
+  const dots =
+    useMemo(
+      () =>
+        walkthroughScenes.map(
+          (
+            scene,
+            index
+          ) => ({
+            id:
+              scene.id,
 
-        visual.removeEventListener(
-          "pointermove",
-          move
-        );
+            active:
+              index ===
+              activeIndex,
 
+            passed:
+              index <
+              activeIndex,
+          })
+        ),
 
-        visual.removeEventListener(
-          "pointerleave",
-          leave
-        );
+      [activeIndex]
+    );
 
-      };
+  /* =====================================================
+     EXPLORE
+  ===================================================== */
 
-    }, []);
+  const handleExplore = () => {
+    const section =
+      sectionRef.current;
 
+    if (!section) {
+      return;
+    }
 
-    /* =====================================================
-       DOTS
-    ===================================================== */
+    window.scrollTo({
+      top:
+        section.offsetTop +
+        window.innerHeight *
+          0.8,
 
-    const dots =
-      useMemo(
-        () =>
-          walkthroughScenes.map(
-            (
-              scene,
-              index
-            ) => ({
+      behavior:
+        "smooth",
+    });
+  };
 
-              id:
-                scene.id,
+  /* =====================================================
+     MOBILE VERSION
+  ===================================================== */
 
-              active:
-                index ===
-                activeIndex,
-
-              passed:
-                index <
-                activeIndex,
-
-            })
-          ),
-
-        [
-          activeIndex,
-        ]
-      );
-
-
-    /* =====================================================
-       EXPLORE
-    ===================================================== */
-
-    const handleExplore =
-      () => {
-
-        const section =
-          sectionRef.current;
-
-
-        if (!section) {
-          return;
-        }
-
-
-        window.scrollTo({
-
-          top:
-            section.offsetTop +
-            window.innerHeight *
-              0.8,
-
-          behavior:
-            "smooth",
-
-        });
-
-      };
-
-
+  if (isMobile) {
     return (
-      <section
-        ref={
-          sectionRef
-        }
-        id="walkthrough"
-        className="premiumWalkthrough"
-      >
+      <MobileWalkthrough />
+    );
+  }
 
-        <div className="premiumWalkthrough__sticky">
+  /* =====================================================
+     DESKTOP VERSION
+  ===================================================== */
 
+  return (
+    <section
+      ref={sectionRef}
+      id="walkthrough"
+      className="premiumWalkthrough"
+    >
+      <div className="premiumWalkthrough__sticky">
+        <div className="premiumBackground" />
 
-          <div className="premiumBackground" />
+        <div
+          className="premiumMaster"
+          style={{
+            transform: `
+              translate(
+                -50%,
+                -50%
+              )
+              scale(
+                ${scale}
+              )
+            `,
+          }}
+        >
+          <section className="premiumHero">
 
+            {/* LEFT */}
 
-          <div
-            className="premiumMaster"
-            style={{
-              transform: `
-                translate(
-                  -50%,
-                  -50%
-                )
-                scale(
-                  ${scale}
-                )
-              `,
-            }}
-          >
+            <div className="premiumLeft">
+              <div
+                key={activeScene.id}
+                className="premiumCopy"
+              >
+                <div className="premiumEyebrow">
+                  <i />
 
-            {/* ===========================================
-                NO NAVBAR HERE
-                GLOBAL NAVBAR COMES FROM APP.TSX
-            ============================================ */}
+                  <strong>
+                    {
+                      activeScene
+                        .eyebrow
+                    }
+                  </strong>
+                </div>
 
-
-            <section className="premiumHero">
-
-              {/* LEFT */}
-
-              <div className="premiumLeft">
-
-                <div
-                  key={
-                    activeScene.id
+                <h1>
+                  {
+                    activeScene
+                      .titleLines
+                      .map(
+                        (
+                          line,
+                          index
+                        ) => (
+                          <span
+                            key={
+                              `${activeScene.id}-${index}`
+                            }
+                            className={
+                              index ===
+                              activeScene.accentLine
+                                ? "accent"
+                                : ""
+                            }
+                          >
+                            {line}
+                          </span>
+                        )
+                      )
                   }
-                  className="premiumCopy"
-                >
+                </h1>
 
-                  <div className="premiumEyebrow">
+                <p>
+                  {
+                    activeScene
+                      .description
+                  }
+                </p>
+
+                <div className="premiumActions">
+                  <button
+                    type="button"
+                    className="premiumExploreButton"
+                    onClick={
+                      handleExplore
+                    }
+                  >
+                    Explore the Space
+
+                    <b>
+                      ↘
+                    </b>
+                  </button>
+
+                  <div className="sceneMeta">
+                    <strong>
+                      {
+                        sceneNumber
+                      }
+                    </strong>
 
                     <i />
 
-
-                    <strong>
-
+                    <span>
                       {
                         activeScene
-                          .eyebrow
+                          .label
                       }
-
-                    </strong>
-
+                    </span>
                   </div>
-
-
-                  <h1>
-
-                    {
-                      activeScene
-                        .titleLines
-                        .map(
-                          (
-                            line,
-                            index
-                          ) => (
-
-                            <span
-                              key={
-                                `${activeScene.id}-${index}`
-                              }
-                              className={
-                                index ===
-                                activeScene.accentLine
-                                  ? "accent"
-                                  : ""
-                              }
-                            >
-
-                              {
-                                line
-                              }
-
-                            </span>
-
-                          )
-                        )
-                    }
-
-                  </h1>
-
-
-                  <p>
-
-                    {
-                      activeScene
-                        .description
-                    }
-
-                  </p>
-
-
-                  <div className="premiumActions">
-
-                    <button
-                      type="button"
-                      className="premiumExploreButton"
-                      onClick={
-                        handleExplore
-                      }
-                    >
-
-                      Explore the Space
-
-                      <b>
-                        ↘
-                      </b>
-
-                    </button>
-
-
-                    <div className="sceneMeta">
-
-                      <strong>
-
-                        {
-                          sceneNumber
-                        }
-
-                      </strong>
-
-                      <i />
-
-                      <span>
-
-                        {
-                          activeScene
-                            .label
-                        }
-
-                      </span>
-
-                    </div>
-
-                  </div>
-
                 </div>
-
-
-                <div className="premiumDots">
-
-                  {
-                    dots.map(
-                      (
-                        dot
-                      ) => (
-
-                        <span
-                          key={
-                            dot.id
-                          }
-                          className={[
-                            dot.active
-                              ? "active"
-                              : "",
-
-                            dot.passed
-                              ? "passed"
-                              : "",
-                          ]
-                            .filter(
-                              Boolean
-                            )
-                            .join(
-                              " "
-                            )}
-                        />
-
-                      )
-                    )
-                  }
-
-                </div>
-
               </div>
 
+              <div className="premiumDots">
+                {
+                  dots.map(
+                    (dot) => (
+                      <span
+                        key={
+                          dot.id
+                        }
+                        className={[
+                          dot.active
+                            ? "active"
+                            : "",
 
-              {/* RIGHT IMAGE */}
+                          dot.passed
+                            ? "passed"
+                            : "",
+                        ]
+                          .filter(
+                            Boolean
+                          )
+                          .join(
+                            " "
+                          )}
+                      />
+                    )
+                  )
+                }
+              </div>
+            </div>
 
+            {/* RIGHT IMAGE */}
+
+            <div
+              ref={visualRef}
+              className="premiumVisual"
+            >
               <div
                 ref={
-                  visualRef
+                  imageStageRef
                 }
-                className="premiumVisual"
+                className="premiumImageStage"
               >
-
-                <div
-                  ref={
-                    imageStageRef
-                  }
-                  className="premiumImageStage"
-                >
-
-                  {
-                    walkthroughScenes.map(
-                      (
-                        scene,
-                        index
-                      ) => (
-
-                        <div
-                          key={
-                            scene.id
+                {
+                  walkthroughScenes.map(
+                    (
+                      scene,
+                      index
+                    ) => (
+                      <div
+                        key={
+                          scene.id
+                        }
+                        className="premiumImage"
+                        style={
+                          getImageStyle(
+                            index
+                          )
+                        }
+                      >
+                        <img
+                          src={
+                            scene.image
                           }
-                          className="premiumImage"
-                          style={
-                            getImageStyle(
-                              index
-                            )
+                          alt={
+                            scene.label
                           }
-                        >
-
-                          <img
-                            src={
-                              scene.image
-                            }
-                            alt={
-                              scene.label
-                            }
-                            draggable={
-                              false
-                            }
-                            decoding="async"
-                            loading={
-                              index <
-                              2
-                                ? "eager"
-                                : "lazy"
-                            }
-                            style={{
-                              objectPosition:
-                                scene.imagePosition ??
-                                "center center",
-                            }}
-                          />
-
-                        </div>
-
-                      )
+                          draggable={
+                            false
+                          }
+                          decoding="async"
+                          loading={
+                            index < 2
+                              ? "eager"
+                              : "lazy"
+                          }
+                          style={{
+                            objectPosition:
+                              scene.imagePosition ??
+                              "center center",
+                          }}
+                        />
+                      </div>
                     )
+                  )
+                }
+              </div>
+
+              <span className="premiumCorner" />
+
+              <div className="premiumCount">
+                <strong>
+                  {
+                    sceneNumber
                   }
+                </strong>
 
-                </div>
-
-
-                <span className="premiumCorner" />
-
-
-                <div className="premiumCount">
-
-                  <strong>
-                    {
-                      sceneNumber
-                    }
-                  </strong>
-
-                  <span>
-                    / 13
-                  </span>
-
-                </div>
-
-
-                <div className="premiumCaption">
-
-                  <small>
-                    INSIDE NERDSHIVE
-                  </small>
-
-                  <strong>
-                    {
-                      activeScene
-                        .label
-                    }
-                  </strong>
-
-                </div>
-
-
-                <div className="premiumRing">
-
-                  <span>
-                    {
-                      activeIndex +
-                      1
-                    }
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              {/* SCROLL */}
-
-              <div className="premiumScroll">
-
-                <span className="premiumMouse">
-                  <i />
+                <span>
+                  / 13
                 </span>
-
-
-                <div>
-
-                  <small>
-                    KEEP SCROLLING
-                  </small>
-
-                  <strong>
-                    Walk inside the Hive
-                  </strong>
-
-                </div>
-
               </div>
 
+              <div className="premiumCaption">
+                <small>
+                  INSIDE NERDSHIVE
+                </small>
 
-              {/* PROGRESS */}
-
-              <div className="premiumProgress">
-
-                <span
-                  style={{
-                    transform:
-                      `scaleX(${progress})`,
-                  }}
-                />
-
+                <strong>
+                  {
+                    activeScene
+                      .label
+                  }
+                </strong>
               </div>
 
-            </section>
+              <div className="premiumRing">
+                <span>
+                  {
+                    activeIndex +
+                    1
+                  }
+                </span>
+              </div>
+            </div>
 
-          </div>
+            {/* SCROLL */}
 
+            <div className="premiumScroll">
+              <span className="premiumMouse">
+                <i />
+              </span>
+
+              <div>
+                <small>
+                  KEEP SCROLLING
+                </small>
+
+                <strong>
+                  Walk inside the Hive
+                </strong>
+              </div>
+            </div>
+
+            {/* PROGRESS */}
+
+            <div className="premiumProgress">
+              <span
+                style={{
+                  transform:
+                    `scaleX(${progress})`,
+                }}
+              />
+            </div>
+
+          </section>
         </div>
-
-      </section>
-    );
-  };
-
+      </div>
+    </section>
+  );
+};
 
 export default PremiumWalkthrough;
